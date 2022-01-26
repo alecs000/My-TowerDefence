@@ -6,6 +6,7 @@ public class ManegeSpawn : MonoBehaviour
 {
     public GameObject mage;
     private Vector3 spawnPositionMage;
+    public List<Enemy> EnemyList = new List<Enemy>();
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,15 @@ public class ManegeSpawn : MonoBehaviour
     {
         
     }
-
+    public  void RegistrEnemy(Enemy enemy)
+    {
+        EnemyList.Add(enemy);
+        Debug.Log(22);
+    }
+     public void RemoveEnemy(Enemy enemy)
+    {
+        EnemyList.Remove(enemy);
+        Destroy(enemy.gameObject);
+    }
 
 }

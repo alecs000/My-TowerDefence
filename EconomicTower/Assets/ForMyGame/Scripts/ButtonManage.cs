@@ -17,8 +17,6 @@ public class ButtonManage : MonoBehaviour
     }
     public void ActivDezactivTowerMenue()
     {
-        
-        Debug.Log(1);
         //isActiv ? towerPanel.SetActive(false):
             if (isActiv)
         {
