@@ -7,6 +7,8 @@ public class ManegeSpawn : MonoBehaviour
     public GameObject mage;
     private Vector3 spawnPositionMage;
     public List<Enemy> EnemyList = new List<Enemy>();
+    public List<wixard_move> AllyList = new List<wixard_move>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,23 +16,28 @@ public class ManegeSpawn : MonoBehaviour
     }
     public void SpawnMage()
     {
-        Instantiate(mage, spawnPositionMage, mage.transform.rotation);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (CoinsMangement.RemoveCoins(20))
+        {
+            Instantiate(mage, spawnPositionMage, mage.transform.rotation);
+        }
     }
     public  void RegistrEnemy(Enemy enemy)
     {
         EnemyList.Add(enemy);
-        Debug.Log(22);
     }
      public void RemoveEnemy(Enemy enemy)
     {
         EnemyList.Remove(enemy);
         Destroy(enemy.gameObject);
+    }
+    public void RegistrAlly(wixard_move ally)
+    {
+        AllyList.Add(ally);
+    }
+    public void RemoveAlly(wixard_move ally)
+    {
+        AllyList.Remove(ally);
+        Destroy(ally.gameObject);
     }
 
 }

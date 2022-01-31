@@ -17,6 +17,13 @@ public class FireBallMoving : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.Translate((enemy.transform.position - transform.position).normalized * Time.deltaTime * speed);
+        if (enemy!=null)
+        {
+            transform.Translate((enemy.transform.position - transform.position).normalized * Time.deltaTime * speed);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -13,14 +13,18 @@ public class wixard_move : MonoBehaviour
     float zPosition = -1.3f;
     byte downOrFloat;
     public Enemy targetEnemy;
-    bool isMonsterLife= true;
     bool isAttack = false;
     [SerializeField] GameObject manegeSp;
+    ManegeSpawn manegeSpawn;
+    public LivesManagement livesWizard = new LivesManagement(50);
     void Start()
     {
+        manegeSpawn = manegeSp.GetComponent<ManegeSpawn>();
+        manegeSpawn.RegistrAlly(this);
         speedLeft = Random.Range(0, 0.3f);
         downOrFloat = (byte)Random.Range(0, 2);
         anim = GetComponent<Animator>();
+        
     }
     void Update()
     {
@@ -52,9 +56,16 @@ public class wixard_move : MonoBehaviour
         }
         if(targetEnemy != null&& !isAttack)
         {
-            Debug.Log(targetEnemy.name + " "+ isAttack);
+            //Атака мага. Вызов корутины остановки мага на время атаки
             isAttack = true;
-            StartCoroutine(WaidMageAtack(isMonsterLife)); 
+            StartCoroutine(WaidMageAtack()); 
+        }
+        if(targetEnemy == null && isAttack)
+        {
+            anim.SetBool("IsAttack", false);
+            isAttack = false;
+            speedLeft = Random.Range(0, 0.3f);
+            speedForward = 3;
         }
     }
     private void FixedUpdate()
@@ -64,15 +75,11 @@ public class wixard_move : MonoBehaviour
             fireBall.transform.Translate((targetEnemy.transform.position - fireBall.transform.position).normalized * Time.deltaTime * 3);
         }
     }
-    //Атака мага Вызов корутины остановки мага на время атаки
-    //public void StartCor(bool isMonLive)
-    //{
-    //    StartCoroutine(WaidMageAtack(isMonLive));
-    //}
+
     private List<Enemy> GetEnemiesInRange()
     {
         List<Enemy> enemiesInRange = new List<Enemy>();
-        foreach (Enemy item in manegeSp.GetComponent<ManegeSpawn>().EnemyList)
+        foreach (Enemy item in manegeSpawn.EnemyList)
         {
             if (item!=null)
             {
@@ -89,38 +96,28 @@ public class wixard_move : MonoBehaviour
     {
         Enemy nearestEnemy = null;
         float smolestDistanse = float.PositiveInfinity;
-        foreach (Enemy item in GetEnemiesInRange())
-        {
-            if (Vector3.Distance(transform.position, item.transform.position)< smolestDistanse)
+            foreach (Enemy item in GetEnemiesInRange())
             {
-                smolestDistanse = Vector3.Distance(transform.position, item.transform.position);
-                nearestEnemy = item;
+                if (Vector3.Distance(transform.position, item.transform.position) < smolestDistanse)
+                {
+                    smolestDistanse = Vector3.Distance(transform.position, item.transform.position);
+                    nearestEnemy = item;
+                }
             }
-        }
+        
         return nearestEnemy;
     }
     //Вся логика атаки мага включая остановку и анимацию
-    public IEnumerator WaidMageAtack(bool isMonLive)
+    public IEnumerator WaidMageAtack()
     {
-        if (isMonLive)
-        {
-            
             speedLeft = 0;
             anim.SetBool("IsAttack", true);
             speedForward = 0;
-        }
-        else
+        while (targetEnemy != null)
         {
-            speedLeft = Random.Range(0, 0.3f);
-            speedForward = 3;
-            anim.SetBool("IsAttack", false);
-        }
-        while (isMonLive)
-        {
-            
-            GameObject fBall = Instantiate(fireBall, transform.position, fireBall.transform.rotation);
-            fBall.GetComponent<FireBallMoving>().enemy = targetEnemy.gameObject;
-            yield return new WaitForSeconds(waitTime);
+                GameObject fBall = Instantiate(fireBall, transform.position, fireBall.transform.rotation);
+                fBall.GetComponent<FireBallMoving>().enemy = targetEnemy.gameObject;
+                yield return new WaitForSeconds(waitTime);
         }
         
     }
