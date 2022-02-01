@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IEnemy
 {
     [SerializeField] GameObject manegeSp;
     
@@ -25,26 +25,7 @@ public class Enemy : MonoBehaviour
     }
     private void Update()
     {
-        navigatorTime += Time.deltaTime*speed;
-        //Движение монстра
-        transform.Translate(Vector3.forward * speedForward * Time.deltaTime);
-        if (targetWizard == null)
-        {
-                wixard_move nearestWizard = GetNearestWizard();
-                if (nearestWizard != null)
-                {
-                    if (Vector3.Distance(transform.position, nearestWizard.transform.position) <= attackRang)
-                    {
-                        targetWizard = nearestWizard;
-                    }
-                    else
-                    {
-                        transform.position = Vector3.MoveTowards(transform.position, nearestWizard.transform.position, navigatorTime);
-                    }
-
-                }
-            
-        }
+        Moving();
         if (targetWizard != null && !isAttack)
         {
             //Атака мага. Вызов корутины остановки мага на время атаки
@@ -60,8 +41,7 @@ public class Enemy : MonoBehaviour
     }
     public IEnumerator WaidMageAtack()
     {
-        anim.SetBool("IsAttack", true);
-        speedForward = 0;
+        Attack();
         while (targetWizard != null)
         {
             if (targetWizard.livesWizard.lives>0)
@@ -72,6 +52,7 @@ public class Enemy : MonoBehaviour
             else
             {
                 Destroy(targetWizard.gameObject);
+                manegeSpawn.RemoveAlly(targetWizard);
                 targetWizard = null;
             }
         }
@@ -110,5 +91,35 @@ public class Enemy : MonoBehaviour
             }
         }
         return nearestWizard;
+    }
+
+    public void Attack()
+    {
+        anim.SetBool("IsAttack", true);
+        speedForward = 0;
+    }
+
+    public void Moving()
+    {
+        navigatorTime += Time.deltaTime * speed;
+        //Движение монстра
+        transform.Translate(Vector3.forward * speedForward * Time.deltaTime);
+        if (targetWizard == null)
+        {
+            wixard_move nearestWizard = GetNearestWizard();
+            if (nearestWizard != null)
+            {
+                if (Vector3.Distance(transform.position, nearestWizard.transform.position) <= attackRang)
+                {
+                    targetWizard = nearestWizard;
+                }
+                else
+                {
+                    transform.position = Vector3.MoveTowards(transform.position, nearestWizard.transform.position, navigatorTime);
+                }
+
+            }
+
+        }
     }
 }

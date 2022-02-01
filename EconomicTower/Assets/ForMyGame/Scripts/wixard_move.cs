@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class wixard_move : MonoBehaviour
+public class wixard_move : MonoBehaviour,IAlly
 {
     Animator anim;
     [SerializeField] float speedForward = 3;
@@ -28,22 +28,7 @@ public class wixard_move : MonoBehaviour
     }
     void Update()
     {
-        //Движение мага
-        transform.Translate(Vector3.forward * speedForward * Time.deltaTime);
-        
-
-        //Маги идут не по прямой а чучуть сворачивают 
-        if (zPosition < 0 && zPosition > -3)
-        {
-            if (downOrFloat == 1)
-            {
-                transform.Translate(Vector3.left * speedLeft * Time.deltaTime);
-            }
-            else if (downOrFloat == 0)
-            {
-                transform.Translate(Vector3.left * -speedLeft * Time.deltaTime);
-            }
-        }
+        Moving();
 
         if (targetEnemy == null)
         {
@@ -115,11 +100,35 @@ public class wixard_move : MonoBehaviour
             speedForward = 0;
         while (targetEnemy != null)
         {
-                GameObject fBall = Instantiate(fireBall, transform.position, fireBall.transform.rotation);
-                fBall.GetComponent<FireBallMoving>().enemy = targetEnemy.gameObject;
+            Attack();
                 yield return new WaitForSeconds(waitTime);
         }
         
     }
- 
+
+    public void Attack()
+    {
+        GameObject fBall = Instantiate(fireBall, transform.position, fireBall.transform.rotation);
+        fBall.GetComponent<FireBallMoving>().enemy = targetEnemy.gameObject;
+    }
+
+    public void Moving()
+    {
+        //Движение мага
+        transform.Translate(Vector3.forward * speedForward * Time.deltaTime);
+
+
+        //Маги идут не по прямой а чучуть сворачивают 
+        if (zPosition < 0 && zPosition > -3)
+        {
+            if (downOrFloat == 1)
+            {
+                transform.Translate(Vector3.left * speedLeft * Time.deltaTime);
+            }
+            else if (downOrFloat == 0)
+            {
+                transform.Translate(Vector3.left * -speedLeft * Time.deltaTime);
+            }
+        }
+    }
 }

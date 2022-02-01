@@ -12,7 +12,7 @@ public class CoinsMangement : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        coins = 30;
+        coins = 80;
     }
     public static void AddCoins(short addition)
     {

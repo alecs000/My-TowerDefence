@@ -704,7 +704,7 @@ MonoBehaviour:
   speedForward: 1
   waitTime: 0.25
   attackRang: 1
-  speed: 0.01
+  speed: 0.001
 --- !u!1 &262918361062243342
 GameObject:
   m_ObjectHideFlags: 0
