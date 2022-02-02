@@ -2,23 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour, IEnemy
+public class Enemy : IEnemy
 {
     [SerializeField] GameObject manegeSp;
     
     ManegeSpawn manegeSpawn;
-    public LivesManagement livesEnemy = new LivesManagement(100);
+    public override LivesManagement livesEnemy { get; protected set; }
     [SerializeField] IAlly targetAlly;
     bool isAttack;
     [SerializeField] float speedForward;
     Animator anim;
     [SerializeField] float waitTime;
+    //Чтобы оставить место для анимации
     [SerializeField] float attackRang;
     float navigatorTime;
     [SerializeField] float speed;
 
     private void Start()
     {
+        livesEnemy = new LivesManagement(100);
         anim = GetComponent<Animator>();
         manegeSpawn = manegeSp.GetComponent<ManegeSpawn>();
         manegeSpawn.RegistrEnemy(this);
@@ -102,9 +104,9 @@ public class Enemy : MonoBehaviour, IEnemy
 
     public void Moving()
     {
-        navigatorTime += Time.deltaTime * speed;
         //Движение монстра
         transform.Translate(Vector3.forward * speedForward * Time.deltaTime);
+        navigatorTime += Time.deltaTime * speed;
         if (targetAlly == null)
         {
             IAlly nearestWizard = GetNearestWizard();

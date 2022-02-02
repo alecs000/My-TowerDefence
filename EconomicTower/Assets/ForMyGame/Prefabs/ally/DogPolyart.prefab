@@ -1710,6 +1710,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3257681998665706456}
   - component: {fileID: 3257681998657979396}
+  - component: {fileID: 7237796504363011647}
   m_Layer: 0
   m_Name: DogPolyart
   m_TagString: Untagged
@@ -1752,6 +1753,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7237796504363011647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3257681998665283512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d37dc89612688bb439d5bbfcc05072dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 1
+  manegeSp: {fileID: 774736825271829089, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
+  speedForward: 3
+  attackRang: 1
+  speed: 0.001
+  targetEnemy: {fileID: 0}
 --- !u!1 &3257681998665283514
 GameObject:
   m_ObjectHideFlags: 0

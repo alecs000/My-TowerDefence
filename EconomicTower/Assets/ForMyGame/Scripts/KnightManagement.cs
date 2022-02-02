@@ -4,26 +4,31 @@ using UnityEngine;
 
 public class KnightManagement : IAlly
 {
-    Animator anim;
-    [SerializeField] float speedForward = 3;
-    float speedLeft;
+
     [SerializeField] float waitTime = 5f;
-    [SerializeField] float attackRange;
-    [SerializeField] GameObject fireBall;
-    float zPosition = -1.3f;
-    byte downOrFloat;
-    public Enemy targetEnemy;
-    bool isAttack = false;
     [SerializeField] GameObject manegeSp;
+    [SerializeField] float speedForward = 3;
+    [SerializeField] float attackRang;
+    [SerializeField] float speed;
+    Animator anim;
+    float speedLeft;
+    float zPosition = -1.3f;
+    public IEnemy targetEnemy;
+    bool isAttack = false;
     ManegeSpawn manegeSpawn;
+    float navigatorTime;
+    
     public override LivesManagement livesAlly { get; protected set; }
     void Start()
     {
-        livesAlly = new LivesManagement(50);
+        //жизни
+        livesAlly = new LivesManagement(100);
+        //Компонент ManegeSpawn
         manegeSpawn = manegeSp.GetComponent<ManegeSpawn>();
+        //заносим в масиив союзников
         manegeSpawn.RegistrAlly(this);
-        speedLeft = Random.Range(0, 0.3f);
-        downOrFloat = (byte)Random.Range(0, 2);
+        //Скорость вверз вниз 
+        speedLeft = Random.Range(-0.3f, 0.3f);
         anim = GetComponent<Animator>();
 
     }
@@ -42,35 +47,24 @@ public class KnightManagement : IAlly
             anim.SetBool("IsAttack", false);
             isAttack = false;
             speedForward = 3;
+            speedLeft = Random.Range(-0.3f, 0.3f);
         }
     }
 
-    private List<Enemy> GetEnemiesInRange()
-    {
-        List<Enemy> enemiesInRange = new List<Enemy>();
-        foreach (Enemy item in manegeSpawn.EnemyList)
-        {
-            if (item != null)
-            {
-                if (Vector3.Distance(transform.position, item.transform.position) <= attackRange)
-                {
-                    enemiesInRange.Add(item);
-                    Debug.Log(Vector3.Distance(transform.position, item.transform.position));
-                }
-            }
-        }
-        return enemiesInRange;
-    }
+
     Enemy GetNearestEnemy()
     {
         Enemy nearestEnemy = null;
         float smolestDistanse = float.PositiveInfinity;
-        foreach (Enemy item in GetEnemiesInRange())
+        foreach (Enemy item in manegeSpawn.EnemyList)
         {
-            if (Vector3.Distance(transform.position, item.transform.position) < smolestDistanse)
+            if (item != null)
             {
-                smolestDistanse = Vector3.Distance(transform.position, item.transform.position);
-                nearestEnemy = item;
+                if (Vector3.Distance(transform.position, item.transform.position) < smolestDistanse)
+                {
+                    smolestDistanse = Vector3.Distance(transform.position, item.transform.position);
+                    nearestEnemy = item;
+                }
             }
         }
 
@@ -80,11 +74,12 @@ public class KnightManagement : IAlly
     public IEnumerator WaidKnightAtack()
     {
         Attack();
+
         while (targetEnemy != null)
         {
             if (targetEnemy.livesEnemy.lives > 0)
             {
-                targetEnemy.livesEnemy.RemoveLives(5);
+                targetEnemy.livesEnemy.RemoveLives(3);
                 yield return new WaitForSeconds(waitTime);
             }
             else
@@ -101,25 +96,37 @@ public class KnightManagement : IAlly
     {
         anim.SetBool("IsAttack", true);
         speedForward = 0;
+        speedLeft = 0;
     }
 
     public void Moving()
     {
-        //Движение мага
+        //Движение рыцаря
         transform.Translate(Vector3.forward * speedForward * Time.deltaTime);
 
 
-        //Маги идут не по прямой а чучуть сворачивают 
+        //Рыцари идут не по прямой а чучуть сворачивают 
         if (zPosition < 0 && zPosition > -3)
         {
-            if (downOrFloat == 1)
-            {
                 transform.Translate(Vector3.left * speedLeft * Time.deltaTime);
-            }
-            else if (downOrFloat == 0)
+        }
+        navigatorTime += Time.deltaTime * speed;
+        if (targetEnemy == null)
+        {
+            IEnemy nearestKnight = GetNearestEnemy();
+            if (nearestKnight != null)
             {
-                transform.Translate(Vector3.left * -speedLeft * Time.deltaTime);
+                if (Vector3.Distance(transform.position, nearestKnight.transform.position) <= attackRang)
+                {
+                    targetEnemy = nearestKnight;
+                }
+                else
+                {
+                    transform.position = Vector3.MoveTowards(transform.position, nearestKnight.transform.position, navigatorTime);
+                }
+
             }
+
         }
     }
 }

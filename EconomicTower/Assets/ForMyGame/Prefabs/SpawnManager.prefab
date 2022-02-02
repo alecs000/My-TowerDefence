@@ -44,4 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mage: {fileID: 1073083356194043970, guid: 1e19f210983340646a41f98c6dd2c32f, type: 3}
+  knight: {fileID: 3257681998665283512, guid: 903a8c4ecf809644f8657fe2fa80787a, type: 3}
   EnemyList: []
+  AllyList: []

@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IEnemy
+public class IEnemy : MonoBehaviour
 {
-    void Attack();
-    void Moving();
+    public virtual LivesManagement livesEnemy { get; protected set; }
+    void Attack() { }
+    void Moving() { }
 }
