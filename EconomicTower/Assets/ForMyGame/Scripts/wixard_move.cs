@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class wixard_move : MonoBehaviour,IAlly
+public class wixard_move : IAlly
 {
     Animator anim;
     [SerializeField] float speedForward = 3;
@@ -16,9 +16,10 @@ public class wixard_move : MonoBehaviour,IAlly
     bool isAttack = false;
     [SerializeField] GameObject manegeSp;
     ManegeSpawn manegeSpawn;
-    public LivesManagement livesWizard = new LivesManagement(50);
+    public override LivesManagement livesAlly { get; protected set; }
     void Start()
     {
+        livesAlly = new LivesManagement(50);
         manegeSpawn = manegeSp.GetComponent<ManegeSpawn>();
         manegeSpawn.RegistrAlly(this);
         speedLeft = Random.Range(0, 0.3f);

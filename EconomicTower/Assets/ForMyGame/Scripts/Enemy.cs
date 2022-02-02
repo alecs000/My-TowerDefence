@@ -7,8 +7,8 @@ public class Enemy : MonoBehaviour, IEnemy
     [SerializeField] GameObject manegeSp;
     
     ManegeSpawn manegeSpawn;
-    LivesManagement livesManagement = new LivesManagement(100);
-    [SerializeField] wixard_move targetWizard;
+    public LivesManagement livesEnemy = new LivesManagement(100);
+    [SerializeField] IAlly targetAlly;
     bool isAttack;
     [SerializeField] float speedForward;
     Animator anim;
@@ -26,71 +26,72 @@ public class Enemy : MonoBehaviour, IEnemy
     private void Update()
     {
         Moving();
-        if (targetWizard != null && !isAttack)
+        if (targetAlly != null && !isAttack)
         {
-            //Атака мага. Вызов корутины остановки мага на время атаки
+            //Атака врага. Вызов корутины остановки врага на время атаки
             isAttack = true;
-            StartCoroutine(WaidMageAtack());
+            StartCoroutine(WaidEnemyAtack());
         }
-        if (targetWizard == null && isAttack)
+        if (targetAlly == null && isAttack)
         {
             anim.SetBool("IsAttack", false);
             isAttack = false;
             speedForward = 3;
         }
     }
-    public IEnumerator WaidMageAtack()
+    public IEnumerator WaidEnemyAtack()
     {
         Attack();
-        while (targetWizard != null)
+        while (targetAlly != null)
         {
-            if (targetWizard.livesWizard.lives>0)
+            if (targetAlly.livesAlly.lives>0)
             {
-                targetWizard.livesWizard.RemoveLives(5);
+                targetAlly.livesAlly.RemoveLives(5);
                 yield return new WaitForSeconds(waitTime);
             }
             else
             {
-                Destroy(targetWizard.gameObject);
-                manegeSpawn.RemoveAlly(targetWizard);
-                targetWizard = null;
+                Destroy(targetAlly.gameObject);
+                manegeSpawn.RemoveAlly(targetAlly);
+                targetAlly = null;
             }
         }
 
     }
     private void OnTriggerEnter(Collider other)
     {
+        //Столкновение с огненным шаром смерть или получение урона
         if (other.CompareTag("FireBall"))
         {
             Destroy(other.gameObject);
-            livesManagement.RemoveLives(15);
+            livesEnemy.RemoveLives(15);
             
         }
-        if (livesManagement.lives<= 0)
+        if (livesEnemy.lives<= 0)
         {
             manegeSpawn.RemoveEnemy(this);
             CoinsMangement.AddCoins(5);
         }
     }
-    wixard_move GetNearestWizard()
+    IAlly GetNearestWizard()
     {
-        wixard_move nearestWizard = null;
+        IAlly nearestAlly = null;
         float smolestDistanse = float.PositiveInfinity;
         if (manegeSpawn.AllyList.Count !=0)
         {
-            foreach (wixard_move item in manegeSpawn.AllyList)
+            foreach (IAlly item in manegeSpawn.AllyList)
             {
                 if (item != null)
                 {
                     if (Vector3.Distance(transform.position, item.transform.position) < smolestDistanse)
                     {
                         smolestDistanse = Vector3.Distance(transform.position, item.transform.position);
-                        nearestWizard = item;
+                        nearestAlly = item;
                     }
                 }
             }
         }
-        return nearestWizard;
+        return nearestAlly;
     }
 
     public void Attack()
@@ -104,14 +105,14 @@ public class Enemy : MonoBehaviour, IEnemy
         navigatorTime += Time.deltaTime * speed;
         //Движение монстра
         transform.Translate(Vector3.forward * speedForward * Time.deltaTime);
-        if (targetWizard == null)
+        if (targetAlly == null)
         {
-            wixard_move nearestWizard = GetNearestWizard();
+            IAlly nearestWizard = GetNearestWizard();
             if (nearestWizard != null)
             {
                 if (Vector3.Distance(transform.position, nearestWizard.transform.position) <= attackRang)
                 {
-                    targetWizard = nearestWizard;
+                    targetAlly = nearestWizard;
                 }
                 else
                 {

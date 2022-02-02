@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IAlly 
+public class IAlly :MonoBehaviour
 {
-    void Attack();
-    void Moving();
+    public virtual LivesManagement livesAlly { get; protected set; }
+    void Attack() { }
+    void Moving() { }
 
 }

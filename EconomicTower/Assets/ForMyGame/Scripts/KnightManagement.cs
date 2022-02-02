@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KnightManagement : MonoBehaviour,IAlly
+public class KnightManagement : IAlly
 {
     Animator anim;
     [SerializeField] float speedForward = 3;
@@ -16,9 +16,10 @@ public class KnightManagement : MonoBehaviour,IAlly
     bool isAttack = false;
     [SerializeField] GameObject manegeSp;
     ManegeSpawn manegeSpawn;
-    public LivesManagement livesWizard = new LivesManagement(50);
+    public override LivesManagement livesAlly { get; protected set; }
     void Start()
     {
+        livesAlly = new LivesManagement(50);
         manegeSpawn = manegeSp.GetComponent<ManegeSpawn>();
         manegeSpawn.RegistrAlly(this);
         speedLeft = Random.Range(0, 0.3f);
@@ -30,34 +31,17 @@ public class KnightManagement : MonoBehaviour,IAlly
     {
         Moving();
 
-        if (targetEnemy == null)
-        {
-            Enemy nearestEnemy = GetNearestEnemy();
-            if (nearestEnemy != null && Vector3.Distance(transform.position, nearestEnemy.transform.position) <= attackRange)
-            {
-                targetEnemy = nearestEnemy;
-
-            }
-        }
         if (targetEnemy != null && !isAttack)
         {
-            //Атака мага. Вызов корутины остановки мага на время атаки
+            //Атака врага. Вызов корутины остановки врага на время атаки
             isAttack = true;
-            StartCoroutine(WaidMageAtack());
+            StartCoroutine(WaidKnightAtack());
         }
         if (targetEnemy == null && isAttack)
         {
             anim.SetBool("IsAttack", false);
             isAttack = false;
-            speedLeft = Random.Range(0, 0.3f);
             speedForward = 3;
-        }
-    }
-    private void FixedUpdate()
-    {
-        if (fireBall != null && targetEnemy != null)
-        {
-            fireBall.transform.Translate((targetEnemy.transform.position - fireBall.transform.position).normalized * Time.deltaTime * 3);
         }
     }
 
@@ -93,23 +77,30 @@ public class KnightManagement : MonoBehaviour,IAlly
         return nearestEnemy;
     }
     //Вся логика атаки мага включая остановку и анимацию
-    public IEnumerator WaidMageAtack()
+    public IEnumerator WaidKnightAtack()
     {
-        speedLeft = 0;
-        anim.SetBool("IsAttack", true);
-        speedForward = 0;
+        Attack();
         while (targetEnemy != null)
         {
-            Attack();
-            yield return new WaitForSeconds(waitTime);
+            if (targetEnemy.livesEnemy.lives > 0)
+            {
+                targetEnemy.livesEnemy.RemoveLives(5);
+                yield return new WaitForSeconds(waitTime);
+            }
+            else
+            {
+                Destroy(targetEnemy.gameObject);
+                manegeSpawn.RemoveEnemy(targetEnemy);
+                targetEnemy = null;
+            }
         }
 
     }
 
     public void Attack()
     {
-        GameObject fBall = Instantiate(fireBall, transform.position, fireBall.transform.rotation);
-        fBall.GetComponent<FireBallMoving>().enemy = targetEnemy.gameObject;
+        anim.SetBool("IsAttack", true);
+        speedForward = 0;
     }
 
     public void Moving()
