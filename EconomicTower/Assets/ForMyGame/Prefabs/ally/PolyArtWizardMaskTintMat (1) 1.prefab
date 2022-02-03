@@ -975,7 +975,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3224daa2cced4d542b0016b2e40969dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedForward: 3
+  speedForward: 1
+  speedL: 3
   waitTime: 1.31
   attackRange: 3
   fireBall: {fileID: 3296936836842269006, guid: 20dafee3cc1cacb489bde7797f1e7167, type: 3}

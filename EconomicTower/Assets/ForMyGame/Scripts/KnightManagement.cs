@@ -52,11 +52,11 @@ public class KnightManagement : IAlly
     }
 
 
-    Enemy GetNearestEnemy()
+    IEnemy GetNearestEnemy()
     {
-        Enemy nearestEnemy = null;
+        IEnemy nearestEnemy = null;
         float smolestDistanse = float.PositiveInfinity;
-        foreach (Enemy item in manegeSpawn.EnemyList)
+        foreach (IEnemy item in manegeSpawn.EnemyList)
         {
             if (item != null)
             {
@@ -80,6 +80,7 @@ public class KnightManagement : IAlly
             if (targetEnemy.livesEnemy.lives > 0)
             {
                 targetEnemy.livesEnemy.RemoveLives(3);
+                Debug.Log("Enemy"+targetEnemy.livesEnemy.lives);
                 yield return new WaitForSeconds(waitTime);
             }
             else
@@ -106,9 +107,14 @@ public class KnightManagement : IAlly
 
 
         //Рыцари идут не по прямой а чучуть сворачивают 
-        if (zPosition < 0 && zPosition > -3)
+        if (transform.position.z < -1 && transform.position.z > -2)
         {
-                transform.Translate(Vector3.left * speedLeft * Time.deltaTime);
+
+            transform.Rotate(Vector3.up, speedLeft * Time.deltaTime);
+        }
+        else
+        {
+            transform.Rotate(Vector3.down, speedLeft * Time.deltaTime);
         }
         navigatorTime += Time.deltaTime * speed;
         if (targetEnemy == null)

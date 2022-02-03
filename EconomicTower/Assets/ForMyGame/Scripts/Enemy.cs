@@ -50,6 +50,7 @@ public class Enemy : IEnemy
             {
                 targetAlly.livesAlly.RemoveLives(5);
                 yield return new WaitForSeconds(waitTime);
+                Debug.Log("Ally"+targetAlly.livesAlly.lives);
             }
             else
             {

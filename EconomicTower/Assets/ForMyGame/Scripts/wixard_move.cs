@@ -6,7 +6,8 @@ public class wixard_move : IAlly
 {
     Animator anim;
     [SerializeField] float speedForward = 3;
-    float speedLeft ;
+    float speedLeft;
+    [SerializeField] float speedL =1;
     [SerializeField] float waitTime = 5f;
     [SerializeField] float attackRange;
     [SerializeField] GameObject fireBall;
@@ -21,7 +22,7 @@ public class wixard_move : IAlly
         livesAlly = new LivesManagement(50);
         manegeSpawn = manegeSp.GetComponent<ManegeSpawn>();
         manegeSpawn.RegistrAlly(this);
-        speedLeft = Random.Range(-0.3f, 0.3f);
+        speedLeft = Random.Range(-speedL, speedL);
         anim = GetComponent<Animator>();
         
     }
@@ -48,7 +49,7 @@ public class wixard_move : IAlly
         {
             anim.SetBool("IsAttack", false);
             isAttack = false;
-            speedLeft = Random.Range(-0.3f, 0.3f);
+            speedLeft = Random.Range(-speedL, speedL);
             speedForward = 3;
         }
     }
@@ -60,10 +61,10 @@ public class wixard_move : IAlly
         }
     }
 
-    private List<Enemy> GetEnemiesInRange()
+    private List<IEnemy> GetEnemiesInRange()
     {
-        List<Enemy> enemiesInRange = new List<Enemy>();
-        foreach (Enemy item in manegeSpawn.EnemyList)
+        List<IEnemy> enemiesInRange = new List<IEnemy>();
+        foreach (IEnemy item in manegeSpawn.EnemyList)
         {
             if (item!=null)
             {
@@ -118,11 +119,14 @@ public class wixard_move : IAlly
 
 
         //ћаги идут не по пр€мой а чучуть сворачивают 
-        if (zPosition < 0 && zPosition > -3)
+        if (transform.position.z < -1 && transform.position.z > -2)
         {
-
-                transform.Translate(Vector3.left * speedLeft * Time.deltaTime);
             
+            transform.Rotate(Vector3.up, speedLeft * Time.deltaTime);
+        }
+        else
+        {
+            transform.Rotate(Vector3.down, speedLeft * Time.deltaTime);
         }
     }
 }

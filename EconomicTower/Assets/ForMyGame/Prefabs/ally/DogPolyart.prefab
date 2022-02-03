@@ -1767,7 +1767,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waitTime: 1
   manegeSp: {fileID: 774736825271829089, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
-  speedForward: 3
+  speedForward: 1
   attackRang: 1
   speed: 0.001
   targetEnemy: {fileID: 0}
