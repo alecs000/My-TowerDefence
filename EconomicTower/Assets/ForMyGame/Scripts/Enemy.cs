@@ -17,6 +17,7 @@ public class Enemy : IEnemy
     [SerializeField] float attackRang;
     float navigatorTime;
     [SerializeField] float speed;
+    [SerializeField] short attack = 5;
 
     private void Start()
     {
@@ -48,9 +49,8 @@ public class Enemy : IEnemy
         {
             if (targetAlly.livesAlly.lives>0)
             {
-                targetAlly.livesAlly.RemoveLives(5);
+                targetAlly.livesAlly.RemoveLives(attack);
                 yield return new WaitForSeconds(waitTime);
-                Debug.Log("Ally"+targetAlly.livesAlly.lives);
             }
             else
             {

@@ -669,8 +669,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 0.8, z: 1}
+  m_Center: {x: 0, y: 0.4, z: 0}
 --- !u!54 &265732819
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -683,7 +683,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -700,9 +700,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manegeSp: {fileID: 774736825271829089, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
-  targetWizard: {fileID: 0}
+  targetAlly: {fileID: 0}
   speedForward: 1
-  waitTime: 0.25
+  waitTime: 1
   attackRang: 1
   speed: 0.001
 --- !u!1 &262918361062243342

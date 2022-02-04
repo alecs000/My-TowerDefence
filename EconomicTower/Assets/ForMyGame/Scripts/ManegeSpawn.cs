@@ -36,7 +36,7 @@ public class ManegeSpawn : MonoBehaviour
      public void RemoveEnemy(IEnemy enemy)
     {
         EnemyList.Remove(enemy);
-        Destroy(enemy.gameObject);
+        this.gameObject.SetActive(false);
     }
     public void RegistrAlly(IAlly ally)
     {

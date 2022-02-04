@@ -3181,7 +3181,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8350717982903823411, guid: 01266462b39da52409ff7e0208e6cf3c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 8350717982903823411, guid: 01266462b39da52409ff7e0208e6cf3c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3951,6 +3951,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textCoins: {fileID: 1127623980}
+--- !u!114 &1640291213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640291210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad14b75c43f1f2e4cac8c3ecd5482bcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolCount: 10
+  autoExpand: 1
+  enemyPrefab: {fileID: -3570355290617883126, guid: 7fcbfa7bd5f32244aa4d3f76e134ec2d, type: 3}
 --- !u!4 &1648286468 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4179240027576528, guid: 86ca6560575669f47bb9427d4e937af0, type: 3}
@@ -5030,6 +5045,10 @@ PrefabInstance:
     - target: {fileID: 774736825271829089, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
       propertyPath: m_Name
       value: SpawnManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 774736825271829089, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
