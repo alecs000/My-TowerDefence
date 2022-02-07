@@ -7,14 +7,17 @@ public class MonsterPool : MonoBehaviour
     [SerializeField] int poolCount = 10;
     [SerializeField] bool autoExpand = true;
     [SerializeField] IEnemy enemyPrefab;
-    PoolMono<IEnemy> pool;
+    public PoolMono<IEnemy> poolM;
+    public bool getNearest;
+    public IEnemy enemy1;
     private void Start()
     {
-        this.pool = new PoolMono<IEnemy>(this.enemyPrefab, this.poolCount, this.transform);
-        this.pool.autoExpand = autoExpand;
+        poolM = new PoolMono<IEnemy>(this.enemyPrefab, this.poolCount, this.transform);
+        poolM.autoExpand = autoExpand;
     }
     private void Update()
     {
+
         if (Input.GetMouseButtonDown(0))
         {
             this.CreateEnemy();
@@ -22,7 +25,7 @@ public class MonsterPool : MonoBehaviour
     }
     void CreateEnemy()
     {
-        var enemy = this.pool.GetFreeElement();
+        var enemy = this.poolM.GetFreeElement();
         enemy.transform.position = new Vector3(-15, 0, -1.1f);
     }
 }

@@ -701,10 +701,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manegeSp: {fileID: 774736825271829089, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
   targetAlly: {fileID: 0}
-  speedForward: 1
+  speedRotate: 0
+  speedForward: 0
   waitTime: 1
   attackRang: 1
-  speed: 0.001
+  speed: 0
+  attack: 5
 --- !u!1 &262918361062243342
 GameObject:
   m_ObjectHideFlags: 0

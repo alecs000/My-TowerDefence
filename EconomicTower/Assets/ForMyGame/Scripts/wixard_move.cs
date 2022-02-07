@@ -5,7 +5,7 @@ using UnityEngine;
 public class wixard_move : IAlly
 {
     Animator anim;
-    [SerializeField] float speedForward = 3;
+    [SerializeField] float speedForward = 1;
     float speedLeft;
     [SerializeField] float speedL =1;
     [SerializeField] float waitTime = 5f;
@@ -14,25 +14,66 @@ public class wixard_move : IAlly
     float zPosition = -1.3f;
     public Enemy targetEnemy;
     bool isAttack = false;
-    [SerializeField] GameObject manegeSp;
-    ManegeSpawn manegeSpawn;
+    GameObject manegeSp;
+    MonsterPool monsterPool;
+    public PoolMono<IEnemy> poolMonster;
     public override LivesManagement livesAlly { get; protected set; }
     void Start()
     {
         livesAlly = new LivesManagement(50);
-        manegeSpawn = manegeSp.GetComponent<ManegeSpawn>();
-        manegeSpawn.RegistrAlly(this);
+        manegeSp = GameObject.FindWithTag("GameManager");
         speedLeft = Random.Range(-speedL, speedL);
         anim = GetComponent<Animator>();
-        
+        monsterPool = manegeSp.GetComponent<MonsterPool>();
+
+    }
+    private List<IEnemy> GetEnemiesInRange()
+    {
+        List<IEnemy> enemiesInRange = new List<IEnemy>();
+        foreach (IEnemy item in monsterPool.poolM.pool)
+        {
+            Debug.Log(1);
+            if (item.gameObject.activeInHierarchy)
+            {
+                Debug.Log(transform.position);
+                if (Vector3.Distance(transform.position, item.transform.position) <= attackRange)
+                {
+                    Debug.Log(3);
+                    enemiesInRange.Add(item);
+                    Debug.Log(Vector3.Distance(transform.position, item.transform.position));
+                }
+            }
+        }
+
+        return enemiesInRange;
+    }
+    public IEnemy GetNearestEnemy()
+    {
+        IEnemy nearestEnemy = null;
+        float smolestDistanse = float.PositiveInfinity;
+        foreach (IEnemy item in GetEnemiesInRange())
+        {
+            Debug.Log(4);
+            if (Vector3.Distance(transform.position, item.transform.position) < smolestDistanse)
+            {
+                smolestDistanse = Vector3.Distance(transform.position, item.transform.position);
+                nearestEnemy = item;
+            }
+        }
+
+        return nearestEnemy;
     }
     void Update()
     {
+        if (targetEnemy!=null&&!targetEnemy.gameObject.activeInHierarchy)
+        {
+            targetEnemy = null;
+        }
         Moving();
-
         if (targetEnemy == null)
         {
-            Enemy nearestEnemy = GetNearestEnemy();
+            Enemy nearestEnemy = (Enemy)GetNearestEnemy();
+            Debug.Log(nearestEnemy);
             if (nearestEnemy != null&& Vector3.Distance(transform.position, nearestEnemy.transform.position) <= attackRange)
             {
                 targetEnemy = nearestEnemy;
@@ -47,12 +88,14 @@ public class wixard_move : IAlly
         }
         if(targetEnemy == null && isAttack)
         {
+            //чтобы маг шел снова после убийства врага
             anim.SetBool("IsAttack", false);
             isAttack = false;
             speedLeft = Random.Range(-speedL, speedL);
-            speedForward = 3;
+            speedForward = 1;
         }
     }
+
     private void FixedUpdate()
     {
         if (fireBall!=null&& targetEnemy!=null)
@@ -61,49 +104,19 @@ public class wixard_move : IAlly
         }
     }
 
-    private List<IEnemy> GetEnemiesInRange()
-    {
-        List<IEnemy> enemiesInRange = new List<IEnemy>();
-        foreach (IEnemy item in manegeSpawn.EnemyList)
-        {
-            if (item!=null)
-            {
-                if (Vector3.Distance(transform.position, item.transform.position) <= attackRange)
-                {
-                    enemiesInRange.Add(item);
-                    Debug.Log(Vector3.Distance(transform.position, item.transform.position));
-                }
-            }
-        }
-        return enemiesInRange;
-    }
-    Enemy GetNearestEnemy()
-    {
-        Enemy nearestEnemy = null;
-        float smolestDistanse = float.PositiveInfinity;
-            foreach (Enemy item in GetEnemiesInRange())
-            {
-                if (Vector3.Distance(transform.position, item.transform.position) < smolestDistanse)
-                {
-                    smolestDistanse = Vector3.Distance(transform.position, item.transform.position);
-                    nearestEnemy = item;
-                }
-            }
-        
-        return nearestEnemy;
-    }
+   
     //¬с€ логика атаки мага включа€ остановку и анимацию
     public IEnumerator WaidMageAtack()
     {
-            speedLeft = 0;
-            anim.SetBool("IsAttack", true);
+        anim.SetBool("IsAttack", true);
+        speedLeft = 0;
             speedForward = 0;
+        yield return new WaitForSeconds(0.6f);
         while (targetEnemy != null)
         {
             Attack();
                 yield return new WaitForSeconds(waitTime);
         }
-        
     }
 
     public void Attack()

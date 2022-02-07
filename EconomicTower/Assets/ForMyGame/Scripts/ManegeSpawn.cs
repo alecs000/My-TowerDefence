@@ -6,9 +6,7 @@ public class ManegeSpawn : MonoBehaviour
 {
     [SerializeField] GameObject mage;
     [SerializeField] GameObject knight;
-    Vector3 spawnPositionAlly;
-    public List<IEnemy> EnemyList = new List<IEnemy>();
-    public List<IAlly> AllyList = new List<IAlly>();
+    Vector3 spawnPositionAlly;    public List<IAlly> AllyList = new List<IAlly>();
 
     // Start is called before the first frame update
     void Start()
@@ -29,15 +27,7 @@ public class ManegeSpawn : MonoBehaviour
             Instantiate(knight, spawnPositionAlly, knight.transform.rotation);
         }
     }
-    public  void RegistrEnemy(IEnemy enemy)
-    {
-        EnemyList.Add(enemy);
-    }
-     public void RemoveEnemy(IEnemy enemy)
-    {
-        EnemyList.Remove(enemy);
-        this.gameObject.SetActive(false);
-    }
+
     public void RegistrAlly(IAlly ally)
     {
         AllyList.Add(ally);

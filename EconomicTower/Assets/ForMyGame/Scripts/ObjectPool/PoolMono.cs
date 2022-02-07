@@ -8,7 +8,7 @@ public class PoolMono<T> where T : MonoBehaviour
     public T prefab { get; }
     public bool autoExpand { get; set; }
     public Transform container { get; }
-    List<T> pool;
+    public List<T> pool;
     public PoolMono(T prefab, int count)
     {
         this.prefab = prefab;
@@ -29,6 +29,7 @@ public class PoolMono<T> where T : MonoBehaviour
             this.CreateObject();
         }
     }
+    
     T CreateObject(bool IsActiveByDefolt = false)
     {
         var createdObject = UnityEngine.Object.Instantiate(this.prefab, this.container);

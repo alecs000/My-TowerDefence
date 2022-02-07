@@ -6,7 +6,7 @@ public class KnightManagement : IAlly
 {
 
     [SerializeField] float waitTime = 5f;
-    [SerializeField] GameObject manegeSp;
+    GameObject manegeSp;
     [SerializeField] float speedForward = 3;
     [SerializeField] float attackRang;
     [SerializeField] float speed;
@@ -17,20 +17,19 @@ public class KnightManagement : IAlly
     bool isAttack = false;
     ManegeSpawn manegeSpawn;
     float navigatorTime;
-    
+    MonsterPool monsterPool;
+
     public override LivesManagement livesAlly { get; protected set; }
     void Start()
     {
+        manegeSp = GameObject.FindWithTag("GameManager");
         //жизни
         livesAlly = new LivesManagement(100);
-        //Компонент ManegeSpawn
-        manegeSpawn = manegeSp.GetComponent<ManegeSpawn>();
-        //заносим в масиив союзников
-        manegeSpawn.RegistrAlly(this);
+        //Компонент MonsterPool
+        monsterPool = manegeSp.GetComponent<MonsterPool>();
         //Скорость вверз вниз 
         speedLeft = Random.Range(-0.3f, 0.3f);
         anim = GetComponent<Animator>();
-
     }
     void Update()
     {
@@ -56,9 +55,9 @@ public class KnightManagement : IAlly
     {
         IEnemy nearestEnemy = null;
         float smolestDistanse = float.PositiveInfinity;
-        foreach (IEnemy item in manegeSpawn.EnemyList)
+        foreach (IEnemy item in monsterPool.poolM.pool)
         {
-            if (item != null)
+            if (item.gameObject.activeInHierarchy)
             {
                 if (Vector3.Distance(transform.position, item.transform.position) < smolestDistanse)
                 {
@@ -79,14 +78,12 @@ public class KnightManagement : IAlly
         {
             if (targetEnemy.livesEnemy.lives > 0)
             {
-                targetEnemy.livesEnemy.RemoveLives(3);
-                Debug.Log("Enemy"+targetEnemy.livesEnemy.lives);
+                targetEnemy.livesEnemy.RemoveLives(25);
                 yield return new WaitForSeconds(waitTime);
             }
-            else
+            else if (targetEnemy.livesEnemy.lives <= 0)
             {
-                Destroy(targetEnemy.gameObject);
-                manegeSpawn.RemoveEnemy(targetEnemy);
+                targetEnemy.gameObject.SetActive(false);
                 targetEnemy = null;
             }
         }

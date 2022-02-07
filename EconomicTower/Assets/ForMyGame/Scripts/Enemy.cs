@@ -9,6 +9,7 @@ public class Enemy : IEnemy
     ManegeSpawn manegeSpawn;
     public override LivesManagement livesEnemy { get; protected set; }
     [SerializeField] IAlly targetAlly;
+    [SerializeField] float speedRotate;
     bool isAttack;
     [SerializeField] float speedForward;
     Animator anim;
@@ -21,13 +22,16 @@ public class Enemy : IEnemy
 
     private void Start()
     {
-        livesEnemy = new LivesManagement(100);
         anim = GetComponent<Animator>();
         manegeSpawn = manegeSp.GetComponent<ManegeSpawn>();
-        manegeSpawn.RegistrEnemy(this);
+    }
+    private void OnEnable()
+    {
+        livesEnemy = new LivesManagement(100);
     }
     private void Update()
     {
+        Debug.Log(livesEnemy.lives);
         Moving();
         if (targetAlly != null && !isAttack)
         {
@@ -68,15 +72,19 @@ public class Enemy : IEnemy
         {
             Destroy(other.gameObject);
             livesEnemy.RemoveLives(15);
+            Debug.Log(livesEnemy.lives);
             
         }
         if (livesEnemy.lives<= 0)
         {
-            manegeSpawn.RemoveEnemy(this);
+
+            Debug.Log("die");
+            this.gameObject.SetActive(false);
             CoinsMangement.AddCoins(5);
         }
     }
-    IAlly GetNearestWizard()
+
+        IAlly GetNearestWizard()
     {
         IAlly nearestAlly = null;
         float smolestDistanse = float.PositiveInfinity;
@@ -84,7 +92,7 @@ public class Enemy : IEnemy
         {
             foreach (IAlly item in manegeSpawn.AllyList)
             {
-                if (item != null)
+                if (item != null &&item.gameObject.activeInHierarchy)
                 {
                     if (Vector3.Distance(transform.position, item.transform.position) < smolestDistanse)
                     {
@@ -120,6 +128,7 @@ public class Enemy : IEnemy
                 else
                 {
                     transform.position = Vector3.MoveTowards(transform.position, nearestWizard.transform.position, navigatorTime);
+                    transform.LookAt(nearestWizard.transform);
                 }
 
             }
