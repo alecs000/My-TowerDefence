@@ -1739,7 +1739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 413554, guid: 50294217694c1a145a9a3b86f853c022, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.341337
+      value: -9.47
       objectReference: {fileID: 0}
     - target: {fileID: 413554, guid: 50294217694c1a145a9a3b86f853c022, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5016,7 +5016,7 @@ PrefabInstance:
     - target: {fileID: 774736825271829089, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
       propertyPath: m_Icon
       value: 
-      objectReference: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
+      objectReference: {fileID: 0}
     - target: {fileID: 774736825271829089, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
       propertyPath: m_Name
       value: SpawnManager

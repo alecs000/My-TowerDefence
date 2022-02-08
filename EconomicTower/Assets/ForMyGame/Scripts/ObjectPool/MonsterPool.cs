@@ -26,6 +26,6 @@ public class MonsterPool : MonoBehaviour
     void CreateEnemy()
     {
         var enemy = this.poolM.GetFreeElement();
-        enemy.transform.position = new Vector3(-15, 0, -1.1f);
+        enemy.transform.position = new Vector3(-5, 0, -1.1f);//
     }
 }

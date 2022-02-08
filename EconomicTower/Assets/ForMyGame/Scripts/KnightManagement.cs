@@ -27,20 +27,19 @@ public class KnightManagement : IAlly
         livesAlly = new LivesManagement(100);
         //Компонент MonsterPool
         monsterPool = manegeSp.GetComponent<MonsterPool>();
+        manegeSpawn = manegeSp.GetComponent<ManegeSpawn>();
         //Скорость вверз вниз 
         speedLeft = Random.Range(-0.3f, 0.3f);
         anim = GetComponent<Animator>();
+        manegeSpawn.RegistrAlly(this);
     }
     void Update()
     {
-        Moving();
-
-        if (targetEnemy != null && !isAttack)
+        if (targetEnemy != null && !targetEnemy.gameObject.activeInHierarchy)
         {
-            //Атака врага. Вызов корутины остановки врага на время атаки
-            isAttack = true;
-            StartCoroutine(WaidKnightAtack());
+            targetEnemy = null;
         }
+        Moving();
         if (targetEnemy == null && isAttack)
         {
             anim.SetBool("IsAttack", false);
@@ -48,6 +47,13 @@ public class KnightManagement : IAlly
             speedForward = 3;
             speedLeft = Random.Range(-0.3f, 0.3f);
         }
+        if (targetEnemy != null && !isAttack)
+        {
+            //Атака врага. Вызов корутины остановки врага на время атаки
+            isAttack = true;
+            StartCoroutine(WaidKnightAtack());
+        }
+       
     }
 
 
@@ -81,7 +87,7 @@ public class KnightManagement : IAlly
                 targetEnemy.livesEnemy.RemoveLives(25);
                 yield return new WaitForSeconds(waitTime);
             }
-            else if (targetEnemy.livesEnemy.lives <= 0)
+            if (targetEnemy.livesEnemy.lives <= 0)
             {
                 targetEnemy.gameObject.SetActive(false);
                 targetEnemy = null;

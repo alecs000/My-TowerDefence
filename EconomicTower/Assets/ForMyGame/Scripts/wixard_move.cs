@@ -17,6 +17,7 @@ public class wixard_move : IAlly
     GameObject manegeSp;
     MonsterPool monsterPool;
     public PoolMono<IEnemy> poolMonster;
+    ManegeSpawn manegeSpawn;
     public override LivesManagement livesAlly { get; protected set; }
     void Start()
     {
@@ -25,22 +26,20 @@ public class wixard_move : IAlly
         speedLeft = Random.Range(-speedL, speedL);
         anim = GetComponent<Animator>();
         monsterPool = manegeSp.GetComponent<MonsterPool>();
-
+        manegeSpawn = manegeSp.GetComponent<ManegeSpawn>();
+        manegeSpawn.RegistrAlly(this);
+        Debug.Log("1---------------");
     }
     private List<IEnemy> GetEnemiesInRange()
     {
         List<IEnemy> enemiesInRange = new List<IEnemy>();
         foreach (IEnemy item in monsterPool.poolM.pool)
         {
-            Debug.Log(1);
             if (item.gameObject.activeInHierarchy)
             {
-                Debug.Log(transform.position);
                 if (Vector3.Distance(transform.position, item.transform.position) <= attackRange)
                 {
-                    Debug.Log(3);
                     enemiesInRange.Add(item);
-                    Debug.Log(Vector3.Distance(transform.position, item.transform.position));
                 }
             }
         }
@@ -73,7 +72,6 @@ public class wixard_move : IAlly
         if (targetEnemy == null)
         {
             Enemy nearestEnemy = (Enemy)GetNearestEnemy();
-            Debug.Log(nearestEnemy);
             if (nearestEnemy != null&& Vector3.Distance(transform.position, nearestEnemy.transform.position) <= attackRange)
             {
                 targetEnemy = nearestEnemy;

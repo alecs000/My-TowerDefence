@@ -1765,8 +1765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37dc89612688bb439d5bbfcc05072dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTime: 1
-  manegeSp: {fileID: 774736825271829089, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
+  waitTime: 0.8
   speedForward: 1
   attackRang: 1
   speed: 0.001

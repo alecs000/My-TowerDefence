@@ -22,6 +22,7 @@ public class Enemy : IEnemy
 
     private void Start()
     {
+        manegeSp = GameObject.FindWithTag("GameManager");
         anim = GetComponent<Animator>();
         manegeSpawn = manegeSp.GetComponent<ManegeSpawn>();
     }
@@ -31,7 +32,7 @@ public class Enemy : IEnemy
     }
     private void Update()
     {
-        Debug.Log(livesEnemy.lives);
+        //Debug.Log(livesEnemy.lives);
         Moving();
         if (targetAlly != null && !isAttack)
         {
@@ -43,7 +44,7 @@ public class Enemy : IEnemy
         {
             anim.SetBool("IsAttack", false);
             isAttack = false;
-            speedForward = 3;
+            speedForward = 3f;
         }
     }
     public IEnumerator WaidEnemyAtack()
@@ -55,6 +56,7 @@ public class Enemy : IEnemy
             {
                 targetAlly.livesAlly.RemoveLives(attack);
                 yield return new WaitForSeconds(waitTime);
+                Debug.Log(targetAlly);
             }
             else
             {
@@ -78,13 +80,12 @@ public class Enemy : IEnemy
         if (livesEnemy.lives<= 0)
         {
 
-            Debug.Log("die");
             this.gameObject.SetActive(false);
             CoinsMangement.AddCoins(5);
         }
     }
 
-        IAlly GetNearestWizard()
+        IAlly GetNearestAlly()
     {
         IAlly nearestAlly = null;
         float smolestDistanse = float.PositiveInfinity;
@@ -92,7 +93,7 @@ public class Enemy : IEnemy
         {
             foreach (IAlly item in manegeSpawn.AllyList)
             {
-                if (item != null &&item.gameObject.activeInHierarchy)
+                if (item != null)
                 {
                     if (Vector3.Distance(transform.position, item.transform.position) < smolestDistanse)
                     {
@@ -118,17 +119,17 @@ public class Enemy : IEnemy
         navigatorTime += Time.deltaTime * speed;
         if (targetAlly == null)
         {
-            IAlly nearestWizard = GetNearestWizard();
-            if (nearestWizard != null)
+            IAlly nearestAlly = GetNearestAlly();
+            if (nearestAlly != null)
             {
-                if (Vector3.Distance(transform.position, nearestWizard.transform.position) <= attackRang)
+                if (Vector3.Distance(transform.position, nearestAlly.transform.position) <= attackRang)
                 {
-                    targetAlly = nearestWizard;
+                    targetAlly = nearestAlly;
                 }
                 else
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, nearestWizard.transform.position, navigatorTime);
-                    transform.LookAt(nearestWizard.transform);
+                    transform.position = Vector3.MoveTowards(transform.position, nearestAlly.transform.position, navigatorTime);
+                    transform.LookAt(nearestAlly.transform);//]][][pl[]pjic knight
                 }
 
             }
