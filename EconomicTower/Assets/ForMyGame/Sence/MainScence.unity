@@ -1747,7 +1747,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 413554, guid: 50294217694c1a145a9a3b86f853c022, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.15
+      value: -1.56
       objectReference: {fileID: 0}
     - target: {fileID: 413554, guid: 50294217694c1a145a9a3b86f853c022, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4969,6 +4969,22 @@ PrefabInstance:
       propertyPath: textCoins
       value: 
       objectReference: {fileID: 1127623980}
+    - target: {fileID: 1640291213, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
+      propertyPath: poolCountShell
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640291213, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
+      propertyPath: poolCountSlime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640291213, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
+      propertyPath: enemyPrefabShell
+      value: 
+      objectReference: {fileID: -3570355290617883126, guid: 7fcbfa7bd5f32244aa4d3f76e134ec2d, type: 3}
+    - target: {fileID: 1640291213, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
+      propertyPath: enemyPrefabSlime
+      value: 
+      objectReference: {fileID: 1099066601145298959, guid: 1e9dc3baaef13c049b954ce96f6d56d4, type: 3}
     - target: {fileID: 774736825271829088, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
       propertyPath: m_RootOrder
       value: 1

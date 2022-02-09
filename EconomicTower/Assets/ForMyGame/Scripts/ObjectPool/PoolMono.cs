@@ -29,8 +29,8 @@ public class PoolMono<T> where T : MonoBehaviour
             this.CreateObject();
         }
     }
-    
-    T CreateObject(bool IsActiveByDefolt = false)
+
+    public T CreateObject(bool IsActiveByDefolt = false)
     {
         var createdObject = UnityEngine.Object.Instantiate(this.prefab, this.container);
         createdObject.gameObject.gameObject.SetActive(IsActiveByDefolt);

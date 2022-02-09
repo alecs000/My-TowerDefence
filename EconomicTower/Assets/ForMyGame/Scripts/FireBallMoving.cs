@@ -5,25 +5,22 @@ using UnityEngine;
 public class FireBallMoving : MonoBehaviour
 {
     [SerializeField] float speed;
-    [SerializeField] GameObject mage;
-    wixard_move wxMove;
     public GameObject enemy;
     // Start is called before the first frame update
     void Start()
     {
-        wxMove = mage.GetComponent<wixard_move>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (enemy!=null)
+        if (enemy.activeInHierarchy)
         {
             transform.Translate((enemy.transform.position - transform.position).normalized * Time.deltaTime * speed);
         }
-        else
+        if(!enemy.activeInHierarchy)
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
 }

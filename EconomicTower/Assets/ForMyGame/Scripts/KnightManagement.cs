@@ -10,9 +10,11 @@ public class KnightManagement : IAlly
     [SerializeField] float speedForward = 3;
     [SerializeField] float attackRang;
     [SerializeField] float speed;
+    [SerializeField] float speedL = 1;
     Animator anim;
+    //Для того чтобы speedLeft можно было приравнивать к нулю и при востановлении он не менял значения
+    float speedLeftBase;
     float speedLeft;
-    float zPosition = -1.3f;
     public IEnemy targetEnemy;
     bool isAttack = false;
     ManegeSpawn manegeSpawn;
@@ -22,6 +24,8 @@ public class KnightManagement : IAlly
     public override LivesManagement livesAlly { get; protected set; }
     void Start()
     {
+
+        speedLeftBase = Random.Range(-speedL, speedL);
         manegeSp = GameObject.FindWithTag("GameManager");
         //жизни
         livesAlly = new LivesManagement(100);
@@ -29,7 +33,7 @@ public class KnightManagement : IAlly
         monsterPool = manegeSp.GetComponent<MonsterPool>();
         manegeSpawn = manegeSp.GetComponent<ManegeSpawn>();
         //Скорость вверз вниз 
-        speedLeft = Random.Range(-0.3f, 0.3f);
+        speedLeft = speedLeftBase;
         anim = GetComponent<Animator>();
         manegeSpawn.RegistrAlly(this);
     }
@@ -44,8 +48,8 @@ public class KnightManagement : IAlly
         {
             anim.SetBool("IsAttack", false);
             isAttack = false;
-            speedForward = 3;
-            speedLeft = Random.Range(-0.3f, 0.3f);
+            speedForward = 1;
+            speedLeft = speedLeftBase;
         }
         if (targetEnemy != null && !isAttack)
         {
@@ -61,7 +65,7 @@ public class KnightManagement : IAlly
     {
         IEnemy nearestEnemy = null;
         float smolestDistanse = float.PositiveInfinity;
-        foreach (IEnemy item in monsterPool.poolM.pool)
+        foreach (IEnemy item in monsterPool.poolM)
         {
             if (item.gameObject.activeInHierarchy)
             {
@@ -84,11 +88,13 @@ public class KnightManagement : IAlly
         {
             if (targetEnemy.livesEnemy.lives > 0)
             {
+                Debug.Log(targetEnemy.livesEnemy.lives);
                 targetEnemy.livesEnemy.RemoveLives(25);
                 yield return new WaitForSeconds(waitTime);
             }
-            if (targetEnemy.livesEnemy.lives <= 0)
+            if (targetEnemy.livesEnemy.lives <= 0 && targetEnemy != null)
             {
+                monsterPool.poolM.Remove(targetEnemy);
                 targetEnemy.gameObject.SetActive(false);
                 targetEnemy = null;
             }
@@ -122,16 +128,17 @@ public class KnightManagement : IAlly
         navigatorTime += Time.deltaTime * speed;
         if (targetEnemy == null)
         {
-            IEnemy nearestKnight = GetNearestEnemy();
-            if (nearestKnight != null)
+            IEnemy nearestEnemy = GetNearestEnemy();
+            if (nearestEnemy != null)
             {
-                if (Vector3.Distance(transform.position, nearestKnight.transform.position) <= attackRang)
+                if (Vector3.Distance(transform.position, nearestEnemy.transform.position) <= attackRang)
                 {
-                    targetEnemy = nearestKnight;
+                    targetEnemy = nearestEnemy;
                 }
                 else
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, nearestKnight.transform.position, navigatorTime);
+                    transform.position = Vector3.MoveTowards(transform.position, nearestEnemy.transform.position, navigatorTime);
+                    transform.LookAt(nearestEnemy.transform);
                 }
 
             }

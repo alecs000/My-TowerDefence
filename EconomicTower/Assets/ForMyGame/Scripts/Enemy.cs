@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class Enemy : IEnemy
 {
-    [SerializeField] GameObject manegeSp;
+    GameObject manegeSp;
     
     ManegeSpawn manegeSpawn;
     public override LivesManagement livesEnemy { get; protected set; }
     [SerializeField] IAlly targetAlly;
-    [SerializeField] float speedRotate;
     bool isAttack;
     [SerializeField] float speedForward;
     Animator anim;
@@ -19,16 +18,32 @@ public class Enemy : IEnemy
     float navigatorTime;
     [SerializeField] float speed;
     [SerializeField] short attack = 5;
+    //Для того чтобы speedLeft можно было приравнивать к нулю и при востановлении он не менял значения
+    float speedLeftBase;
+    float speedLeft;
+    [SerializeField] float speedL = 1;
+    MonsterPool monsterPool;
+    //в пуле enemy сперва активен а на не надо чтобы он при появлении в пуле регестрировался в основном списке
+    bool TrF; 
 
-    private void Start()
+    private void Awake()
     {
         manegeSp = GameObject.FindWithTag("GameManager");
         anim = GetComponent<Animator>();
         manegeSpawn = manegeSp.GetComponent<ManegeSpawn>();
+        monsterPool = manegeSp.GetComponent<MonsterPool>();
     }
     private void OnEnable()
     {
+        if (this.gameObject.activeInHierarchy)
+        {
+            monsterPool.poolM.Add(this);
+        }
+        TrF = true;
+        speedLeftBase = Random.Range(-speedL, speedL);
+        speedLeft = speedLeftBase;
         livesEnemy = new LivesManagement(100);
+        speedForward = 1f;
     }
     private void Update()
     {
@@ -44,7 +59,8 @@ public class Enemy : IEnemy
         {
             anim.SetBool("IsAttack", false);
             isAttack = false;
-            speedForward = 3f;
+            speedForward = 1f;
+            speedLeft = speedLeftBase;
         }
     }
     public IEnumerator WaidEnemyAtack()
@@ -79,7 +95,8 @@ public class Enemy : IEnemy
         }
         if (livesEnemy.lives<= 0)
         {
-
+            targetAlly = null;
+            monsterPool.poolM.Remove(this);
             this.gameObject.SetActive(false);
             CoinsMangement.AddCoins(5);
         }
@@ -116,6 +133,15 @@ public class Enemy : IEnemy
     {
         //Движение монстра
         transform.Translate(Vector3.forward * speedForward * Time.deltaTime);
+        //Маги идут не по прямой а чучуть сворачивают 
+        if (transform.position.z < -1 && transform.position.z > -2)
+        {
+            transform.Rotate(Vector3.up, speedLeft * Time.deltaTime);
+        }
+        else
+        {
+            transform.Rotate(Vector3.down, speedLeft * Time.deltaTime);
+        }
         navigatorTime += Time.deltaTime * speed;
         if (targetAlly == null)
         {
@@ -129,7 +155,7 @@ public class Enemy : IEnemy
                 else
                 {
                     transform.position = Vector3.MoveTowards(transform.position, nearestAlly.transform.position, navigatorTime);
-                    transform.LookAt(nearestAlly.transform);//]][][pl[]pjic knight
+                    transform.LookAt(nearestAlly.transform);
                 }
 
             }

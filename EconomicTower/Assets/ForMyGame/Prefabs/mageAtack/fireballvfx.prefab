@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3296936836842269006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.1820667, y: 7e-45, z: -1.305767}
+  m_LocalPosition: {x: -4.364229, y: 0.004220552, z: -1.2507175}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 5402943289435838528}
@@ -47,7 +47,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  mage: {fileID: 1073083356194043970, guid: 1e19f210983340646a41f98c6dd2c32f, type: 3}
   enemy: {fileID: 0}
 --- !u!135 &-6466171986078280667
 SphereCollider:

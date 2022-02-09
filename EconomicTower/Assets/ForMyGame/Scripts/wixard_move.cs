@@ -6,34 +6,36 @@ public class wixard_move : IAlly
 {
     Animator anim;
     [SerializeField] float speedForward = 1;
+    //Для того чтобы speedLeft можно было приравнивать к нулю и при востановлении он не менял значения
+    float speedLeftBase;
     float speedLeft;
     [SerializeField] float speedL =1;
     [SerializeField] float waitTime = 5f;
     [SerializeField] float attackRange;
     [SerializeField] GameObject fireBall;
-    float zPosition = -1.3f;
     public Enemy targetEnemy;
     bool isAttack = false;
     GameObject manegeSp;
     MonsterPool monsterPool;
     public PoolMono<IEnemy> poolMonster;
     ManegeSpawn manegeSpawn;
+
     public override LivesManagement livesAlly { get; protected set; }
     void Start()
     {
         livesAlly = new LivesManagement(50);
         manegeSp = GameObject.FindWithTag("GameManager");
-        speedLeft = Random.Range(-speedL, speedL);
+        speedLeftBase = Random.Range(-speedL, speedL);
+        speedLeft = speedLeftBase;
         anim = GetComponent<Animator>();
         monsterPool = manegeSp.GetComponent<MonsterPool>();
         manegeSpawn = manegeSp.GetComponent<ManegeSpawn>();
         manegeSpawn.RegistrAlly(this);
-        Debug.Log("1---------------");
     }
     private List<IEnemy> GetEnemiesInRange()
     {
         List<IEnemy> enemiesInRange = new List<IEnemy>();
-        foreach (IEnemy item in monsterPool.poolM.pool)
+        foreach (IEnemy item in monsterPool.poolM)
         {
             if (item.gameObject.activeInHierarchy)
             {
@@ -43,7 +45,6 @@ public class wixard_move : IAlly
                 }
             }
         }
-
         return enemiesInRange;
     }
     public IEnemy GetNearestEnemy()
@@ -59,7 +60,6 @@ public class wixard_move : IAlly
                 nearestEnemy = item;
             }
         }
-
         return nearestEnemy;
     }
     void Update()
@@ -89,7 +89,7 @@ public class wixard_move : IAlly
             //чтобы маг шел снова после убийства врага
             anim.SetBool("IsAttack", false);
             isAttack = false;
-            speedLeft = Random.Range(-speedL, speedL);
+            speedLeft = speedLeftBase;
             speedForward = 1;
         }
     }
