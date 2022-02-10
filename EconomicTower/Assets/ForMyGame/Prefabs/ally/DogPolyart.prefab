@@ -1768,7 +1768,8 @@ MonoBehaviour:
   waitTime: 0.8
   speedForward: 1
   attackRang: 1
-  speed: 0.001
+  speed: 0.00001
+  speedL: 1
   targetEnemy: {fileID: 0}
 --- !u!1 &3257681998665283514
 GameObject:

@@ -8,7 +8,7 @@ public class Enemy : IEnemy
     
     ManegeSpawn manegeSpawn;
     public override LivesManagement livesEnemy { get; protected set; }
-    [SerializeField] IAlly targetAlly;
+    public IAlly targetAlly;
     bool isAttack;
     [SerializeField] float speedForward;
     Animator anim;
@@ -23,7 +23,7 @@ public class Enemy : IEnemy
     float speedLeft;
     [SerializeField] float speedL = 1;
     MonsterPool monsterPool;
-    //в пуле enemy сперва активен а на не надо чтобы он при появлении в пуле регестрировался в основном списке
+    //в пуле enemy сперва активен а на не надо чтобы он при появлении в пуле регестрировался в основном списке мб не нужен
     bool TrF; 
 
     private void Awake()
@@ -44,9 +44,13 @@ public class Enemy : IEnemy
         speedLeft = speedLeftBase;
         livesEnemy = new LivesManagement(100);
         speedForward = 1f;
+        targetAlly = null;
+
     }
     private void Update()
     {
+
+            
         //Debug.Log(livesEnemy.lives);
         Moving();
         if (targetAlly != null && !isAttack)
@@ -70,9 +74,9 @@ public class Enemy : IEnemy
         {
             if (targetAlly.livesAlly.lives>0)
             {
+                Debug.Log("Вражина"+targetAlly.livesAlly.lives);
                 targetAlly.livesAlly.RemoveLives(attack);
                 yield return new WaitForSeconds(waitTime);
-                Debug.Log(targetAlly);
             }
             else
             {
@@ -90,8 +94,6 @@ public class Enemy : IEnemy
         {
             Destroy(other.gameObject);
             livesEnemy.RemoveLives(15);
-            Debug.Log(livesEnemy.lives);
-            
         }
         if (livesEnemy.lives<= 0)
         {
@@ -133,7 +135,7 @@ public class Enemy : IEnemy
     {
         //Движение монстра
         transform.Translate(Vector3.forward * speedForward * Time.deltaTime);
-        //Маги идут не по прямой а чучуть сворачивают 
+        //Враги идут не по прямой а чучуть сворачивают мб ненужно
         if (transform.position.z < -1 && transform.position.z > -2)
         {
             transform.Rotate(Vector3.up, speedLeft * Time.deltaTime);

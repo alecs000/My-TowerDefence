@@ -53,7 +53,6 @@ public class wixard_move : IAlly
         float smolestDistanse = float.PositiveInfinity;
         foreach (IEnemy item in GetEnemiesInRange())
         {
-            Debug.Log(4);
             if (Vector3.Distance(transform.position, item.transform.position) < smolestDistanse)
             {
                 smolestDistanse = Vector3.Distance(transform.position, item.transform.position);

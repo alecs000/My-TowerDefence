@@ -26,13 +26,21 @@ public class MonsterPool : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            this.CreateEnemy();
+            this.CreateShell();
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            this.CreatSlime();
         }
     }
-    void CreateEnemy()
+    void CreateShell()
     {
        IEnemy shell = poolMShell.GetFreeElement();
         shell.transform.position = new Vector3(-15, 0, -1.2f);
-
+    }
+    void CreatSlime()
+    {
+        IEnemy slime = poolMSlime.GetFreeElement();
+        slime.transform.position = new Vector3(-15, 0, -1.2f);
     }
 }

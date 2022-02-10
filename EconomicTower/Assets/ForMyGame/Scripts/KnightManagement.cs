@@ -88,12 +88,12 @@ public class KnightManagement : IAlly
         {
             if (targetEnemy.livesEnemy.lives > 0)
             {
-                Debug.Log(targetEnemy.livesEnemy.lives);
-                targetEnemy.livesEnemy.RemoveLives(25);
+                targetEnemy.livesEnemy.RemoveLives(5);
                 yield return new WaitForSeconds(waitTime);
             }
-            if (targetEnemy.livesEnemy.lives <= 0 && targetEnemy != null)
+            if (targetEnemy != null&&targetEnemy.livesEnemy.lives <= 0)
             {
+                
                 monsterPool.poolM.Remove(targetEnemy);
                 targetEnemy.gameObject.SetActive(false);
                 targetEnemy = null;
@@ -125,7 +125,7 @@ public class KnightManagement : IAlly
         {
             transform.Rotate(Vector3.down, speedLeft * Time.deltaTime);
         }
-        navigatorTime += Time.deltaTime * speed;
+       
         if (targetEnemy == null)
         {
             IEnemy nearestEnemy = GetNearestEnemy();
@@ -137,6 +137,7 @@ public class KnightManagement : IAlly
                 }
                 else
                 {
+                    navigatorTime += Time.deltaTime* speed;
                     transform.position = Vector3.MoveTowards(transform.position, nearestEnemy.transform.position, navigatorTime);
                     transform.LookAt(nearestEnemy.transform);
                 }
