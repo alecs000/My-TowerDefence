@@ -23,15 +23,14 @@ public class Enemy : IEnemy
     float speedLeft;
     [SerializeField] float speedL = 1;
     MonsterPool monsterPool;
-    //в пуле enemy сперва активен а на не надо чтобы он при появлении в пуле регестрировался в основном списке мб не нужен
-    bool TrF; 
-
+    GameObject target;
     private void Awake()
     {
         manegeSp = GameObject.FindWithTag("GameManager");
         anim = GetComponent<Animator>();
         manegeSpawn = manegeSp.GetComponent<ManegeSpawn>();
         monsterPool = manegeSp.GetComponent<MonsterPool>();
+        target = GameObject.FindWithTag("Finish");
     }
     private void OnEnable()
     {
@@ -39,7 +38,6 @@ public class Enemy : IEnemy
         {
             monsterPool.poolM.Add(this);
         }
-        TrF = true;
         speedLeftBase = Random.Range(-speedL, speedL);
         speedLeft = speedLeftBase;
         livesEnemy = new LivesManagement(100);
@@ -49,8 +47,7 @@ public class Enemy : IEnemy
     }
     private void Update()
     {
-
-            
+        
         //Debug.Log(livesEnemy.lives);
         Moving();
         if (targetAlly != null && !isAttack)
@@ -148,6 +145,7 @@ public class Enemy : IEnemy
         if (targetAlly == null)
         {
             IAlly nearestAlly = GetNearestAlly();
+
             if (nearestAlly != null)
             {
                 if (Vector3.Distance(transform.position, nearestAlly.transform.position) <= attackRang)
@@ -161,7 +159,10 @@ public class Enemy : IEnemy
                 }
 
             }
-
+            if (nearestAlly == null)
+            {
+                transform.LookAt(target.transform);
+            }
         }
     }
 }

@@ -39,6 +39,10 @@ public class KnightManagement : IAlly
     }
     void Update()
     {
+        if (transform.position.z < -3 && transform.position.z > 0)
+        {
+            transform.rotation= Quaternion.Euler(0, -90, 0);
+        }
         if (targetEnemy != null && !targetEnemy.gameObject.activeInHierarchy)
         {
             targetEnemy = null;
