@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class wixard_move : IAlly
 {
+    [SerializeField] short lives = 50;
     Animator anim;
     [SerializeField] float speedForward = 1;
     //Для того чтобы speedLeft можно было приравнивать к нулю и при востановлении он не менял значения
@@ -23,7 +24,7 @@ public class wixard_move : IAlly
     public override LivesManagement livesAlly { get; protected set; }
     void Start()
     {
-        livesAlly = new LivesManagement(50);
+        livesAlly = new LivesManagement(lives);
         manegeSp = GameObject.FindWithTag("GameManager");
         speedLeftBase = Random.Range(-speedL, speedL);
         speedLeft = speedLeftBase;

@@ -498,10 +498,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8d74631313105549ad961a9de993f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetAlly: {fileID: 0}
+  speed: 0.0001
+  coins: 17
+  lives: 50
+  attack: 17
   speedForward: 1
+  speedL: 1
   waitTime: 1
   attackRang: 1
-  speed: 0.0001
-  attack: 10
-  speedL: 1
+  targetAlly: {fileID: 0}

@@ -613,9 +613,9 @@ GameObject:
   m_Component:
   - component: {fileID: 266311515247857100}
   - component: {fileID: 211698632262165394}
-  - component: {fileID: 3591264524388119025}
   - component: {fileID: 265732819}
   - component: {fileID: -3570355290617883126}
+  - component: {fileID: 2002014132574468830}
   m_Layer: 0
   m_Name: TurtleShell 1
   m_TagString: enemy
@@ -658,19 +658,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!65 &3591264524388119025
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 262896936151295990}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.8, z: 1}
-  m_Center: {x: 0, y: 0.4, z: 0}
 --- !u!54 &265732819
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -699,13 +686,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8d74631313105549ad961a9de993f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetAlly: {fileID: 0}
+  speed: 0.00001
+  coins: 10
+  lives: 100
+  attack: 7
   speedForward: 1
+  speedL: 1
   waitTime: 1
   attackRang: 1
-  speed: 0.00001
-  attack: 5
-  speedL: 1
+  targetAlly: {fileID: 0}
+--- !u!65 &2002014132574468830
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262896936151295990}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.8, z: 1}
+  m_Center: {x: 0, y: 0.4, z: 0}
 --- !u!1 &262918361062243342
 GameObject:
   m_ObjectHideFlags: 0

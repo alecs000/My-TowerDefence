@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class KnightManagement : IAlly
 {
-
+    [SerializeField] short lives = 100;
+    [SerializeField] short attack = 10;
     [SerializeField] float waitTime = 5f;
     GameObject manegeSp;
     [SerializeField] float speedForward = 3;
@@ -28,7 +29,7 @@ public class KnightManagement : IAlly
         speedLeftBase = Random.Range(-speedL, speedL);
         manegeSp = GameObject.FindWithTag("GameManager");
         //жизни
-        livesAlly = new LivesManagement(100);
+        livesAlly = new LivesManagement(lives);
         //Компонент MonsterPool
         monsterPool = manegeSp.GetComponent<MonsterPool>();
         manegeSpawn = manegeSp.GetComponent<ManegeSpawn>();
@@ -92,7 +93,7 @@ public class KnightManagement : IAlly
         {
             if (targetEnemy.livesEnemy.lives > 0)
             {
-                targetEnemy.livesEnemy.RemoveLives(5);
+                targetEnemy.livesEnemy.RemoveLives(attack);
                 yield return new WaitForSeconds(waitTime);
             }
             if (targetEnemy != null&&targetEnemy.livesEnemy.lives <= 0)

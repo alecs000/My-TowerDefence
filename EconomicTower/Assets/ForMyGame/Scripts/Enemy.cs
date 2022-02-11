@@ -4,24 +4,26 @@ using UnityEngine;
 
 public class Enemy : IEnemy
 {
+    [SerializeField] float speed;
+    [SerializeField] short coins;
+    [SerializeField] short lives;
+    [SerializeField] short attack = 5;
+    [SerializeField] short Mageattack = 15;
+    [SerializeField] float speedForward;
+    [SerializeField] float speedL = 1;
+    [SerializeField] float waitTime;
+    //„тобы оставить место дл€ анимации
+    [SerializeField] float attackRang;
     GameObject manegeSp;
-    
     ManegeSpawn manegeSpawn;
     public override LivesManagement livesEnemy { get; protected set; }
     public IAlly targetAlly;
     bool isAttack;
-    [SerializeField] float speedForward;
     Animator anim;
-    [SerializeField] float waitTime;
-    //„тобы оставить место дл€ анимации
-    [SerializeField] float attackRang;
     float navigatorTime;
-    [SerializeField] float speed;
-    [SerializeField] short attack = 5;
     //ƒл€ того чтобы speedLeft можно было приравнивать к нулю и при востановлении он не мен€л значени€
     float speedLeftBase;
     float speedLeft;
-    [SerializeField] float speedL = 1;
     MonsterPool monsterPool;
     GameObject target;
     private void Awake()
@@ -40,7 +42,7 @@ public class Enemy : IEnemy
         }
         speedLeftBase = Random.Range(-speedL, speedL);
         speedLeft = speedLeftBase;
-        livesEnemy = new LivesManagement(100);
+        livesEnemy = new LivesManagement(lives);
         speedForward = 1f;
         targetAlly = null;
 
@@ -90,14 +92,14 @@ public class Enemy : IEnemy
         if (other.CompareTag("FireBall"))
         {
             Destroy(other.gameObject);
-            livesEnemy.RemoveLives(15);
+            livesEnemy.RemoveLives(Mageattack);
         }
         if (livesEnemy.lives<= 0)
         {
             targetAlly = null;
             monsterPool.poolM.Remove(this);
             this.gameObject.SetActive(false);
-            CoinsMangement.AddCoins(5);
+            CoinsMangement.AddCoins(coins);
         }
     }
 
