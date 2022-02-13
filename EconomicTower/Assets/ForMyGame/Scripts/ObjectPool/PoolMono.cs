@@ -33,7 +33,7 @@ public class PoolMono<T> where T : MonoBehaviour
     public T CreateObject(bool IsActiveByDefolt = false)
     {
         var createdObject = UnityEngine.Object.Instantiate(this.prefab, this.container);
-        createdObject.gameObject.gameObject.SetActive(IsActiveByDefolt);
+        createdObject.gameObject.SetActive(IsActiveByDefolt);
         this.pool.Add(createdObject);
         return createdObject;
     }

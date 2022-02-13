@@ -26,6 +26,7 @@ public class Enemy : IEnemy
     float speedLeft;
     MonsterPool monsterPool;
     GameObject target;
+    bool animStop;
     private void Awake()
     {
         manegeSp = GameObject.FindWithTag("GameManager");
@@ -45,46 +46,60 @@ public class Enemy : IEnemy
         livesEnemy = new LivesManagement(lives);
         speedForward = 1f;
         targetAlly = null;
-
     }
     private void Update()
     {
         
-        //Debug.Log(livesEnemy.lives);
-        Moving();
-        if (targetAlly != null && !isAttack)
+        if (!manegeSpawn.isFreeze)
         {
-            //Атака врага. Вызов корутины остановки врага на время атаки
-            isAttack = true;
-            StartCoroutine(WaidEnemyAtack());
+            if (animStop)
+            {
+                anim.SetBool("StopAll", false);
+                animStop = false;
+            }
+            //Debug.Log(livesEnemy.lives);
+            Moving();
+            if (targetAlly != null && !isAttack)
+            {
+                //Атака врага. Вызов корутины остановки врага на время атаки
+                isAttack = true;
+                StartCoroutine(WaidEnemyAtack());
+            }
+            if (targetAlly == null && isAttack)
+            {
+                anim.SetBool("IsAttack", false);
+                isAttack = false;
+                speedForward = 1f;
+                speedLeft = speedLeftBase;
+            }
         }
-        if (targetAlly == null && isAttack)
+        else
         {
-            anim.SetBool("IsAttack", false);
-            isAttack = false;
-            speedForward = 1f;
-            speedLeft = speedLeftBase;
+            anim.SetBool("StopAll", true);
+            animStop = true;
         }
     }
     public IEnumerator WaidEnemyAtack()
     {
-        Attack();
-        while (targetAlly != null)
+        if (!manegeSpawn.isFreeze)
         {
-            if (targetAlly.livesAlly.lives>0)
+            Attack();
+            while (targetAlly != null)
             {
-                Debug.Log("Вражина"+targetAlly.livesAlly.lives);
-                targetAlly.livesAlly.RemoveLives(attack);
-                yield return new WaitForSeconds(waitTime);
-            }
-            else
-            {
-                Destroy(targetAlly.gameObject);
-                manegeSpawn.RemoveAlly(targetAlly);
-                targetAlly = null;
+                if (targetAlly.livesAlly.lives > 0)
+                {
+                    Debug.Log("Вражина" + targetAlly.livesAlly.lives);
+                    targetAlly.livesAlly.RemoveLives(attack);
+                    yield return new WaitForSeconds(waitTime);
+                }
+                else
+                {
+                    Destroy(targetAlly.gameObject);
+                    manegeSpawn.RemoveAlly(targetAlly);
+                    targetAlly = null;
+                }
             }
         }
-
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -94,7 +109,11 @@ public class Enemy : IEnemy
             Destroy(other.gameObject);
             livesEnemy.RemoveLives(Mageattack);
         }
-        if (livesEnemy.lives<= 0)
+        if (other.CompareTag("Boomb"))
+        {
+            livesEnemy.RemoveLives(200);
+        }
+            if (livesEnemy.lives<= 0)
         {
             targetAlly = null;
             monsterPool.poolM.Remove(this);

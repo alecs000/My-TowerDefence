@@ -14,8 +14,12 @@ public class MonsterPool : MonoBehaviour
     [SerializeField] IEnemy enemyPrefabSlime;
     public PoolMono<IEnemy> poolMSlime;
     Vector3 spawnPosition;
-    private void Start()
+    ManegeSpawn manegeSpawn;
+    [SerializeField] GameObject boss;
+
+    private void Awake()
     {
+        manegeSpawn= GetComponent<ManegeSpawn>();
         poolM = new List<IEnemy>();
         poolMShell = new PoolMono<IEnemy>(enemyPrefabShell, poolCountShell, this.transform);
         poolMShell.autoExpand = autoExpandShell;
@@ -31,31 +35,43 @@ public class MonsterPool : MonoBehaviour
     }
     public IEnumerator SpawnMonster()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 1; i++)
         {
             for (int j = 0; j < 2; j++)
             {
-                this.CreateShell();
-                yield return new WaitForSeconds(0.5f);
+                if (!manegeSpawn.isFreeze)
+                {
+                    this.CreateShell();
+                }
+                yield return new WaitForSeconds(1f);
             }
             yield return new WaitForSeconds(1f);
-            for (int j = 0; j < 3; j++)
+            for (int j = 0; j < 1; j++)
             {
-                this.CreatSlime();
-                yield return new WaitForSeconds(0.5f);
+                if (manegeSpawn.isFreeze)
+                {
+                    yield return new WaitForSeconds(3f);
+                }
+                if (!manegeSpawn.isFreeze)
+                {
+                    this.CreatSlime();
+                }
+                yield return new WaitForSeconds(1.5f);
             }
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(7f);
         }
-       
+        Instantiate(boss, new Vector3(-15, 0, Random.Range(-3.0f, 0f)), boss.transform.rotation);
+
+
     }
     void CreateShell()
     {
        IEnemy shell = poolMShell.GetFreeElement();
-       shell.transform.position = new Vector3(-15, 0, Random.Range(-3.0f, 0f)); ;
+       shell.transform.position = new Vector3(-15, 0, Random.Range(-3.0f, 0f));
     }
     void CreatSlime()
     {
         IEnemy slime = poolMSlime.GetFreeElement();
-        slime.transform.position = new Vector3(-15, 0, Random.Range(-3.0f, 0f)); ;
+        slime.transform.position = new Vector3(-15, 0, Random.Range(-3.0f, 0f));
     }
 }

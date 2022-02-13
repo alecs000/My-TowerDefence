@@ -20,6 +20,7 @@ public class wixard_move : IAlly
     MonsterPool monsterPool;
     public PoolMono<IEnemy> poolMonster;
     ManegeSpawn manegeSpawn;
+    
 
     public override LivesManagement livesAlly { get; protected set; }
     void Start()
@@ -114,7 +115,7 @@ public class wixard_move : IAlly
         speedLeft = 0;
             speedForward = 0;
         yield return new WaitForSeconds(0.6f);
-        while (targetEnemy != null)
+        while (targetEnemy != null&&isAttack)
         {
             Attack();
                 yield return new WaitForSeconds(waitTime);

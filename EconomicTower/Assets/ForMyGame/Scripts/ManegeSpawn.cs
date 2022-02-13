@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ManegeSpawn : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class ManegeSpawn : MonoBehaviour
     [SerializeField] GameObject knight;
     Vector3 spawnPositionAlly;  
     public List<IAlly> AllyList = new List<IAlly>();
+    public bool isFreeze;
+    public Image bar;
+    public Image Mainbar;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +20,7 @@ public class ManegeSpawn : MonoBehaviour
     }
     public void SpawnMage()
     {
-        if (CoinsMangement.RemoveCoins(20))
+        if (CoinsMangement.RemoveCoins(30))
         {
             Instantiate(mage, spawnPositionAlly, mage.transform.rotation);
 
@@ -24,7 +28,7 @@ public class ManegeSpawn : MonoBehaviour
     }
     public void SpawnKnight()
     {
-        if (CoinsMangement.RemoveCoins(30))
+        if (CoinsMangement.RemoveCoins(20))
         {
             Instantiate(knight, spawnPositionAlly, knight.transform.rotation);
         }
@@ -38,6 +42,20 @@ public class ManegeSpawn : MonoBehaviour
     public void RemoveAlly(IAlly ally)
     {
         AllyList.Remove(ally);
+    }
+    public void Freeze()
+    {
+
+        if (CoinsMangement.RemoveCoins(2))
+        {
+            isFreeze = true;
+            StartCoroutine(FreezeAll());
+        }
+    }
+    IEnumerator FreezeAll()
+    {
+        yield return new WaitForSeconds(3);
+        isFreeze = false;
     }
 
 }

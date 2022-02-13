@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LivesManagement 
 {
-    public short lives { get; private set; }
+    public int lives { get; private set; }
     // Start is called before the first frame update
     public LivesManagement(short l)
     {
