@@ -21,4 +21,8 @@ public class BoosHPEnter : MonoBehaviour
     {
         bar.fillAmount = (float)livesEnemy.lives / 150f;   
     }
+    private void OnDisable()
+    {
+        bar.fillAmount = 0;
+    }
 }

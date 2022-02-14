@@ -6,12 +6,12 @@ public class CameraMoving : MonoBehaviour
 {
     private Vector3 startPosition;
     public Camera cam;
-    SkilsManagemant skils;
+    ManegeSpawn skils;
 
     private void Start()
     {
         cam = GetComponent<Camera>();
-        skils = GameObject.FindWithTag("GameManager").GetComponent<SkilsManagemant>();
+        skils = GameObject.FindWithTag("GameManager").GetComponent<ManegeSpawn>();
     }
 
     private void Update()
