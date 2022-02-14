@@ -18,19 +18,33 @@ public class ManegeSpawn : MonoBehaviour
     {
         spawnPositionAlly = new Vector3(7, 0, -1.3f);
     }
-    public void SpawnMage()
+    public void SpawnMage(GameObject red)
     {
         if (CoinsMangement.RemoveCoins(30))
         {
             Instantiate(mage, spawnPositionAlly, mage.transform.rotation);
-
+        }
+        else
+        {
+            red.SetActive(true);
+            StartCoroutine(BannerRed(red));
         }
     }
-    public void SpawnKnight()
+    IEnumerator BannerRed(GameObject red)
+    {
+        yield return new WaitForSeconds(0.2f);
+        red.SetActive(false);
+    }
+    public void SpawnKnight(GameObject red)
     {
         if (CoinsMangement.RemoveCoins(20))
         {
             Instantiate(knight, spawnPositionAlly, knight.transform.rotation);
+        }
+        else
+        {
+            red.SetActive(true);
+            StartCoroutine(BannerRed(red));
         }
     }
 
@@ -44,13 +58,18 @@ public class ManegeSpawn : MonoBehaviour
         AllyList.Remove(ally);
     }
     #region [Freeze]
-    public void Freeze()
+    public void Freeze(GameObject red)
     {
 
-        if (CoinsMangement.RemoveCoins(2))
+        if (CoinsMangement.RemoveCoins(12))
         {
             isFreeze = true;
             StartCoroutine(FreezeAll());
+        }
+        else
+        {
+            red.SetActive(true);
+            StartCoroutine(BannerRed(red));
         }
     }
     IEnumerator FreezeAll()
@@ -68,18 +87,25 @@ public class ManegeSpawn : MonoBehaviour
     ParticleSystem boomDes;
     bool isParticlActiv;
     public bool IsDrag;
-    public void Down()
+    bool IsBomb;
+    public void Down(GameObject red)
     {
         IsDrag = true;
-        if (!isParticlActiv)
+        if (!isParticlActiv&& CoinsMangement.RemoveCoins(50))
         {
+            IsBomb = true;
             gm = Object.Instantiate(prefab, but.transform);
+        }
+        else
+        {
+            red.SetActive(true);
+            StartCoroutine(BannerRed(red));
         }
     }
     public void Up(GameObject grey)
     {
         IsDrag = false;
-        if (!isParticlActiv && gm != null)
+        if (!isParticlActiv && gm != null&& IsBomb)
         {
             Vector3 mouse = Input.mousePosition;
             Ray castPoint = Camera.main.ScreenPointToRay(mouse);
@@ -93,6 +119,7 @@ public class ManegeSpawn : MonoBehaviour
                 boomDes.transform.position = new Vector3(hit.point.x, hit.point.y + 0.1f, hit.point.z);
             }
             Debug.Log(gm);
+            IsBomb = false;
             Destroy(gm);
         }
     }
@@ -108,7 +135,7 @@ public class ManegeSpawn : MonoBehaviour
     public void Drag()
     {
         IsDrag = true;
-        if (!isParticlActiv && gm != null)
+        if (!isParticlActiv && gm != null&& IsBomb)
         {
             gm.transform.position = Input.mousePosition;
         }
