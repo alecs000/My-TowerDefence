@@ -35,7 +35,7 @@ public class MonsterPool : MonoBehaviour
     }
     public IEnumerator SpawnMonster()
     {
-        for (int i = 0; i < 1; i++)
+        for (int i = 0; i < 3; i++)
         {
             for (int j = 0; j < 2; j++)
             {
@@ -46,7 +46,7 @@ public class MonsterPool : MonoBehaviour
                 yield return new WaitForSeconds(1f);
             }
             yield return new WaitForSeconds(1f);
-            for (int j = 0; j < 1; j++)
+            for (int j = 0; j < 3; j++)
             {
                 if (manegeSpawn.isFreeze)
                 {

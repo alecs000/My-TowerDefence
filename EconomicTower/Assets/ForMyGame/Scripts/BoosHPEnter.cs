@@ -19,7 +19,7 @@ public class BoosHPEnter : MonoBehaviour
     }
     private void Update()
     {
-        bar.fillAmount = (float)livesEnemy.lives / 150f;   
+        bar.fillAmount = (float)livesEnemy.lives / 300f;   
     }
     private void OnDisable()
     {

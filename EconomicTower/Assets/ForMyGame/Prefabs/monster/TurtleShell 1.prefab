@@ -687,9 +687,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.00001
-  coins: 10
-  lives: 100
-  attack: 7
+  coins: 20
+  lives: 70
+  attack: 14
+  Mageattack: 15
   speedForward: 1
   speedL: 1
   waitTime: 1

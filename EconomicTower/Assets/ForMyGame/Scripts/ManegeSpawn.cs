@@ -91,7 +91,7 @@ public class ManegeSpawn : MonoBehaviour
     public void Down(GameObject red)
     {
         IsDrag = true;
-        if (!isParticlActiv&& CoinsMangement.RemoveCoins(50))
+        if (!isParticlActiv&& CoinsMangement.RemoveCoins(40))
         {
             IsBomb = true;
             gm = Object.Instantiate(prefab, but.transform);
