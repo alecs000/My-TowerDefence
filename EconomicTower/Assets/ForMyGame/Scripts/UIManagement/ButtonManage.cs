@@ -11,20 +11,24 @@ public class ButtonManage : MonoBehaviour
     bool isActivSkills;
     [SerializeField] Button butTower;
     [SerializeField] Button butSkils;
-    [SerializeField] private Vector2 butPosDownTower = new Vector2(-354,-223);
-    [SerializeField] private Vector2 butPosUpTower = new Vector2(-354,-95.9f);
-    [SerializeField] private Vector2 butPosDownbutSkils = new Vector2(-258, -223);
-    [SerializeField] private Vector2 butPosUpbutSkils = new Vector2(-258, -95.9f);
+    [SerializeField] private Vector2 butPosDownTower;
+    [SerializeField] private Vector2 butPosUpTower;
+    [SerializeField] private Vector2 butPosDownbutSkils;
+    [SerializeField] private Vector2 butPosUpbutSkils;
     RectTransform rTransTower;
     RectTransform rTransSkils;
     private void Start()
     {
         rTransTower = butTower.GetComponent<RectTransform>();
         rTransSkils = butSkils.GetComponent<RectTransform>();
+        butPosDownTower = rTransTower.anchoredPosition;
+        butPosDownbutSkils = rTransSkils.anchoredPosition;
+        butPosUpTower = new Vector2(rTransTower.rect.x+ rTransTower.rect.width/2 , rTransTower.rect.y + towerPanel.rectTransform.rect.height+ rTransTower.rect.height/2);
+        butPosUpbutSkils = new Vector2(rTransSkils.rect.x + rTransTower.rect.width / 2, rTransSkils.rect.y + skillsPanel.rectTransform.rect.height + rTransSkils.rect.height / 2);
     }
     public void ActivDezactivTowerMenue()
     {
-            if (isActivTower)
+        if (isActivTower)
         {
             towerPanel.gameObject.SetActive(false);
             DoDownPosition();
