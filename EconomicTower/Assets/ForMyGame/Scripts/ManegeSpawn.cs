@@ -12,6 +12,7 @@ public class ManegeSpawn : MonoBehaviour
     public bool isFreeze;
     public Image bar;
     public Image Mainbar;
+    public bool IsDrag;
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +48,6 @@ public class ManegeSpawn : MonoBehaviour
             StartCoroutine(BannerRed(red));
         }
     }
-
     public void RegistrAlly(IAlly ally)
     {
         AllyList.Add(ally);
@@ -86,7 +86,12 @@ public class ManegeSpawn : MonoBehaviour
     [SerializeField] ParticleSystem boom;
     ParticleSystem boomDes;
     bool isParticlActiv;
-    public bool IsDrag;
+    //œŒ ÕŒœ » Õ¿—“–Œ… »
+    public void NotDrag()
+    {
+        IsDrag = true;
+    }
+    //!!!!!!!!!!!! œŒ  –≈—“» ” Ã≈Õﬂ“‹ Œ¡–¿“ÕŒ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     bool IsBomb;
     public void Down(GameObject red)
     {
