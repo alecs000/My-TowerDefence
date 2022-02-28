@@ -14,6 +14,8 @@ public class Enemy : IEnemy
     [SerializeField] float waitTime;
     //Чтобы оставить место для анимации
     [SerializeField] float attackRang;
+    [SerializeField] AudioClip clip;
+    AudioSource audioSource;
     GameObject manegeSp;
     ManegeSpawn manegeSpawn;
     public override LivesManagement livesEnemy { get; protected set; }
@@ -29,6 +31,7 @@ public class Enemy : IEnemy
     bool animStop;
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         manegeSp = GameObject.FindWithTag("GameManager");
         anim = GetComponent<Animator>();
         manegeSpawn = manegeSp.GetComponent<ManegeSpawn>();
@@ -90,6 +93,7 @@ public class Enemy : IEnemy
                 {
                     Debug.Log("Вражина" + targetAlly.livesAlly.lives);
                     targetAlly.livesAlly.RemoveLives(attack);
+                    audioSource.PlayOneShot(clip);
                     yield return new WaitForSeconds(waitTime);
                 }
                 else

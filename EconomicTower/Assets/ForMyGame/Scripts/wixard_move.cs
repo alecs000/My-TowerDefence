@@ -14,6 +14,8 @@ public class wixard_move : IAlly
     [SerializeField] float waitTime = 5f;
     [SerializeField] float attackRange;
     [SerializeField] GameObject fireBall;
+    [SerializeField] AudioClip clip;
+    AudioSource audioSource;
     public Enemy targetEnemy;
     bool isAttack = false;
     GameObject manegeSp;
@@ -25,6 +27,7 @@ public class wixard_move : IAlly
     public override LivesManagement livesAlly { get; protected set; }
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         livesAlly = new LivesManagement(lives);
         manegeSp = GameObject.FindWithTag("GameManager");
         speedLeftBase = Random.Range(-speedL, speedL);
@@ -124,6 +127,7 @@ public class wixard_move : IAlly
 
     public void Attack()
     {
+        audioSource.PlayOneShot(clip);
         GameObject fBall = Instantiate(fireBall, transform.position, fireBall.transform.rotation);
         fBall.GetComponent<FireBallMoving>().enemy = targetEnemy.gameObject;
     }

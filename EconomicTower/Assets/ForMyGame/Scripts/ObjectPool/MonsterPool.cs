@@ -5,17 +5,17 @@ using UnityEngine;
 public class MonsterPool : MonoBehaviour
 {
     public List<IEnemy> poolM;
+    public PoolMono<IEnemy> poolMShell;
+    public PoolMono<IEnemy> poolMSlime;
     [SerializeField] int poolCountShell = 10;
     [SerializeField] bool autoExpandShell = true;
     [SerializeField] IEnemy enemyPrefabShell;
-    public PoolMono<IEnemy> poolMShell;
     [SerializeField] int poolCountSlime = 10;
     [SerializeField] bool autoExpandSlime = true;
     [SerializeField] IEnemy enemyPrefabSlime;
-    public PoolMono<IEnemy> poolMSlime;
+    [SerializeField] GameObject boss;
     Vector3 spawnPosition;
     ManegeSpawn manegeSpawn;
-    [SerializeField] GameObject boss;
 
     private void Awake()
     {
@@ -46,7 +46,7 @@ public class MonsterPool : MonoBehaviour
                 yield return new WaitForSeconds(1f);
             }
             yield return new WaitForSeconds(1f);
-            for (int j = 0; j < 3; j++)
+            for (int j = 0; j < 0; j++)
             {
                 if (manegeSpawn.isFreeze)
                 {

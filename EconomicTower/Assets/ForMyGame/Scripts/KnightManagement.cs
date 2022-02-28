@@ -12,6 +12,8 @@ public class KnightManagement : IAlly
     [SerializeField] float attackRang;
     [SerializeField] float speed;
     [SerializeField] float speedL = 1;
+    [SerializeField] AudioClip clip;
+    AudioSource audioSource;
     Animator anim;
     //Для того чтобы speedLeft можно было приравнивать к нулю и при востановлении он не менял значения
     float speedLeftBase;
@@ -25,7 +27,7 @@ public class KnightManagement : IAlly
     public override LivesManagement livesAlly { get; protected set; }
     void Start()
     {
-
+        audioSource = GetComponent<AudioSource>();
         speedLeftBase = Random.Range(-speedL, speedL);
         manegeSp = GameObject.FindWithTag("GameManager");
         //жизни
@@ -84,7 +86,7 @@ public class KnightManagement : IAlly
 
         return nearestEnemy;
     }
-    //Вся логика атаки мага включая остановку и анимацию
+    //Вся логика атаки рыцаря включая остановку и анимацию
     public IEnumerator WaidKnightAtack()
     {
         Attack();
@@ -93,6 +95,7 @@ public class KnightManagement : IAlly
         {
             if (targetEnemy.livesEnemy.lives > 0)
             {
+                audioSource.PlayOneShot(clip);
                 targetEnemy.livesEnemy.RemoveLives(attack);
                 yield return new WaitForSeconds(waitTime);
             }
