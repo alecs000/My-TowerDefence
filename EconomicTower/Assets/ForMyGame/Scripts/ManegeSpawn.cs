@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class ManegeSpawn : MonoBehaviour
+public class ManegeSpawn : MonoBehaviour, IPointerEnterHandler
 {
     [SerializeField] GameObject mage;
     [SerializeField] GameObject knight;
@@ -14,10 +15,16 @@ public class ManegeSpawn : MonoBehaviour
     public Image Mainbar;
     public bool IsDrag;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
         spawnPositionAlly = new Vector3(7, 0, -1.3f);
+    }
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        
     }
     public void SpawnMage(GameObject red)
     {
@@ -92,6 +99,7 @@ public class ManegeSpawn : MonoBehaviour
         IsDrag = true;
     }
     //!!!!!!!!!!!! œŒ  –≈—“» ” Ã≈Õﬂ“‹ Œ¡–¿“ÕŒ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    
     bool IsBomb;
     public void Down(GameObject red)
     {
@@ -145,5 +153,7 @@ public class ManegeSpawn : MonoBehaviour
             gm.transform.position = Input.mousePosition;
         }
     }
+
+    
     #endregion
 }
