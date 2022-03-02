@@ -91,21 +91,31 @@ public class ManegeSpawn : MonoBehaviour, IPointerEnterHandler
     Image gm;
     [SerializeField] Button but;
     [SerializeField] ParticleSystem boom;
+    [SerializeField] GameObject red;
+    [SerializeField] GameObject redPanel;
     ParticleSystem boomDes;
     bool isParticlActiv;
+    public bool isRedZone;
+    //!!!!!!!!!!!! ÏÎ ÊĞÅÑÒÈÊÓ ÌÅÍßÒÜ ÎÁĞÀÒÍÎ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    bool IsBomb;
+    public void Enter()
+    {
+        isRedZone = true;
+    }
+    public void Exit()
+    {
+        isRedZone = false;
+    }
     //ÏÎÊÍÎÏÊÈ ÍÀÑÒĞÎÉÊÈ
     public void NotDrag()
     {
         IsDrag = true;
     }
-    //!!!!!!!!!!!! ÏÎ ÊĞÅÑÒÈÊÓ ÌÅÍßÒÜ ÎÁĞÀÒÍÎ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    
-    bool IsBomb;
-    public void Down(GameObject red)
+    public void Down()
     {
-        IsDrag = true;
-        if (!isParticlActiv&& CoinsMangement.RemoveCoins(40))
+        if (!isParticlActiv&&CoinsMangement.coins>=40)
         {
+            IsDrag = true;
             IsBomb = true;
             gm = Object.Instantiate(prefab, but.transform);
         }
@@ -114,27 +124,49 @@ public class ManegeSpawn : MonoBehaviour, IPointerEnterHandler
             red.SetActive(true);
             StartCoroutine(BannerRed(red));
         }
+
     }
     public void Up(GameObject grey)
     {
-        IsDrag = false;
-        if (!isParticlActiv && gm != null&& IsBomb)
+        if (!isRedZone)
         {
-            Vector3 mouse = Input.mousePosition;
-            Ray castPoint = Camera.main.ScreenPointToRay(mouse);
-            RaycastHit hit;
-            boomDes = Instantiate(boom, transform.position, boom.transform.rotation);
-            StartCoroutine(DelitParticl(grey));
-            if (Physics.Raycast(castPoint, out hit, Mathf.Infinity))
+            if (!isParticlActiv && CoinsMangement.coins >= 40)
             {
-                Debug.DrawLine(castPoint.origin, hit.point, Color.red, 200, false);
-                Debug.Log("Ïóòü ê âğàãó ïğåãğàæäàåò îáúåêò: " + hit.collider.name);
-                boomDes.transform.position = new Vector3(hit.point.x, hit.point.y + 0.1f, hit.point.z);
+                IsDrag = false;
+                if (!isParticlActiv && gm != null && IsBomb)
+                {
+                    Vector3 mouse = Input.mousePosition;
+                    Ray castPoint = Camera.main.ScreenPointToRay(mouse);
+                    RaycastHit hit;
+                    
+                    if (Physics.Raycast(castPoint, out hit, Mathf.Infinity))
+                    {
+                        Debug.DrawLine(castPoint.origin, hit.point, Color.red, 200, false);
+                        Debug.Log("Ïóòü ê âğàãó ïğåãğàæäàåò îáúåêò: " + hit.collider.name);
+                        if (hit.collider.name=="ground")
+                        {
+                            CoinsMangement.RemoveCoins(40);
+                            boomDes = Instantiate(boom, transform.position, boom.transform.rotation);
+                            StartCoroutine(DelitParticl(grey));
+                            boomDes.transform.position = new Vector3(hit.point.x, hit.point.y + 0.1f, hit.point.z);
+                        }
+                        else
+                        {
+                            redPanel.SetActive(true);
+                            StartCoroutine(redDisactive());
+                        }
+                    }
+                    Debug.Log(gm);
+                    IsBomb = false;
+                    Destroy(gm);
+                }
             }
-            Debug.Log(gm);
-            IsBomb = false;
-            Destroy(gm);
         }
+    }
+    IEnumerator redDisactive()
+    {
+        yield return new WaitForSeconds(1);
+        redPanel.SetActive(false);
     }
     IEnumerator DelitParticl(GameObject grey)
     {
