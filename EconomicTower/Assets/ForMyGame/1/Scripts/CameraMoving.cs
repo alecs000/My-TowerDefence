@@ -7,7 +7,7 @@ public class CameraMoving : MonoBehaviour
     private Vector3 startPosition;
     public Camera cam;
     ManegeSpawn skils;
-
+    [SerializeField] ManegeSpawn manegeSpawn;
     private void Start()
     {
         cam = GetComponent<Camera>();
@@ -16,7 +16,7 @@ public class CameraMoving : MonoBehaviour
 
     private void Update()
     {
-        if (!skils.IsDrag)
+        if (!skils.IsDrag&& !manegeSpawn.openSittings)
         {
             //получаем позицию при старте клика
             if (Input.GetMouseButtonDown(0))

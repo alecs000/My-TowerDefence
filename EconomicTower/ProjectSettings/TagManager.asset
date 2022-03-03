@@ -8,6 +8,8 @@ TagManager:
   - FireBall
   - GameManager
   - Boomb
+  - Upgrate
+  - Dimond
   layers:
   - Default
   - TransparentFX
