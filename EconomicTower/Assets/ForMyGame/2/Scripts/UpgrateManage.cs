@@ -15,17 +15,25 @@ public class UpgrateManage : MonoBehaviour
             image = null;
             isActive = false;
         }
-        if (isActive)
-        {
-            image = null;
-            gm.gameObject.SetActive(false);
-            isActive = false;
-        }
-        else
+        else if (!isActive)
         {
             image = gm;
             gm.gameObject.SetActive(true);
             isActive = true;
+        }
+    }
+    public void ZeroSkillUpdate(int num)
+    {
+        if (MainManager.RemoveEmeralds(num))
+        {
+            UpgrateMemory.upgratesKnight.Add(true);
+        }
+    }
+    public void OneSkillUpdate(int num)
+    {
+        if (MainManager.RemoveEmeralds(num))
+        {
+            UpgrateMemory.upgratesMage.Add(true);
         }
     }
 }

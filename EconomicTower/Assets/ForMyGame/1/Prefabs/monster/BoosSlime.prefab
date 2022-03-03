@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 5175672627710727951}
   m_Layer: 0
   m_Name: BoosSlime
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,6 +138,7 @@ MonoBehaviour:
   speedL: 1
   waitTime: 1
   attackRang: 1
+  clip: {fileID: 0}
   targetAlly: {fileID: 0}
 --- !u!114 &5175672627710727951
 MonoBehaviour:

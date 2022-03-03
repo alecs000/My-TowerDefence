@@ -12,15 +12,8 @@ public class Click : MonoBehaviour, IPointerClickHandler
     {
         up.gameObject.SetActive(true);
     }
-
-    // Start is called before the first frame update
-    void Start()
+    public void Close(GameObject gm)
     {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        gm.SetActive(false);
     }
 }

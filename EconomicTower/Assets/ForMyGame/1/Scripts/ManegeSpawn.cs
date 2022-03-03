@@ -142,7 +142,7 @@ public class ManegeSpawn : MonoBehaviour
                         {
                             Debug.DrawLine(castPoint.origin, hit.point, Color.red, 200, false);
                             Debug.Log("Путь к врагу преграждает объект: " + hit.collider.name);
-                            if (hit.collider.name == "ground")
+                            if (hit.collider.name == "ground"|| hit.collider.tag == "enemy")
                             {
                                 CoinsMangement.RemoveCoins(40);
                                 boomDes = Instantiate(boom, transform.position, boom.transform.rotation);
