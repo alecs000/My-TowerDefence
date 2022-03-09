@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class LivesManagement 
 {
-    public int lives { get; private set; }
+    public float lives { get; private set; }
     // Start is called before the first frame update
     public LivesManagement(short l)
     {
         lives = l;
     }
-    public void AddLives(short addition)
+    public void AddLives(float addition)
     {
         lives += addition;
     }
-    public void RemoveLives(short addition)
+    public void RemoveLives(float addition)
     {
             lives -= addition;
     }

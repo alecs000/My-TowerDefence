@@ -5,7 +5,7 @@ using UnityEngine;
 public class wixard_move : IAlly
 {
     [SerializeField] short lives = 50;
-    Animator anim;
+    public Animator anim;
     [SerializeField] float speedForward = 1;
     //Для того чтобы speedLeft можно было приравнивать к нулю и при востановлении он не менял значения
     float speedLeftBase;
@@ -15,6 +15,7 @@ public class wixard_move : IAlly
     [SerializeField] float attackRange;
     [SerializeField] GameObject fireBall;
     [SerializeField] AudioClip clip;
+    [SerializeField] GameObject fireBallBlue;
     AudioSource audioSource;
     public Enemy targetEnemy;
     bool isAttack = false;
@@ -22,10 +23,11 @@ public class wixard_move : IAlly
     MonsterPool monsterPool;
     public PoolMono<IEnemy> poolMonster;
     ManegeSpawn manegeSpawn;
-    
-
+    public static bool upSpeed = false;
+    public static bool isBlueFireBall;
+    public static bool isVampire;
     public override LivesManagement livesAlly { get; protected set; }
-    void Start()
+    void Awake()
     {
         audioSource = GetComponent<AudioSource>();
         livesAlly = new LivesManagement(lives);
@@ -36,6 +38,13 @@ public class wixard_move : IAlly
         monsterPool = manegeSp.GetComponent<MonsterPool>();
         manegeSpawn = manegeSp.GetComponent<ManegeSpawn>();
         manegeSpawn.RegistrAlly(this);
+        //ускоряем если прокачена 1 способность
+        if (upSpeed)
+        {
+            anim.SetFloat("speedAttack", 1.0f*1.3f);
+            waitTime *= 0.7f;
+        }
+
     }
     private List<IEnemy> GetEnemiesInRange()
     {
@@ -122,14 +131,27 @@ public class wixard_move : IAlly
         {
             Attack();
                 yield return new WaitForSeconds(waitTime);
+            if (isVampire)
+            {
+                livesAlly.AddLives(Enemy.Mageattack/9);
+                Debug.Log(Enemy.Mageattack);
+            }
         }
     }
 
     public void Attack()
     {
         audioSource.PlayOneShot(clip);
-        GameObject fBall = Instantiate(fireBall, transform.position, fireBall.transform.rotation);
-        fBall.GetComponent<FireBallMoving>().enemy = targetEnemy.gameObject;
+        if (!isBlueFireBall)
+        {
+            GameObject fBall = Instantiate(fireBall, transform.position, fireBall.transform.rotation);
+            fBall.GetComponent<FireBallMoving>().enemy = targetEnemy.gameObject;
+        }
+        else
+        {
+            GameObject fBallBlue = Instantiate(fireBallBlue, transform.position, fireBallBlue.transform.rotation);
+            fBallBlue.GetComponent<FireBallMoving>().enemy = targetEnemy.gameObject;
+        }
     }
 
     public void Moving()

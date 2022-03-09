@@ -13,6 +13,7 @@ public class KnightManagement : IAlly
     [SerializeField] float speed;
     [SerializeField] float speedL = 1;
     [SerializeField] AudioClip clip;
+    [SerializeField] GameObject smallCopyPrefab;
     AudioSource audioSource;
     Animator anim;
     //Для того чтобы speedLeft можно было приравнивать к нулю и при востановлении он не менял значения
@@ -23,6 +24,10 @@ public class KnightManagement : IAlly
     ManegeSpawn manegeSpawn;
     float navigatorTime;
     MonsterPool monsterPool;
+    public static bool upSpeedAfterKill;
+    public static bool upSpeed;
+    public static bool smallCopy;
+    int stopUpSpeed = 0;
 
     public override LivesManagement livesAlly { get; protected set; }
     void Start()
@@ -39,6 +44,11 @@ public class KnightManagement : IAlly
         speedLeft = speedLeftBase;
         anim = GetComponent<Animator>();
         manegeSpawn.RegistrAlly(this);
+        if (upSpeed)
+        {
+            anim.SetFloat("upSpeedKnight", 1.0f * 1.5f);
+            waitTime *= 0.75f;
+        }
     }
     void Update()
     {
@@ -101,7 +111,16 @@ public class KnightManagement : IAlly
             }
             if (targetEnemy != null&&targetEnemy.livesEnemy.lives <= 0)
             {
-                
+                if (upSpeedAfterKill && stopUpSpeed<4)
+                {
+                    anim.SetFloat("upSpeedKnight", 1.0f *2f);
+                    waitTime *= 0.5f;
+                    stopUpSpeed++;
+                }
+                if (smallCopy&& smallCopyPrefab!=null)
+                {
+                    Instantiate(smallCopyPrefab,new Vector3(transform.position.x,0, transform.position.z+Random.Range(-0.5f,0.5f)), smallCopyPrefab.transform.rotation);
+                }
                 monsterPool.poolM.Remove(targetEnemy);
                 targetEnemy.gameObject.SetActive(false);
                 targetEnemy = null;

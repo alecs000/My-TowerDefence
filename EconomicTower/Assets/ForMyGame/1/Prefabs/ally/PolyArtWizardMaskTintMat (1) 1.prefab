@@ -977,12 +977,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 50
+  anim: {fileID: 0}
   speedForward: 1
   speedL: 3
   waitTime: 1.31
   attackRange: 3
   fireBall: {fileID: 3296936836842269006, guid: 20dafee3cc1cacb489bde7797f1e7167, type: 3}
   clip: {fileID: 8300000, guid: 9687edb2b031e1b49a754d87e2b2172c, type: 3}
+  fireBallBlue: {fileID: 4576076662501233866, guid: 949b004cd36ab88438e9dcc92b39bdca, type: 3}
   targetEnemy: {fileID: 0}
 --- !u!82 &-1417365233566418190
 AudioSource:

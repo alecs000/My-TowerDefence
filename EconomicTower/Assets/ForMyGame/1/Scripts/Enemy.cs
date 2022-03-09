@@ -8,7 +8,7 @@ public class Enemy : IEnemy
     [SerializeField] short coins;
     [SerializeField] short lives;
     [SerializeField] short attack = 5;
-    [SerializeField] short Mageattack = 15;
+    public static float Mageattack = 15;
     [SerializeField] float speedForward;
     [SerializeField] float speedL = 1;
     [SerializeField] float waitTime;
@@ -31,12 +31,14 @@ public class Enemy : IEnemy
     bool animStop;
     private void Awake()
     {
+        
         audioSource = GetComponent<AudioSource>();
         manegeSp = GameObject.FindWithTag("GameManager");
         anim = GetComponent<Animator>();
         manegeSpawn = manegeSp.GetComponent<ManegeSpawn>();
         monsterPool = manegeSp.GetComponent<MonsterPool>();
         target = GameObject.FindWithTag("Finish");
+
     }
     private void OnEnable()
     {
@@ -107,6 +109,10 @@ public class Enemy : IEnemy
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("Finish"))
+        {
+            Debug.Log("u lose");
+        }
         //Столкновение с огненным шаром смерть или получение урона
         if (other.CompareTag("FireBall"))
         {

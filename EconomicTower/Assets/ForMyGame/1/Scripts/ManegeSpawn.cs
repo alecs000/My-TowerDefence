@@ -15,12 +15,58 @@ public class ManegeSpawn : MonoBehaviour
     public Image Mainbar;
     public bool IsDrag;
     public bool openSittings = false;//запрещать покупки при настройках
-    
+    List<bool> listMage;
+    List<bool> listKnight;
+
+    private void Awake()
+    {
+
+        spawnPositionAlly = new Vector3(8, 0, -1.3f);
+        listMage = UpgrateMemory.upgratesMage;
+        listKnight = UpgrateMemory.upgratesKnight;
+        for (int i = 0; i < listMage.Count; i++)
+        {
+            if (listMage[i])
+            {
+                if (i == 0)
+                {
+                    wixard_move.upSpeed = true;
+                       Enemy.Mageattack *= 1.1f;
+                }
+                if (i == 1)
+                {
+                Enemy.Mageattack *= 2;
+                wixard_move.isBlueFireBall = true;
+                }
+                if (i == 2)
+                {
+                    wixard_move.isVampire = true;
+                }
+            }
+        }
+        for (int i = 0; i < listKnight.Count; i++)
+        {
+            if (listKnight[i])
+            {
+                if (i == 0)
+                {
+                    KnightManagement.upSpeed = true;
+                }
+                if (i == 1)
+                {
+                    KnightManagement.upSpeedAfterKill = true;
+                }
+                if (i == 2)
+                {
+                    KnightManagement.smallCopy = true;
+                }
+            }
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        spawnPositionAlly = new Vector3(7, 0, -1.3f);
     }
 
     public void SpawnMage(GameObject red)
