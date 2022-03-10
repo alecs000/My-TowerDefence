@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : IEnemy
 {
     [SerializeField] float speed;
-    [SerializeField] short coins;
+    public short coins;
     [SerializeField] short lives;
     public short dimonds;
     [SerializeField] short attack = 5;
@@ -16,6 +16,8 @@ public class Enemy : IEnemy
     //Чтобы оставить место для анимации
     [SerializeField] float attackRang;
     [SerializeField] AudioClip clip;
+    [SerializeField] bool isBoss;
+  
     AudioSource audioSource;
     GameObject manegeSp;
     ManegeSpawn manegeSpawn;
@@ -30,7 +32,8 @@ public class Enemy : IEnemy
     MonsterPool monsterPool;
     GameObject target;
     bool animStop;
-    [SerializeField] bool isBoss;
+    
+
     private void Awake()
     {
         
@@ -56,9 +59,10 @@ public class Enemy : IEnemy
     }
     private void Update()
     {
-        if (isBoss&&(!this.gameObject.activeInHierarchy|| livesEnemy.lives<=0))
-        {
-            Debug.Log("You win");
+        if (isBoss&&(!this.gameObject.activeInHierarchy|| livesEnemy.lives<=0)&& !manegeSpawn.isGameStop)
+        {//ОТКЛЮЧАТЬ ПРИ РЕСТАРТЕ
+            manegeSpawn.win = true;
+            manegeSpawn.isGameStop = true;
         }
         if (!manegeSpawn.isFreeze)
         {
@@ -115,8 +119,9 @@ public class Enemy : IEnemy
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Finish"))
-        {
-            Debug.Log("u lose");
+        {//ОТКЛЮЧАТЬ ПРИ РЕСТАРТЕ
+            manegeSpawn.lose = true;
+            manegeSpawn.isGameStop = true;
         }
         //Столкновение с огненным шаром смерть или получение урона
         if (other.CompareTag("FireBall"))

@@ -122,6 +122,7 @@ public class KnightManagement : IAlly
                     Instantiate(smallCopyPrefab,new Vector3(transform.position.x,0, transform.position.z+Random.Range(-0.5f,0.5f)), smallCopyPrefab.transform.rotation);
                 }
                 MainManager.AddDimond(targetEnemy.dimonds);
+                CoinsMangement.AddCoins(targetEnemy.coins);
                 monsterPool.poolM.Remove(targetEnemy);
                 targetEnemy.gameObject.SetActive(false);
                 targetEnemy = null;

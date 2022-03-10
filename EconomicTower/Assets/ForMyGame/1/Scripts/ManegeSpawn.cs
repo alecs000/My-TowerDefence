@@ -8,6 +8,8 @@ public class ManegeSpawn : MonoBehaviour
 {
     [SerializeField] GameObject mage;
     [SerializeField] GameObject knight;
+    [SerializeField] GameObject menuWin;
+    [SerializeField] GameObject menuLose;
     [SerializeField] int livesTower;
     Vector3 spawnPositionAlly;  
     public List<IAlly> AllyList = new List<IAlly>();
@@ -18,11 +20,11 @@ public class ManegeSpawn : MonoBehaviour
     public bool openSittings = false;//запрещать покупки при настройках
     List<bool> listMage;
     List<bool> listKnight;
-    
-
+    public bool isGameStop;
+    public bool win;
+    public bool lose;
     private void Awake()
     {
-
         spawnPositionAlly = new Vector3(8, 0, -1.3f);
         listMage = UpgrateMemory.upgratesMage;
         listKnight = UpgrateMemory.upgratesKnight;
@@ -65,7 +67,21 @@ public class ManegeSpawn : MonoBehaviour
             }
         }
     }
-    
+    private void Update()
+    {
+        //ОТКЛЮЧАТЬ ПРИ РЕСТАРТЕ
+        if (isGameStop)
+        {
+            if (win)
+            {
+                menuWin.SetActive(true);
+            }
+            else if (lose)
+            {
+                menuLose.SetActive(true);
+            }
+        }
+    }
     public void Lose(int num  = 1)
     {
         if (livesTower>0)

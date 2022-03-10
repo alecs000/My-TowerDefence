@@ -8,7 +8,7 @@ public class BoosHPEnter : MonoBehaviour
     Image bar;
     Image Mainbar;
     LivesManagement livesEnemy;
-    [SerializeField] float HP;
+    [SerializeField] float HP = 300;
     void Start()
     {
         var manegerSpawn = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ManegeSpawn>();
@@ -19,7 +19,7 @@ public class BoosHPEnter : MonoBehaviour
     }
     private void Update()
     {
-        bar.fillAmount = (float)livesEnemy.lives / 300f;   
+        bar.fillAmount = (float)livesEnemy.lives / HP;
     }
     private void OnDisable()
     {

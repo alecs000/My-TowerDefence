@@ -132,7 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.0001
   coins: 300
-  lives: 300
+  lives: 120
   dimonds: 50
   attack: 30
   speedForward: 1
@@ -140,8 +140,8 @@ MonoBehaviour:
   waitTime: 1
   attackRang: 1
   clip: {fileID: 8300000, guid: 35da1333dd2996541819cbd5f4c1e2ed, type: 3}
-  targetAlly: {fileID: 0}
   isBoss: 1
+  targetAlly: {fileID: 0}
 --- !u!114 &5175672627710727951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,7 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b9735f0d05c2d849ae0e0ed28eb511b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 0
+  HP: 300
+  menu: {fileID: 0}
 --- !u!82 &4292139246258963537
 AudioSource:
   m_ObjectHideFlags: 0

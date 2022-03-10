@@ -10,6 +10,7 @@ TagManager:
   - Boomb
   - Upgrate
   - Dimond
+  - Menu
   layers:
   - Default
   - TransparentFX
