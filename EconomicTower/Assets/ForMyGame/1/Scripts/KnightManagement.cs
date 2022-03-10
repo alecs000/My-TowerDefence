@@ -19,7 +19,7 @@ public class KnightManagement : IAlly
     //Для того чтобы speedLeft можно было приравнивать к нулю и при востановлении он не менял значения
     float speedLeftBase;
     float speedLeft;
-    public IEnemy targetEnemy;
+    public Enemy targetEnemy;
     bool isAttack = false;
     ManegeSpawn manegeSpawn;
     float navigatorTime;
@@ -121,6 +121,7 @@ public class KnightManagement : IAlly
                 {
                     Instantiate(smallCopyPrefab,new Vector3(transform.position.x,0, transform.position.z+Random.Range(-0.5f,0.5f)), smallCopyPrefab.transform.rotation);
                 }
+                MainManager.AddDimond(targetEnemy.dimonds);
                 monsterPool.poolM.Remove(targetEnemy);
                 targetEnemy.gameObject.SetActive(false);
                 targetEnemy = null;
@@ -155,7 +156,7 @@ public class KnightManagement : IAlly
        
         if (targetEnemy == null)
         {
-            IEnemy nearestEnemy = GetNearestEnemy();
+            Enemy nearestEnemy = GetNearestEnemy() as Enemy;
             if (nearestEnemy != null)
             {
                 if (Vector3.Distance(transform.position, nearestEnemy.transform.position) <= attackRang)

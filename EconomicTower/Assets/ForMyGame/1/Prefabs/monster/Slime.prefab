@@ -502,14 +502,15 @@ MonoBehaviour:
   speed: 0.0001
   coins: 25
   lives: 40
+  dimonds: 1
   attack: 17
-  Mageattack: 15
   speedForward: 1
   speedL: 1
   waitTime: 1
   attackRang: 1
   clip: {fileID: 8300000, guid: 35da1333dd2996541819cbd5f4c1e2ed, type: 3}
   targetAlly: {fileID: 0}
+  isBoss: 0
 --- !u!82 &-2356116913224800005
 AudioSource:
   m_ObjectHideFlags: 0

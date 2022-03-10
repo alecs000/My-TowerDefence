@@ -46,7 +46,7 @@ public class MonsterPool : MonoBehaviour
                 yield return new WaitForSeconds(1f);
             }
             yield return new WaitForSeconds(1f);
-            for (int j = 0; j < 0; j++)
+            for (int j = 0; j < 1; j++)
             {
                 if (manegeSpawn.isFreeze)
                 {

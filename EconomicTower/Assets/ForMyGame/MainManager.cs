@@ -8,13 +8,12 @@ using System;
 public class MainManager : MonoBehaviour
 {
     GameObject emeraldsGm;
-    public static MainManager instance { get; private set; }
+    public static MainManager instance { get;  set; }
     public static int emeralds { get; private set; }
     Text text;
     private void Awake()
     {
         emeralds = 999;
-        Debug.Log(11111111111111);
         emeraldsGm = GameObject.FindGameObjectWithTag("Dimond");
         text = emeraldsGm.GetComponent<Text>();
         if (instance==null)
@@ -24,6 +23,10 @@ public class MainManager : MonoBehaviour
             return;
         }
         Destroy(this.gameObject);
+    }
+    public static void AddDimond(int num)
+    {
+        emeralds += num;
     }
     public static bool RemoveEmeralds(int num)
     {

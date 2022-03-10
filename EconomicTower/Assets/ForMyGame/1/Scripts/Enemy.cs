@@ -7,6 +7,7 @@ public class Enemy : IEnemy
     [SerializeField] float speed;
     [SerializeField] short coins;
     [SerializeField] short lives;
+    public short dimonds;
     [SerializeField] short attack = 5;
     public static float Mageattack = 15;
     [SerializeField] float speedForward;
@@ -29,6 +30,7 @@ public class Enemy : IEnemy
     MonsterPool monsterPool;
     GameObject target;
     bool animStop;
+    [SerializeField] bool isBoss;
     private void Awake()
     {
         
@@ -54,7 +56,10 @@ public class Enemy : IEnemy
     }
     private void Update()
     {
-        
+        if (isBoss&&(!this.gameObject.activeInHierarchy|| livesEnemy.lives<=0))
+        {
+            Debug.Log("You win");
+        }
         if (!manegeSpawn.isFreeze)
         {
             if (animStop)
@@ -121,10 +126,11 @@ public class Enemy : IEnemy
         }
         if (other.CompareTag("Boomb"))
         {
-            livesEnemy.RemoveLives(200);
+            livesEnemy.RemoveLives(30);
         }
             if (livesEnemy.lives<= 0)
         {
+            MainManager.AddDimond(dimonds);
             targetAlly = null;
             monsterPool.poolM.Remove(this);
             this.gameObject.SetActive(false);
