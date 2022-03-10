@@ -8,6 +8,7 @@ public class ManegeSpawn : MonoBehaviour
 {
     [SerializeField] GameObject mage;
     [SerializeField] GameObject knight;
+    [SerializeField] int livesTower;
     Vector3 spawnPositionAlly;  
     public List<IAlly> AllyList = new List<IAlly>();
     public bool isFreeze;
@@ -17,6 +18,7 @@ public class ManegeSpawn : MonoBehaviour
     public bool openSittings = false;//запрещать покупки при настройках
     List<bool> listMage;
     List<bool> listKnight;
+    
 
     private void Awake()
     {
@@ -63,10 +65,17 @@ public class ManegeSpawn : MonoBehaviour
             }
         }
     }
-
-    // Start is called before the first frame update
-    void Start()
+    
+    public void Lose(int num  = 1)
     {
+        if (livesTower>0)
+        {
+            livesTower -= num;
+        }
+        else
+        {
+
+        }
     }
 
     public void SpawnMage(GameObject red)
