@@ -16,10 +16,13 @@ public class MonsterPool : MonoBehaviour
     [SerializeField] GameObject boss;
     Vector3 spawnPosition;
     ManegeSpawn manegeSpawn;
+    public int[] waveShell = { 2, 0 };
+    public int[] waveSlime = { 1, 3 };
+
 
     private void Awake()
     {
-        manegeSpawn= GetComponent<ManegeSpawn>();
+        manegeSpawn = GetComponent<ManegeSpawn>();
         poolM = new List<IEnemy>();
         poolMShell = new PoolMono<IEnemy>(enemyPrefabShell, poolCountShell, this.transform);
         poolMShell.autoExpand = autoExpandShell;
@@ -35,9 +38,9 @@ public class MonsterPool : MonoBehaviour
     }
     public IEnumerator SpawnMonster()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < waveShell.Length; i++)
         {
-            for (int j = 0; j < 1; j++)
+            for (int j = 0; j < waveShell[i]; j++)
             {
                 if (!manegeSpawn.isFreeze)
                 {
@@ -46,12 +49,8 @@ public class MonsterPool : MonoBehaviour
                 yield return new WaitForSeconds(1f);
             }
             yield return new WaitForSeconds(1f);
-            for (int j = 0; j <0 ; j++)
+            for (int j = 0; j < waveSlime[i]; j++)
             {
-                if (manegeSpawn.isFreeze)
-                {
-                    yield return new WaitForSeconds(3f);
-                }
                 if (!manegeSpawn.isFreeze)
                 {
                     this.CreatSlime();
