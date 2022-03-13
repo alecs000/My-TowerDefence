@@ -59,10 +59,11 @@ public class Enemy : IEnemy
     }
     private void Update()
     {
-        if (isBoss&&(!this.gameObject.activeInHierarchy|| livesEnemy.lives<=0)&& !manegeSpawn.isGameStop)
-        {//ÎÒÊËÞ×ÀÒÜ ÏÐÈ ÐÅÑÒÀÐÒÅ
-            manegeSpawn.win = true;
-            manegeSpawn.isGameStop = true;
+        
+        Debug.Log(livesEnemy.lives);
+        if (!this.gameObject.activeInHierarchy)
+        {
+            Debug.Log(livesEnemy.lives);
         }
         if (!manegeSpawn.isFreeze)
         {
@@ -91,6 +92,14 @@ public class Enemy : IEnemy
         {
             anim.SetBool("StopAll", true);
             animStop = true;
+        }
+        if (isBoss && (!this.gameObject.activeInHierarchy || livesEnemy.lives <= 0) && !manegeSpawn.isGameStop)
+        {//ÎÒÊËÞ×ÀÒÜ ÏÐÈ ÐÅÑÒÀÐÒÅ
+            manegeSpawn.win = true;
+            manegeSpawn.isGameStop = true;
+            Debug.Log(5555);
+            UpgrateMemory.levels.Add(3);
+
         }
     }
     public IEnumerator WaidEnemyAtack()
@@ -135,11 +144,19 @@ public class Enemy : IEnemy
         }
             if (livesEnemy.lives<= 0)
         {
+            if (isBoss && !manegeSpawn.isGameStop)
+            {//ÎÒÊËÞ×ÀÒÜ ÏÐÈ ÐÅÑÒÀÐÒÅ
+                manegeSpawn.win = true;
+                manegeSpawn.isGameStop = true;
+                Debug.Log(5555);
+                UpgrateMemory.levels.Add(3);
+
+            }
             MainManager.AddDimond(dimonds);
+            CoinsMangement.AddCoins(coins);
             targetAlly = null;
             monsterPool.poolM.Remove(this);
             this.gameObject.SetActive(false);
-            CoinsMangement.AddCoins(coins);
         }
     }
 

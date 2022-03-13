@@ -499,7 +499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8d74631313105549ad961a9de993f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.0001
+  speed: 0.00001
   coins: 25
   lives: 40
   dimonds: 1
@@ -509,8 +509,8 @@ MonoBehaviour:
   waitTime: 1
   attackRang: 1
   clip: {fileID: 8300000, guid: 35da1333dd2996541819cbd5f4c1e2ed, type: 3}
-  targetAlly: {fileID: 0}
   isBoss: 0
+  targetAlly: {fileID: 0}
 --- !u!82 &-2356116913224800005
 AudioSource:
   m_ObjectHideFlags: 0

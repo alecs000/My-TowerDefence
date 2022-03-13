@@ -44,7 +44,6 @@ public class wixard_move : IAlly
             anim.SetFloat("speedAttack", 1.0f*1.3f);
             waitTime *= 0.7f;
         }
-
     }
     private List<IEnemy> GetEnemiesInRange()
     {

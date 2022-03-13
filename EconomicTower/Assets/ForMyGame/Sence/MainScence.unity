@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -252,7 +252,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &92968723
 RectTransform:
   m_ObjectHideFlags: 0
@@ -630,7 +630,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 132610886}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 540597329}
+        m_TargetAssemblyTypeName: MonsterPool, Assembly-CSharp
+        m_MethodName: ResrartLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &132610886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1423,7 +1435,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 372712682}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 540597329}
+        m_TargetAssemblyTypeName: MonsterPool, Assembly-CSharp
+        m_MethodName: ResrartLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &372712682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2656,6 +2680,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 774736825271829089, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
   m_PrefabInstance: {fileID: 774736825443654517}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &540597329 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1640291213, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
+  m_PrefabInstance: {fileID: 774736825443654517}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540597328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad14b75c43f1f2e4cac8c3ecd5482bcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &540597333
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6540,7 +6575,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1196110277}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 540597329}
+        m_TargetAssemblyTypeName: MonsterPool, Assembly-CSharp
+        m_MethodName: SrartNextLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1196110277
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -132,7 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.0001
   coins: 300
-  lives: 120
+  lives: 50
   dimonds: 50
   attack: 30
   speedForward: 1
@@ -155,7 +155,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 300
-  menu: {fileID: 0}
 --- !u!82 &4292139246258963537
 AudioSource:
   m_ObjectHideFlags: 0

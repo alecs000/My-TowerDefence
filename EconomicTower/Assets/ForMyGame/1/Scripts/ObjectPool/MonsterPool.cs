@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MonsterPool : MonoBehaviour
 {
@@ -16,8 +17,9 @@ public class MonsterPool : MonoBehaviour
     [SerializeField] GameObject boss;
     Vector3 spawnPosition;
     ManegeSpawn manegeSpawn;
-    public int[] waveShell = { 2, 0 };
-    public int[] waveSlime = { 1, 3 };
+    public int[] waveShell = {  };
+    public int[] waveSlime = {  };
+
 
 
     private void Awake()
@@ -29,12 +31,44 @@ public class MonsterPool : MonoBehaviour
         poolMSlime = new PoolMono<IEnemy>(enemyPrefabSlime, poolCountSlime, this.transform);
         poolMSlime.autoExpand = autoExpandSlime;
     }
-    private void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        SrartLevel(UpgrateMemory.levels.Count);
+        StartCoroutine(SpawnMonster());
+    }
+    void SrartLevel(int level = -1)
+    {
+        switch (level)
         {
-            StartCoroutine(SpawnMonster());
-        }
+            case -2:
+                SrartLevel(UpgrateMemory.levels.Count-1);
+                break;
+            case -1:
+                SrartLevel(UpgrateMemory.levels.Count);
+                break;
+            case 0:
+                waveShell = new int[] { };
+                waveSlime = new int[] {  };
+                break;
+            case 1:
+                waveShell = new int[] { 1, 2, 2, 0};
+                waveSlime = new int[] { 3, 1, 2, 2 };
+                break;
+            case 2:
+                waveShell = new int[] { 3,4, 2, 0 };
+                waveSlime = new int[] { 2, 0, 1, 6 };
+                break;
+        } 
+    }
+    public void SrartNextLevel()
+    {
+        SrartLevel(-1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void ResrartLevel()
+    {
+        SrartLevel(-2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public IEnumerator SpawnMonster()
     {
