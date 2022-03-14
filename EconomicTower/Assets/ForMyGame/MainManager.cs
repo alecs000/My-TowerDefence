@@ -13,7 +13,6 @@ public class MainManager : MonoBehaviour
     Text text;
     private void Awake()
     {
-        emeralds = 999;
         emeraldsGm = GameObject.FindGameObjectWithTag("Dimond");
         text = emeraldsGm.GetComponent<Text>();
         if (instance==null)

@@ -690,15 +690,15 @@ MonoBehaviour:
   speed: 0.00001
   coins: 20
   lives: 70
-  dimonds: 2
+  dimonds: 4
   attack: 14
   speedForward: 1
   speedL: 1
   waitTime: 1
   attackRang: 1
   clip: {fileID: 8300000, guid: 03c7339074d8581488a03819bd33e970, type: 3}
-  targetAlly: {fileID: 0}
   isBoss: 0
+  targetAlly: {fileID: 0}
 --- !u!65 &2002014132574468830
 BoxCollider:
   m_ObjectHideFlags: 0

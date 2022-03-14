@@ -252,7 +252,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &92968723
 RectTransform:
   m_ObjectHideFlags: 0
@@ -772,7 +772,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &200460962
 RectTransform:
   m_ObjectHideFlags: 0
@@ -814,6 +814,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Mixer: {fileID: -6392326730490766497, guid: c184bfb7ca649a3409de769b65bbf008, type: 2}
+  musicSlider: {fileID: 1419310356}
+  effectsSlider: {fileID: 2074478897}
 --- !u!114 &200460964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2412,7 +2414,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.64, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3081,7 +3083,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.64, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4678,8 +4680,8 @@ RectTransform:
   m_Father: {fileID: 1185218524}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.64, y: 0}
-  m_AnchorMax: {x: 0.64, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7205,8 +7207,8 @@ RectTransform:
   m_Father: {fileID: 590968242}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.64, y: 0}
-  m_AnchorMax: {x: 0.64, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8130,7 +8132,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.64
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -9996,7 +9998,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1732342770
 GameObject:
@@ -12269,7 +12271,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.64
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -12596,6 +12598,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5605227541783970984, guid: 43e8cc9f9bb9a284b824e57771d516be, type: 3}
     - target: {fileID: 1640291213, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
+      propertyPath: bossOrc
+      value: 
+      objectReference: {fileID: 1531033111045371111, guid: 913211fe7dc3b1f40851e0cf2912acba, type: 3}
+    - target: {fileID: 1640291213, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
+      propertyPath: bossSlime
+      value: 
+      objectReference: {fileID: 5605227541783970984, guid: 43e8cc9f9bb9a284b824e57771d516be, type: 3}
+    - target: {fileID: 1640291213, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
+      propertyPath: enemyPrefabOrc
+      value: 
+      objectReference: {fileID: 8738487377163943083, guid: 7213a468c2d7545498b22bdbb0dc4879, type: 3}
+    - target: {fileID: 1640291213, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
       propertyPath: poolCountShell
       value: 5
       objectReference: {fileID: 0}
@@ -12613,7 +12627,7 @@ PrefabInstance:
       objectReference: {fileID: 1099066601145298959, guid: 1e9dc3baaef13c049b954ce96f6d56d4, type: 3}
     - target: {fileID: 774736825271829088, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 774736825271829088, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
       propertyPath: m_LocalPosition.x

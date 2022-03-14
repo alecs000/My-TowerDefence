@@ -59,8 +59,6 @@ public class Enemy : IEnemy
     }
     private void Update()
     {
-        
-        Debug.Log(livesEnemy.lives);
         if (!this.gameObject.activeInHierarchy)
         {
             Debug.Log(livesEnemy.lives);

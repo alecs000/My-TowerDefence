@@ -502,7 +502,7 @@ MonoBehaviour:
   speed: 0.00001
   coins: 25
   lives: 40
-  dimonds: 1
+  dimonds: 3
   attack: 17
   speedForward: 1
   speedL: 1

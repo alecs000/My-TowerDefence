@@ -8,18 +8,23 @@ public class MonsterPool : MonoBehaviour
     public List<IEnemy> poolM;
     public PoolMono<IEnemy> poolMShell;
     public PoolMono<IEnemy> poolMSlime;
+    public PoolMono<IEnemy> poolMOrc;
     [SerializeField] int poolCountShell = 10;
     [SerializeField] bool autoExpandShell = true;
-    [SerializeField] IEnemy enemyPrefabShell;
     [SerializeField] int poolCountSlime = 10;
     [SerializeField] bool autoExpandSlime = true;
+    [SerializeField] int poolCountOrc = 10;
+    [SerializeField] bool autoExpandOrc = true;
+    [SerializeField] IEnemy enemyPrefabShell;
     [SerializeField] IEnemy enemyPrefabSlime;
-    [SerializeField] GameObject boss;
-    Vector3 spawnPosition;
+    [SerializeField] IEnemy enemyPrefabOrc;
+    [SerializeField] GameObject bossSlime;
+    [SerializeField] GameObject bossOrc;
     ManegeSpawn manegeSpawn;
     public int[] waveShell = {  };
     public int[] waveSlime = {  };
-
+    public int[] waveOrc = { };
+    GameObject boss;
 
 
     private void Awake()
@@ -30,6 +35,8 @@ public class MonsterPool : MonoBehaviour
         poolMShell.autoExpand = autoExpandShell;
         poolMSlime = new PoolMono<IEnemy>(enemyPrefabSlime, poolCountSlime, this.transform);
         poolMSlime.autoExpand = autoExpandSlime;
+        poolMOrc = new PoolMono<IEnemy>(enemyPrefabOrc, poolCountOrc, this.transform);
+        poolMOrc.autoExpand = autoExpandOrc;
     }
     private void Start()
     {
@@ -47,16 +54,21 @@ public class MonsterPool : MonoBehaviour
                 SrartLevel(UpgrateMemory.levels.Count);
                 break;
             case 0:
-                waveShell = new int[] { };
-                waveSlime = new int[] {  };
+                waveShell = new int[] {0, 2};
+                waveSlime = new int[] {2, 1};
+                waveOrc = new int[] {0, 0};
+                boss = bossOrc;
                 break;
             case 1:
                 waveShell = new int[] { 1, 2, 2, 0};
-                waveSlime = new int[] { 3, 1, 2, 2 };
+                waveSlime = new int[] { 3, 1, 2, 2};
+                waveOrc = new int[] { 0, 0, 0, 0};
+                boss = bossOrc;
                 break;
             case 2:
-                waveShell = new int[] { 3,4, 2, 0 };
-                waveSlime = new int[] { 2, 0, 1, 6 };
+                waveShell = new int[] { 3,4, 2, 0};
+                waveSlime = new int[] { 2, 0, 1, 6};
+                waveOrc = new int[] { 0, 1, 2, 1 };
                 break;
         } 
     }
@@ -89,9 +101,17 @@ public class MonsterPool : MonoBehaviour
                 {
                     this.CreatSlime();
                 }
+                yield return new WaitForSeconds(1f);
+            }
+            for (int j = 0; j < waveOrc[i]; j++)
+            {
+                if (!manegeSpawn.isFreeze)
+                {
+                    this.CreatOrc();
+                }
                 yield return new WaitForSeconds(1.5f);
             }
-            yield return new WaitForSeconds(7f);
+            yield return new WaitForSeconds(3f);
         }
         Instantiate(boss, new Vector3(-15, 0, Random.Range(-3.0f, 0f)), boss.transform.rotation);
 
@@ -106,5 +126,10 @@ public class MonsterPool : MonoBehaviour
     {
         IEnemy slime = poolMSlime.GetFreeElement();
         slime.transform.position = new Vector3(-15, 0, Random.Range(-3.0f, 0f));
+    }
+    void CreatOrc()
+    {
+        IEnemy orc = poolMOrc.GetFreeElement();
+        orc.transform.position = new Vector3(-15, 0, Random.Range(-3.0f, 0f));
     }
 }
