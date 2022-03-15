@@ -8,7 +8,7 @@ public class BoosHPEnter : MonoBehaviour
     Image bar;
     Image Mainbar;
     LivesManagement livesEnemy;
-    [SerializeField] float HP = 300;
+    float HP = 300;
     void Start()
     {
         var manegerSpawn = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ManegeSpawn>();
@@ -16,6 +16,7 @@ public class BoosHPEnter : MonoBehaviour
         Mainbar = manegerSpawn.Mainbar;
         livesEnemy = GetComponent<Enemy>().livesEnemy;
         Mainbar.gameObject.SetActive(true);
+        HP = livesEnemy.lives;
     }
     private void Update()
     {

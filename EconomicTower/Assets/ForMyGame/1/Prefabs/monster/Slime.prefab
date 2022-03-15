@@ -500,7 +500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.00001
-  coins: 25
+  coins: 15
   lives: 40
   dimonds: 3
   attack: 17

@@ -69,7 +69,6 @@ public class ManegeSpawn : MonoBehaviour
     }
     private void Update()
     {
-        //Œ“ Àﬁ◊¿“‹ œ–» –≈—“¿–“≈
         if (isGameStop)
         {
             if (win)

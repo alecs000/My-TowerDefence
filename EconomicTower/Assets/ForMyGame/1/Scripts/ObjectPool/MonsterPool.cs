@@ -57,7 +57,7 @@ public class MonsterPool : MonoBehaviour
                 waveShell = new int[] {0, 2};
                 waveSlime = new int[] {2, 1};
                 waveOrc = new int[] {0, 0};
-                boss = bossOrc;
+                boss = bossSlime;
                 break;
             case 1:
                 waveShell = new int[] { 1, 2, 2, 0};
