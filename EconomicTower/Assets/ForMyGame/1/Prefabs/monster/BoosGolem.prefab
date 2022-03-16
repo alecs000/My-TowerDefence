@@ -840,7 +840,7 @@ MonoBehaviour:
   waitTime: 0.85
   attackRang: 1
   clip: {fileID: 0}
-  isBoss: 0
+  isBoss: 1
   targetAlly: {fileID: 0}
 --- !u!54 &7273261558815541172
 Rigidbody:
@@ -870,4 +870,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b9735f0d05c2d849ae0e0ed28eb511b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 500

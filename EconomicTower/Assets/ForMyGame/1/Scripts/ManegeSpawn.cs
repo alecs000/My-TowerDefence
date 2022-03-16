@@ -23,6 +23,8 @@ public class ManegeSpawn : MonoBehaviour
     public bool isGameStop;
     public bool win;
     public bool lose;
+    public bool isBoss;
+    public GameObject boss;
     private void Awake()
     {
         spawnPositionAlly = new Vector3(8, 0, -1.3f);
@@ -69,6 +71,10 @@ public class ManegeSpawn : MonoBehaviour
     }
     private void Update()
     {
+        if (isBoss&&!boss.activeInHierarchy)
+        {
+            menuWin.SetActive(true);
+        }
         if (isGameStop)
         {
             if (win)

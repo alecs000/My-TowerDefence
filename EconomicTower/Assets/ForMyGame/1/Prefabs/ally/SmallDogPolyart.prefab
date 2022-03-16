@@ -2260,8 +2260,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37dc89612688bb439d5bbfcc05072dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 30
-  attack: 5
+  lives: 20
+  attack: 2
   waitTime: 0.8
   speedForward: 1
   attackRang: 1

@@ -1766,8 +1766,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37dc89612688bb439d5bbfcc05072dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 100
-  attack: 10
+  lives: 70
+  attack: 5
   waitTime: 0.8
   speedForward: 1
   attackRang: 1

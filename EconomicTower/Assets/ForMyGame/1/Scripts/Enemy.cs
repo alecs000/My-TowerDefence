@@ -59,9 +59,10 @@ public class Enemy : IEnemy
     }
     private void Update()
     {
-        if (!this.gameObject.activeInHierarchy)
+        if (!manegeSpawn.isBoss&&isBoss)
         {
-            Debug.Log(livesEnemy.lives);
+            manegeSpawn.isBoss = isBoss;
+            manegeSpawn.boss = this.gameObject;
         }
         if (!manegeSpawn.isFreeze)
         {
