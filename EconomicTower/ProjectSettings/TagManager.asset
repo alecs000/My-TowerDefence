@@ -11,6 +11,7 @@ TagManager:
   - Upgrate
   - Dimond
   - Menu
+  - Upgrade
   layers:
   - Default
   - TransparentFX
