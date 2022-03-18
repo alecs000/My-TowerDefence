@@ -1016,7 +1016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: English
+  currentLanguage: Russian
   detectLanguage: 1
   defaultLanguage: English
   saveLoad: 1
@@ -1255,10 +1255,10 @@ RectTransform:
   m_Father: {fileID: 1054148865}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.25283334}
-  m_AnchoredPosition: {x: 0, y: -231.62164}
-  m_SizeDelta: {x: 1180, y: 156.75668}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 8.799999, y: -259.3}
+  m_SizeDelta: {x: 1280, y: 181.75668}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &354818063
 MonoBehaviour:
@@ -1521,10 +1521,10 @@ RectTransform:
   m_Father: {fileID: 1054148865}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.74433327}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 230.74329}
-  m_SizeDelta: {x: 1180, y: 158.5134}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 258}
+  m_SizeDelta: {x: 1280, y: 184.5134}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &373133407
 MonoBehaviour:
@@ -1694,7 +1694,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Mage: 30$'
+  m_Text: "\u041C\u0430\u0433: $30"
 --- !u!222 &373643610
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1849,7 +1849,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SPELLS
+  m_Text: "\u0427\u0410\u0420\u042B"
 --- !u!222 &382104322
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5763,7 +5763,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LOOK
+  m_Text: "\u0417\u0410\u041A\u0420\u042B\u0422\u041E"
 --- !u!222 &1068468414
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7460,7 +7460,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: TOWERS
+  m_Text: "\u0411\u0410\u0428\u041D\u0418"
 --- !u!222 &1285141978
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8802,8 +8802,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.10889, y: -58.7}
-  m_SizeDelta: {x: 179.2049, y: 41.0177}
+  m_AnchoredPosition: {x: 0.1083, y: -58.7}
+  m_SizeDelta: {x: 206.6, y: 41.0177}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1455370427
 MonoBehaviour:
@@ -8852,7 +8852,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Knight: 20$'
+  m_Text: "\u0420\u044B\u0446\u0430\u0440\u044C: 20$"
 --- !u!222 &1455370429
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9277,7 +9277,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LOOK
+  m_Text: "\u0417\u0410\u041A\u0420\u042B\u0422\u041E"
 --- !u!222 &1601040318
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10870,7 +10870,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LOOK
+  m_Text: "\u0417\u0410\u041A\u0420\u042B\u0422\u041E"
 --- !u!222 &1839667993
 CanvasRenderer:
   m_ObjectHideFlags: 0
