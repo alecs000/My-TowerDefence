@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections.Generic;
 using FSA = UnityEngine.Serialization.FormerlySerializedAsAttribute;
 using Lean.Common;
-
 namespace Lean.Localization
 {
 	/// <summary>This component manages a global list of translations for easy access.
@@ -181,6 +180,7 @@ namespace Lean.Localization
 		/// <summary>This sets the current language of all instances using the specified language name.</summary>
 		public static void SetCurrentLanguageAll(string newLanguage)
 		{
+			UpgrateMemory.lang  = 
 			foreach (var instance in Instances)
 			{
 				instance.CurrentLanguage = newLanguage;
