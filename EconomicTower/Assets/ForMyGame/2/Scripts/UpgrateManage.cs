@@ -15,8 +15,16 @@ public class UpgrateManage : MonoBehaviour
     [SerializeField] List<GameObject> lockKnight = new List<GameObject>();
     [SerializeField] List<GameObject> purchasedMage = new List<GameObject>();
     [SerializeField] List<GameObject> purchasedKnight = new List<GameObject>();
+    [SerializeField] GameObject lockGm;
+    [SerializeField] GameObject footmenGm;
     private void Awake()
     {
+
+        if (UpgrateMemory.levels?[0]==1|| UpgrateMemory.levels?[0] == 2|| UpgrateMemory.levels?[0] == 3) 
+        {
+            footmenGm.SetActive(true);
+            lockGm.SetActive(false);
+        }
         listMage = UpgrateMemory.upgratesMage;
         listKnight = UpgrateMemory.upgratesKnight;
         for (int i = 0; i < listMage.Count; i++)

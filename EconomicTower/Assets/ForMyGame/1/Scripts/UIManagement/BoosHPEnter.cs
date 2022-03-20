@@ -24,6 +24,9 @@ public class BoosHPEnter : MonoBehaviour
     }
     private void OnDisable()
     {
-        bar.fillAmount = 0;
+        if (bar!=null)
+        {
+            bar.fillAmount = 0;
+        }
     }
 }

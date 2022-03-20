@@ -54,8 +54,8 @@ public class MonsterPool : MonoBehaviour
                 SrartLevel(UpgrateMemory.levels.Count);
                 break;
             case 0:
-                waveShell = new int[] {0, 2};
-                waveSlime = new int[] {2, 1};
+                waveShell = new int[] {0, 0};
+                waveSlime = new int[] {0, 0};
                 waveOrc = new int[] {0, 0};
                 boss = bossSlime;
                 break;
@@ -111,7 +111,7 @@ public class MonsterPool : MonoBehaviour
                 }
                 yield return new WaitForSeconds(1.5f);
             }
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(0f);
         }
         Instantiate(boss, new Vector3(-15, 0, Random.Range(-3.0f, 0f)), boss.transform.rotation);
 

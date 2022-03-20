@@ -110,7 +110,7 @@ public class Enemy : IEnemy
             {
                 if (targetAlly.livesAlly.lives > 0)
                 {
-                    Debug.Log("Вражина" + targetAlly.livesAlly.lives);
+                    //Debug.Log("Вражина" + targetAlly.livesAlly.lives);
                     targetAlly.livesAlly.RemoveLives(attack);
                     audioSource.PlayOneShot(clip);
                     yield return new WaitForSeconds(waitTime);

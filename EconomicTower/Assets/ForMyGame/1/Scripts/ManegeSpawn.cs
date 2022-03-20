@@ -8,6 +8,7 @@ public class ManegeSpawn : MonoBehaviour
 {
     [SerializeField] GameObject mage;
     [SerializeField] GameObject knight;
+    [SerializeField] GameObject footman;
     [SerializeField] GameObject menuWin;
     [SerializeField] GameObject menuLose;
     [SerializeField] int livesTower;
@@ -126,6 +127,21 @@ public class ManegeSpawn : MonoBehaviour
             if (CoinsMangement.RemoveCoins(20))
             {
                 Instantiate(knight, spawnPositionAlly, knight.transform.rotation);
+            }
+            else
+            {
+                red.SetActive(true);
+                StartCoroutine(BannerRed(red));
+            }
+        }
+    }
+    public void SpawnFootman(GameObject red)
+    {
+        if (!openSittings)
+        {
+            if (CoinsMangement.RemoveCoins(60))
+            {
+                Instantiate(footman, spawnPositionAlly, knight.transform.rotation);
             }
             else
             {
