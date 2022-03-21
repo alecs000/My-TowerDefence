@@ -23,6 +23,7 @@ public class ManegeSpawn : MonoBehaviour
     public bool openSittings = false;//запрещать покупки при настройках
     List<bool> listMage;
     List<bool> listKnight;
+    List<bool> listFootman;
     public bool isGameStop;
     public bool win;
     public bool lose;
@@ -33,6 +34,7 @@ public class ManegeSpawn : MonoBehaviour
         spawnPositionAlly = new Vector3(8, 0, -1.3f);
         listMage = UpgrateMemory.upgratesMage;
         listKnight = UpgrateMemory.upgratesKnight;
+        listFootman = UpgrateMemory.upgratesFootman;
         for (int i = 0; i < listMage.Count; i++)
         {
             if (listMage[i])
@@ -68,6 +70,24 @@ public class ManegeSpawn : MonoBehaviour
                 if (i == 2)
                 {
                     KnightManagement.smallCopy = true;
+                }
+            }
+        }
+        for (int i = 0; i < listFootman.Count; i++)
+        {
+            if (listFootman[i])
+            {
+                if (i == 0)
+                {
+                    FootManager.isHpBoost = true;
+                }
+                if (i == 1)
+                {
+                    FootManager.isBerserk = true;
+                }
+                if (i == 2)
+                {
+                    FootManager.isAppear = true;
                 }
             }
         }

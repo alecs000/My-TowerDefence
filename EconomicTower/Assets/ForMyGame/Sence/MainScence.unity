@@ -1944,7 +1944,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0427\u0410\u0420\u042B"
+  m_Text: SPELLS
 --- !u!222 &382104322
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2120,7 +2120,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &411224071
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7555,7 +7555,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0411\u0410\u0428\u041D\u0418"
+  m_Text: TOWERS
 --- !u!222 &1285141978
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9819,7 +9819,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1615030988
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12709,7 +12709,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2053992678
 MonoBehaviour:
   m_ObjectHideFlags: 0

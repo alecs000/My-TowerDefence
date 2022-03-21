@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FootManager : IAlly
 {
-    [SerializeField] short lives = 100;
+    [SerializeField] int lives = 100;
     [SerializeField] short attack = 10;
     [SerializeField] float waitTime = 5f;
     GameObject manegeSp;
@@ -27,15 +27,17 @@ public class FootManager : IAlly
     public static bool upSpeed;
     public static bool smallCopy;
     int stopUpSpeed = 0;
-
+    public static bool isHpBoost;
+    public static bool isBerserk;
+    public static bool isAppear;
+    public static bool isBersrkActive;
     public override LivesManagement livesAlly { get; protected set; }
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         speedLeftBase = Random.Range(-speedL, speedL);
         manegeSp = GameObject.FindWithTag("GameManager");
-        //жизни
-        livesAlly = new LivesManagement(lives);
+        
         //Компонент MonsterPool
         monsterPool = manegeSp.GetComponent<MonsterPool>();
         manegeSpawn = manegeSp.GetComponent<ManegeSpawn>();
@@ -43,9 +45,24 @@ public class FootManager : IAlly
         speedLeft = speedLeftBase;
         anim = GetComponent<Animator>();
         manegeSpawn.RegistrAlly(this);
+        if (isHpBoost)
+        {
+            lives = lives / 2 + lives;
+        }
+        if (isAppear)
+        {
+            StartCoroutine(Appear());
+        }
+        //жизни
+        livesAlly = new LivesManagement(lives);
     }
     void Update()
     {
+        if (!isBersrkActive&& livesAlly.lives<lives&& isBerserk)
+        {
+            isBersrkActive = true;
+            attack *= 2;
+        }
         if (transform.position.z < -3 && transform.position.z > 0)
         {
             transform.rotation = Quaternion.Euler(0, -90, 0);
@@ -71,7 +88,15 @@ public class FootManager : IAlly
         Moving();
     }
 
-
+    public IEnumerator Appear()
+    {
+        yield return new WaitForSeconds(10);
+        anim.SetBool("IsUseUlt", true);
+        livesAlly.AddLives(livesAlly.lives);
+        attack *= 2;
+        waitTime /= 2;
+        anim.SetFloat("SpeedAttack", 2);
+    }     
     IEnemy GetNearestEnemy()
     {
         IEnemy nearestEnemy = null;
@@ -97,7 +122,6 @@ public class FootManager : IAlly
 
         while (targetEnemy != null)
         {
-            Debug.Log("8");
             if (targetEnemy.livesEnemy.lives > 0)
             {
                 audioSource.PlayOneShot(clip);
