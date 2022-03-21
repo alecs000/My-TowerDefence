@@ -9,24 +9,32 @@ public class UpgrateManage : MonoBehaviour
    bool isActive;
     List<bool> listMage;
     List<bool> listKnight;
+    List<bool> listFootman;
     [SerializeField] List<GameObject> buttonsMage = new List<GameObject>();
     [SerializeField] List<GameObject> buttonsKnight = new List<GameObject>();
+    [SerializeField] List<GameObject> buttonsFootman = new List<GameObject>();
     [SerializeField] List<GameObject> lockMage = new List<GameObject>();
     [SerializeField] List<GameObject> lockKnight = new List<GameObject>();
+    [SerializeField] List<GameObject> lockFootman = new List<GameObject>();
     [SerializeField] List<GameObject> purchasedMage = new List<GameObject>();
     [SerializeField] List<GameObject> purchasedKnight = new List<GameObject>();
+    [SerializeField] List<GameObject> purchasedFootman = new List<GameObject>();
     [SerializeField] GameObject lockGm;
     [SerializeField] GameObject footmenGm;
     private void Awake()
     {
 
-        if (UpgrateMemory.levels?[0]==1|| UpgrateMemory.levels?[0] == 2|| UpgrateMemory.levels?[0] == 3) 
+        if (UpgrateMemory.levels.Count>0)
         {
-            footmenGm.SetActive(true);
-            lockGm.SetActive(false);
+            if (UpgrateMemory.levels?[0] == 1 || UpgrateMemory.levels?[0] == 2 || UpgrateMemory.levels?[0] == 3)
+            {
+                footmenGm.SetActive(true);
+                lockGm.SetActive(false);
+            }
         }
         listMage = UpgrateMemory.upgratesMage;
         listKnight = UpgrateMemory.upgratesKnight;
+        listFootman = UpgrateMemory.upgratesFootman;
         for (int i = 0; i < listMage.Count; i++)
         {
             if (listMage[i])
@@ -39,6 +47,13 @@ public class UpgrateManage : MonoBehaviour
             if (listKnight[i])
             {
                 buttonsKnight[i].SetActive(false);
+            }
+        }
+        for (int i = 0; i < listFootman.Count; i++)
+        {
+            if (listFootman[i])
+            {
+                buttonsFootman[i].SetActive(false);
             }
         }
     }
@@ -84,10 +99,32 @@ public class UpgrateManage : MonoBehaviour
             }
         }
     }
+    void AktiveFootmanUpgtate()
+    {
+        for (int i = 0; i < buttonsFootman.Count; i++)
+        {
+            if (i > listFootman.Count)
+            {
+                buttonsFootman[i].SetActive(false);
+                lockFootman[i].SetActive(true);
+            }
+            else if (i == listFootman.Count)
+            {
+                buttonsFootman[i].SetActive(true);
+                lockFootman[i].SetActive(false);
+            }
+            else
+            {
+                buttonsFootman[i].SetActive(false);
+                purchasedFootman[i].SetActive(true);
+            }
+        }
+    }
     public void ClickOnUpgrate(Image gm)
     {
         AktiveMageUpgtate();
         AktiveKnightUpgtate();
+        AktiveFootmanUpgtate();
         if (image != null&&image != gm)
         {
             image.gameObject.SetActive(false);
@@ -144,6 +181,21 @@ public class UpgrateManage : MonoBehaviour
             {
                 buttonsMage[i].SetActive(false);
                 purchasedMage[i].SetActive(true);
+            }
+        }
+    }
+    public void TwoSkillUpdate(int num)
+    {
+        if (MainManager.RemoveEmeralds(num))
+        {
+            UpgrateMemory.upgratesFootman.Add(true);
+        }
+        for (int i = 0; i < listFootman.Count; i++)
+        {
+            if (listFootman[i])
+            {
+                buttonsFootman[i].SetActive(false);
+                purchasedFootman[i].SetActive(true);
             }
         }
     }

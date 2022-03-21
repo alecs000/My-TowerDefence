@@ -13,6 +13,7 @@ public class wixard_move : IAlly
     [SerializeField] float speedL =1;
     [SerializeField] float waitTime = 5f;
     [SerializeField] float attackRange;
+    [SerializeField] float attack;
     [SerializeField] GameObject fireBall;
     [SerializeField] AudioClip clip;
     [SerializeField] GameObject fireBallBlue;
@@ -44,6 +45,7 @@ public class wixard_move : IAlly
             anim.SetFloat("speedAttack", 1.0f*1.3f);
             waitTime *= 0.7f;
         }
+        Enemy.Mageattack = attack;
     }
     private List<IEnemy> GetEnemiesInRange()
     {

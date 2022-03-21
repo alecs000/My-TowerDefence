@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class ManegeSpawn : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class ManegeSpawn : MonoBehaviour
     public bool isFreeze;
     public Image bar;
     public Image Mainbar;
+    public Text barText;
     public bool IsDrag;
     public bool openSittings = false;//запрещать покупки при настройках
     List<bool> listMage;

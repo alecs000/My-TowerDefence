@@ -72,7 +72,7 @@ public class Enemy : IEnemy
                 animStop = false;
             }
             //Debug.Log(livesEnemy.lives);
-            Moving();
+            
             if (targetAlly != null && !isAttack)
             {
                 //Атака врага. Вызов корутины остановки врага на время атаки
@@ -100,6 +100,7 @@ public class Enemy : IEnemy
             UpgrateMemory.levels.Add(3);
 
         }
+        Moving();
     }
     public IEnumerator WaidEnemyAtack()
     {

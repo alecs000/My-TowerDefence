@@ -54,8 +54,8 @@ public class MonsterPool : MonoBehaviour
                 SrartLevel(UpgrateMemory.levels.Count);
                 break;
             case 0:
-                waveShell = new int[] {0, 0};
-                waveSlime = new int[] {0, 0};
+                waveShell = new int[] {0, 2};
+                waveSlime = new int[] {2, 1};
                 waveOrc = new int[] {0, 0};
                 boss = bossSlime;
                 break;
