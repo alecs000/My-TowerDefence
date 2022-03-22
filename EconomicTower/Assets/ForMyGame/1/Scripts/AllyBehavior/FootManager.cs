@@ -96,6 +96,11 @@ public class FootManager : IAlly
         attack *= 2;
         waitTime /= 2;
         anim.SetFloat("SpeedAttack", 2);
+        short att = attack;
+        attack = 0;
+        yield return new WaitForSeconds(3);
+        attack = att;
+        anim.SetBool("IsUseUlt", false);
     }     
     IEnemy GetNearestEnemy()
     {

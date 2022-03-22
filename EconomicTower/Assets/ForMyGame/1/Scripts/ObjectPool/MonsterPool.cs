@@ -111,7 +111,7 @@ public class MonsterPool : MonoBehaviour
                 }
                 yield return new WaitForSeconds(1.5f);
             }
-            yield return new WaitForSeconds(0f);
+            yield return new WaitForSeconds(3f);
         }
         Instantiate(boss, new Vector3(-15, 0, Random.Range(-3.0f, 0f)), boss.transform.rotation);
 

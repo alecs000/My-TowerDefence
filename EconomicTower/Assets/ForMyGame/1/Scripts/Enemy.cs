@@ -100,7 +100,10 @@ public class Enemy : IEnemy
             UpgrateMemory.levels.Add(3);
 
         }
-        Moving();
+        if (!manegeSpawn.isFreeze)
+        {
+            Moving();
+        }
     }
     public IEnumerator WaidEnemyAtack()
     {

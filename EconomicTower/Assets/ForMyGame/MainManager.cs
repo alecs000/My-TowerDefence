@@ -12,7 +12,7 @@ public class MainManager : MonoBehaviour
     public static int emeralds { get; private set; }
     Text text;
     private void Awake()
-    {
+    { 
         emeraldsGm = GameObject.FindGameObjectWithTag("Dimond");
         text = emeraldsGm.GetComponent<Text>();
         if (instance==null)

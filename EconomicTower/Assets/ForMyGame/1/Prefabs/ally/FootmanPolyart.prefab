@@ -853,8 +853,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15a06a87e94489c40af8371b273c5d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 800
-  attack: 5
+  lives: 70
+  attack: 30
   waitTime: 0.9
   speedForward: 1
   attackRang: 2

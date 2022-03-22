@@ -178,9 +178,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.000001
-  coins: 50
+  coins: 20
   lives: 80
-  dimonds: 7
+  dimonds: 10
   attack: 25
   speedForward: 0.7
   speedL: 1
