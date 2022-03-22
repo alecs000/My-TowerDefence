@@ -9,21 +9,27 @@ public class MonsterPool : MonoBehaviour
     public PoolMono<IEnemy> poolMShell;
     public PoolMono<IEnemy> poolMSlime;
     public PoolMono<IEnemy> poolMOrc;
+    public PoolMono<IEnemy> poolMSpider;
     [SerializeField] int poolCountShell = 10;
     [SerializeField] bool autoExpandShell = true;
     [SerializeField] int poolCountSlime = 10;
     [SerializeField] bool autoExpandSlime = true;
     [SerializeField] int poolCountOrc = 10;
     [SerializeField] bool autoExpandOrc = true;
+    [SerializeField] int poolCountSpider = 10;
+    [SerializeField] bool autoExpandSpider = true;
     [SerializeField] IEnemy enemyPrefabShell;
     [SerializeField] IEnemy enemyPrefabSlime;
     [SerializeField] IEnemy enemyPrefabOrc;
+    [SerializeField] IEnemy enemyPrefabSpider;
     [SerializeField] GameObject bossSlime;
     [SerializeField] GameObject bossOrc;
+    [SerializeField] GameObject bossSpider;
     ManegeSpawn manegeSpawn;
     public int[] waveShell = {  };
     public int[] waveSlime = {  };
     public int[] waveOrc = { };
+    public int[] waveSpider = { };
     GameObject boss;
 
 
@@ -37,6 +43,8 @@ public class MonsterPool : MonoBehaviour
         poolMSlime.autoExpand = autoExpandSlime;
         poolMOrc = new PoolMono<IEnemy>(enemyPrefabOrc, poolCountOrc, this.transform);
         poolMOrc.autoExpand = autoExpandOrc;
+        poolMSpider = new PoolMono<IEnemy>(enemyPrefabSpider, poolCountSpider, this.transform);
+        poolMSpider.autoExpand = autoExpandSpider;
     }
     private void Start()
     {
@@ -69,6 +77,7 @@ public class MonsterPool : MonoBehaviour
                 waveShell = new int[] { 3,4, 2, 0};
                 waveSlime = new int[] { 2, 0, 1, 6};
                 waveOrc = new int[] { 0, 1, 2, 1 };
+                boss = bossSpider;
                 break;
         } 
     }
@@ -111,6 +120,14 @@ public class MonsterPool : MonoBehaviour
                 }
                 yield return new WaitForSeconds(1.5f);
             }
+            for (int j = 0; j < waveSpider[i]; j++)
+            {
+                if (!manegeSpawn.isFreeze)
+                {
+                    this.CreatSpider();
+                }
+                yield return new WaitForSeconds(1.5f);
+            }
             yield return new WaitForSeconds(3f);
         }
         Instantiate(boss, new Vector3(-15, 0, Random.Range(-3.0f, 0f)), boss.transform.rotation);
@@ -131,5 +148,10 @@ public class MonsterPool : MonoBehaviour
     {
         IEnemy orc = poolMOrc.GetFreeElement();
         orc.transform.position = new Vector3(-15, 0, Random.Range(-3.0f, 0f));
+    }
+    void CreatSpider()
+    {
+        IEnemy spider = poolMSpider.GetFreeElement();
+        spider.transform.position = new Vector3(-15, 0, Random.Range(-3.0f, 0f));
     }
 }
