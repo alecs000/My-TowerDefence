@@ -12,6 +12,7 @@ public class ManegeSpawn : MonoBehaviour
     [SerializeField] GameObject footman;
     [SerializeField] GameObject menuWin;
     [SerializeField] GameObject menuLose;
+    [SerializeField] GameObject lockGm;
     [SerializeField] int livesTower;
     Vector3 spawnPositionAlly;  
     public List<IAlly> AllyList = new List<IAlly>();
@@ -90,6 +91,10 @@ public class ManegeSpawn : MonoBehaviour
                     FootManager.isAppear = true;
                 }
             }
+        }
+        if (UpgrateMemory.levels.Count>0)
+        {
+            lockGm.SetActive(false);
         }
     }
     private void Update()

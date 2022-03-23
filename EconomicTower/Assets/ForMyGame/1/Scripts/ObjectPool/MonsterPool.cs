@@ -29,7 +29,7 @@ public class MonsterPool : MonoBehaviour
     public int[] waveShell = {  };
     public int[] waveSlime = {  };
     public int[] waveOrc = { };
-    public int[] waveSpider = { };
+    public int[] waveSpider = {};
     GameObject boss;
 
 
@@ -53,6 +53,8 @@ public class MonsterPool : MonoBehaviour
     }
     void SrartLevel(int level = -1)
     {
+        Debug.Log(UpgrateMemory.levels.Count);
+        Debug.Log(level);
         switch (level)
         {
             case -2:
@@ -65,18 +67,21 @@ public class MonsterPool : MonoBehaviour
                 waveShell = new int[] {0, 2};
                 waveSlime = new int[] {2, 1};
                 waveOrc = new int[] {0, 0};
+                waveSpider = new int[] { 0, 0 };
                 boss = bossSlime;
                 break;
             case 1:
                 waveShell = new int[] { 1, 2, 2, 0};
                 waveSlime = new int[] { 3, 1, 2, 2};
                 waveOrc = new int[] { 0, 0, 0, 0};
+                waveSpider = new int[] { 0, 0,0,0 };
                 boss = bossOrc;
                 break;
             case 2:
                 waveShell = new int[] { 3,4, 2, 0};
                 waveSlime = new int[] { 2, 0, 1, 6};
                 waveOrc = new int[] { 0, 1, 2, 1 };
+                waveSpider = new int[] { 0, 0, 0, 0 };
                 boss = bossSpider;
                 break;
         } 
@@ -88,8 +93,8 @@ public class MonsterPool : MonoBehaviour
     }
     public void ResrartLevel()
     {
-        SrartLevel(-2);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SrartLevel(-2);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public IEnumerator SpawnMonster()
     {

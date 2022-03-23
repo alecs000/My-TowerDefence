@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -408,7 +408,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Knight: 60$'
+  m_Text: "\u0420\u044B\u0446\u0430\u0440\u044C: 60$"
 --- !u!222 &108579597
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1189,7 +1189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: English
+  currentLanguage: Russian
   detectLanguage: 1
   defaultLanguage: English
   saveLoad: 1
@@ -1868,7 +1868,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Mage: 30$'
+  m_Text: "\u041C\u0430\u0433: $30"
 --- !u!222 &373643610
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2023,7 +2023,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SPELLS
+  m_Text: "\u0427\u0410\u0420\u042B"
 --- !u!222 &382104322
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3671,7 +3671,7 @@ RectTransform:
   m_Children:
   - {fileID: 1839667991}
   m_Father: {fileID: 2053992680}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -5153,7 +5153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &984156245
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5937,7 +5937,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LOOK
+  m_Text: "\u0417\u0410\u041A\u0420\u042B\u0422\u041E"
 --- !u!222 &1068468414
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7194,7 +7194,7 @@ RectTransform:
   m_Children:
   - {fileID: 1068468412}
   m_Father: {fileID: 2053992680}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -7634,7 +7634,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: TOWERS
+  m_Text: "\u0411\u0410\u0428\u041D\u0418"
 --- !u!222 &1285141978
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8186,11 +8186,11 @@ RectTransform:
   - {fileID: 1954568210}
   - {fileID: 1729777400}
   m_Father: {fileID: 2053992680}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 630, y: 91.72}
+  m_AnchoredPosition: {x: 630.8, y: 91.72}
   m_SizeDelta: {x: 206.8178, y: 183.44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1395469461
@@ -9027,7 +9027,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Werwolf: 20$'
+  m_Text: "\u0421\u043E\u0431\u0430\u043A\u0430: 20$"
 --- !u!222 &1455370429
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9452,7 +9452,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LOOK
+  m_Text: "\u0417\u0410\u041A\u0420\u042B\u0422\u041E"
 --- !u!222 &1601040318
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10061,7 +10061,7 @@ RectTransform:
   m_Children:
   - {fileID: 1601040316}
   m_Father: {fileID: 2053992680}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -11120,7 +11120,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LOOK
+  m_Text: "\u0417\u0410\u041A\u0420\u042B\u0422\u041E"
 --- !u!222 &1839667993
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12706,10 +12706,10 @@ RectTransform:
   m_Children:
   - {fileID: 1952465278}
   - {fileID: 393075510}
+  - {fileID: 1395469460}
   - {fileID: 644277570}
   - {fileID: 1674272654}
   - {fileID: 1242167997}
-  - {fileID: 1395469460}
   m_Father: {fileID: 48181329}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13219,6 +13219,10 @@ PrefabInstance:
       propertyPath: enemyPrefabSlime
       value: 
       objectReference: {fileID: 1099066601145298959, guid: 1e9dc3baaef13c049b954ce96f6d56d4, type: 3}
+    - target: {fileID: 1640291213, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
+      propertyPath: enemyPrefabSpider
+      value: 
+      objectReference: {fileID: 7242673190177482388, guid: b9e6af85c6f73224db64a7646cb47053, type: 3}
     - target: {fileID: 774736825271829088, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -13272,8 +13276,16 @@ PrefabInstance:
       value: SpawnManager
       objectReference: {fileID: 0}
     - target: {fileID: 774736825271829089, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 774736825271829089, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
       propertyPath: m_TagString
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 774736825271829089, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 774736825271829091, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
       propertyPath: bar
@@ -13295,6 +13307,10 @@ PrefabInstance:
       propertyPath: menu
       value: 
       objectReference: {fileID: 1965901376}
+    - target: {fileID: 774736825271829091, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
+      propertyPath: lockGm
+      value: 
+      objectReference: {fileID: 644277569}
     - target: {fileID: 774736825271829091, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
       propertyPath: prefab
       value: 
