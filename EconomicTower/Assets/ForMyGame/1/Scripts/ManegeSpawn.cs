@@ -187,13 +187,16 @@ public class ManegeSpawn : MonoBehaviour
         AllyList.Remove(ally);
     }
     #region [Freeze]
+    [Header("Freeze")]
+    [SerializeField] GameObject frost;
     public void Freeze(GameObject red)
     {
         if (!openSittings)
         {
-            if (CoinsMangement.RemoveCoins(12))
+            if (EnergyMenegment.RemoveEnergy(17))
             {
                 isFreeze = true;
+                frost.SetActive(true);
                 StartCoroutine(FreezeAll());
             }
             else
@@ -207,6 +210,7 @@ public class ManegeSpawn : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         isFreeze = false;
+        frost.SetActive(false);
     }
     #endregion
     #region [Bomb]
@@ -230,7 +234,7 @@ public class ManegeSpawn : MonoBehaviour
         if (!openSittings)
         {
             IsDrag = true;
-            if (!isParticlActiv && CoinsMangement.coins >= 40)
+            if (!isParticlActiv && EnergyMenegment.energy >= 40)
             {
                 gm = Object.Instantiate(prefab, but.transform);
             }
@@ -248,7 +252,7 @@ public class ManegeSpawn : MonoBehaviour
         {
             if (!isRedZone)
             {
-                if (!isParticlActiv && CoinsMangement.coins >= 40)
+                if (!isParticlActiv && EnergyMenegment.energy >= 40)
                 {
                     IsDrag = false;
                     if (!isParticlActiv && gm != null)
@@ -263,7 +267,7 @@ public class ManegeSpawn : MonoBehaviour
                             Debug.Log("Путь к врагу преграждает объект: " + hit.collider.name);
                             if (hit.collider.name == "ground"|| hit.collider.tag == "enemy")
                             {
-                                CoinsMangement.RemoveCoins(40);
+                                EnergyMenegment.RemoveEnergy(40);
                                 boomDes = Instantiate(boom, transform.position, boom.transform.rotation);
                                 StartCoroutine(DelitParticl(grey));
                                 boomDes.transform.position = new Vector3(hit.point.x, hit.point.y + 0.1f, hit.point.z);

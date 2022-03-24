@@ -138,6 +138,7 @@ public class FootManager : IAlly
             {
                 MainManager.AddDimond(targetEnemy.dimonds);
                 CoinsMangement.AddCoins(targetEnemy.coins);
+                EnergyMenegment.AddEnergy(targetEnemy.energy);
                 monsterPool.poolM.Remove(targetEnemy);
                 targetEnemy.gameObject.SetActive(false);
                 targetEnemy = null;

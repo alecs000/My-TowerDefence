@@ -1763,10 +1763,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8d74631313105549ad961a9de993f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.0001
   coins: 800
-  lives: 1000
   dimonds: 300
+  energy: 0
+  speed: 0.0001
+  lives: 1000
   attack: 100
   speedForward: 1
   speedL: 1
@@ -1814,7 +1815,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6392326730490766497, guid: c184bfb7ca649a3409de769b65bbf008, type: 2}
   m_audioClip: {fileID: 8300000, guid: 35da1333dd2996541819cbd5f4c1e2ed, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

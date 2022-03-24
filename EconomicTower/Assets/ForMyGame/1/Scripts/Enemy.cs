@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Enemy : IEnemy
 {
-    [SerializeField] float speed;
-    public short coins;
-    [SerializeField] short lives;
-    public short dimonds;
-    [SerializeField] short attack = 5;
     public static float Mageattack = 15;
+    public short coins;
+    public short dimonds;
+    public short energy;
+    [SerializeField] float speed;
+    [SerializeField] short lives;
+    [SerializeField] short attack = 5;
     [SerializeField] float speedForward;
     [SerializeField] float speedL = 1;
     [SerializeField] float waitTime;
@@ -143,7 +144,7 @@ public class Enemy : IEnemy
         }
         if (other.CompareTag("Boomb"))
         {
-            livesEnemy.RemoveLives(30);
+            livesEnemy.RemoveLives(100);
         }
             if (livesEnemy.lives<= 0)
         {

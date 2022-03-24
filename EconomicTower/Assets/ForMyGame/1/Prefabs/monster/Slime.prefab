@@ -499,10 +499,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8d74631313105549ad961a9de993f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.00001
   coins: 15
-  lives: 40
   dimonds: 3
+  energy: 5
+  speed: 0.00001
+  lives: 40
   attack: 17
   speedForward: 1
   speedL: 1

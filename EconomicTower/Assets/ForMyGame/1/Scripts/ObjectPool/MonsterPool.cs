@@ -31,7 +31,7 @@ public class MonsterPool : MonoBehaviour
     public int[] waveOrc = { };
     public int[] waveSpider = {};
     GameObject boss;
-
+    static bool isWinAndRespawn;
 
     private void Awake()
     {
@@ -48,8 +48,16 @@ public class MonsterPool : MonoBehaviour
     }
     private void Start()
     {
-        SrartLevel(UpgrateMemory.levels.Count);
-        StartCoroutine(SpawnMonster());
+        if (isWinAndRespawn)
+        {
+            SrartLevel(UpgrateMemory.levels.Count-1);
+            StartCoroutine(SpawnMonster());
+        }
+        else
+        {
+                SrartLevel(UpgrateMemory.levels.Count);
+                StartCoroutine(SpawnMonster());
+        }
     }
     void SrartLevel(int level = -1)
     {
@@ -91,10 +99,15 @@ public class MonsterPool : MonoBehaviour
         SrartLevel(-1);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-    public void ResrartLevel()
+    public void ResrartLevel(bool win)
     {
-            SrartLevel(-2);
+        if (win)
+        {
+            isWinAndRespawn = true;
+        }
+            SrartLevel(UpgrateMemory.levels.Count-1);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            
     }
     public IEnumerator SpawnMonster()
     {

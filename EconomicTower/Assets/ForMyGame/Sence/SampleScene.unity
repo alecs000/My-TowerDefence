@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -967,7 +967,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Lock
+  m_Text: "\u0417\u0430\u043A\u0440\u044B\u0442\u043E"
 --- !u!222 &139436983
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2573,7 +2573,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Werwolf
+  m_Text: "\u0421\u043E\u0431\u0430\u043A\u0430"
 --- !u!222 &311938050
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3099,8 +3099,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 82, y: 2.3}
-  m_SizeDelta: {x: 73.5545, y: 45.6924}
+  m_AnchoredPosition: {x: 110.4729, y: 2.3}
+  m_SizeDelta: {x: 130.5003, y: 45.6924}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &484930850
 MonoBehaviour:
@@ -4007,7 +4007,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Knight
+  m_Text: "\u0420\u044B\u0446\u0430\u0440\u044C"
 --- !u!222 &670077609
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6813,7 +6813,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Mage
+  m_Text: "\u041C\u0430\u0433"
 --- !u!222 &1142119916
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7812,7 +7812,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Lock
+  m_Text: "\u0417\u0430\u043A\u0440\u044B\u0442\u043E"
 --- !u!222 &1393752255
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10687,7 +10687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: English
+  currentLanguage: Russian
   detectLanguage: 0
   defaultLanguage: English
   saveLoad: 1
@@ -11337,7 +11337,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Upgrade
+  m_Text: "\u041Fpo\u043Aa\u0447\u043Aa"
 --- !u!222 &1806402628
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13377,7 +13377,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2080457615
 RectTransform:
   m_ObjectHideFlags: 0
