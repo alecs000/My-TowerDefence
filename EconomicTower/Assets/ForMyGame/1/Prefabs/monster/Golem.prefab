@@ -78,8 +78,8 @@ AudioSource:
   m_GameObject: {fileID: 793144296180146328}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6392326730490766497, guid: c184bfb7ca649a3409de769b65bbf008, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 600e78cb0375b4d4b8a98a8be855917f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -187,7 +187,7 @@ MonoBehaviour:
   speedL: 1
   waitTime: 0.85
   attackRang: 1
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: 600e78cb0375b4d4b8a98a8be855917f, type: 3}
   isBoss: 0
   targetAlly: {fileID: 0}
 --- !u!54 &8849945806770131915

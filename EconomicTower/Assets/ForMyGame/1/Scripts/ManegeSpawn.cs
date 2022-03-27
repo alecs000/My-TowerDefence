@@ -14,6 +14,10 @@ public class ManegeSpawn : MonoBehaviour
     [SerializeField] GameObject menuLose;
     [SerializeField] GameObject lockGm;
     [SerializeField] int livesTower;
+    [SerializeField] AudioSource boosMusic;
+    [SerializeField] AudioSource idleMusic;
+    [SerializeField] AudioSource winMusic;
+    [SerializeField] AudioSource loseMusic;
     Vector3 spawnPositionAlly;  
     public List<IAlly> AllyList = new List<IAlly>();
     public bool isFreeze;
@@ -30,6 +34,8 @@ public class ManegeSpawn : MonoBehaviour
     public bool lose;
     public bool isBoss;
     public GameObject boss;
+    bool isMusicBoss;
+    bool isMenuActive;
     private void Awake()
     {
         spawnPositionAlly = new Vector3(8, 0, -1.3f);
@@ -99,19 +105,35 @@ public class ManegeSpawn : MonoBehaviour
     }
     private void Update()
     {
+        if (isBoss && boss.activeInHierarchy && !isMusicBoss)
+        {
+            boosMusic.Play();
+            idleMusic.Stop();
+            isMusicBoss = true;
+        }
         if (isBoss&&!boss.activeInHierarchy)
         {
             menuWin.SetActive(true);
         }
-        if (isGameStop)
+        if (isGameStop&& !isMenuActive)
         {
             if (win)
             {
+                idleMusic.Stop();
+                boosMusic.Stop();
+                winMusic.Play();
                 menuWin.SetActive(true);
+                Debug.Log(1);
+                isMenuActive = true;
             }
             else if (lose)
             {
+                idleMusic.Stop();
+                boosMusic.Stop();
+                loseMusic.Play();
+                Debug.Log(2);
                 menuLose.SetActive(true);
+                isMenuActive = true;
             }
         }
     }
@@ -120,10 +142,6 @@ public class ManegeSpawn : MonoBehaviour
         if (livesTower>0)
         {
             livesTower -= num;
-        }
-        else
-        {
-
         }
     }
 

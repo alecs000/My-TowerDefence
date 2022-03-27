@@ -20,7 +20,10 @@ public class BoosHPEnter : MonoBehaviour
         livesEnemy = GetComponent<Enemy>().livesEnemy;
         Mainbar.gameObject.SetActive(true);
         HP = livesEnemy.lives;
-
+    }
+    private void OnEnable()
+    {
+        
     }
     private void Update()
     {

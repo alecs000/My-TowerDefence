@@ -21,9 +21,10 @@ public class UpgrateManage : MonoBehaviour
     [SerializeField] List<GameObject> purchasedFootman = new List<GameObject>();
     [SerializeField] GameObject lockGm;
     [SerializeField] GameObject footmenGm;
+    [SerializeField] AudioSource fireEffect;
+    [SerializeField] AudioSource pressEffect;
     private void Awake()
     {
-
         if (UpgrateMemory.levels.Count>0)
         {
             if (UpgrateMemory.levels?[0] == 1 || UpgrateMemory.levels?[0] == 2 || UpgrateMemory.levels?[0] == 3)
@@ -122,6 +123,7 @@ public class UpgrateManage : MonoBehaviour
     }
     public void ClickOnUpgrate(Image gm)
     {
+        pressEffect.Play();
         AktiveMageUpgtate();
         AktiveKnightUpgtate();
         AktiveFootmanUpgtate();
@@ -158,6 +160,7 @@ public class UpgrateManage : MonoBehaviour
     {
         if (MainManager.RemoveEmeralds(num))
         {
+            fireEffect.Play();
             UpgrateMemory.upgratesKnight.Add(true);
         }
         for (int i = 0; i < listKnight.Count; i++)
@@ -173,6 +176,7 @@ public class UpgrateManage : MonoBehaviour
     {
         if (MainManager.RemoveEmeralds(num))
         {
+            fireEffect.Play();
             UpgrateMemory.upgratesMage.Add(true);
         }
         for (int i = 0; i < listMage.Count; i++)
@@ -188,6 +192,7 @@ public class UpgrateManage : MonoBehaviour
     {
         if (MainManager.RemoveEmeralds(num))
         {
+            fireEffect.Play();
             UpgrateMemory.upgratesFootman.Add(true);
         }
         for (int i = 0; i < listFootman.Count; i++)
