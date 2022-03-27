@@ -1773,7 +1773,7 @@ MonoBehaviour:
   speedL: 1
   waitTime: 1
   attackRang: 1
-  clip: {fileID: 8300000, guid: 35da1333dd2996541819cbd5f4c1e2ed, type: 3}
+  clip: {fileID: 8300000, guid: 02127650f3b7ed7448e744718821dce3, type: 3}
   isBoss: 1
   targetAlly: {fileID: 0}
 --- !u!54 &3493177838890629102
@@ -1814,7 +1814,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6392326730490766497, guid: c184bfb7ca649a3409de769b65bbf008, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 35da1333dd2996541819cbd5f4c1e2ed, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 02127650f3b7ed7448e744718821dce3, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

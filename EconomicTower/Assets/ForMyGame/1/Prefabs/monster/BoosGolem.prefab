@@ -731,8 +731,8 @@ AudioSource:
   m_GameObject: {fileID: 1531033111045371111}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6392326730490766497, guid: c184bfb7ca649a3409de769b65bbf008, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 40cb331bb4ffc21458e893b070851ae2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -830,16 +830,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8d74631313105549ad961a9de993f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.000001
   coins: 50
-  lives: 500
   dimonds: 7
+  energy: 0
+  speed: 0.000001
+  lives: 500
   attack: 50
   speedForward: 0.7
   speedL: 1
   waitTime: 0.85
   attackRang: 1
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: 40cb331bb4ffc21458e893b070851ae2, type: 3}
   isBoss: 1
   targetAlly: {fileID: 0}
 --- !u!54 &7273261558815541172

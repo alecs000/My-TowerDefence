@@ -245,19 +245,20 @@ public class ManegeSpawn : MonoBehaviour
     //ÏÎÊÍÎÏÊÈ ÍÀÑÒÐÎÉÊÈ
     public void NotDrag()
     {
-        IsDrag = true;
+
     }
     public void Down()
     {
         if (!openSittings)
         {
-            IsDrag = true;
             if (!isParticlActiv && EnergyMenegment.energy >= 40)
             {
                 gm = Object.Instantiate(prefab, but.transform);
+                IsDrag = true;
             }
             else
             {
+                IsDrag = false;
                 red.SetActive(true);
                 StartCoroutine(BannerRed(red));
             }
@@ -266,13 +267,13 @@ public class ManegeSpawn : MonoBehaviour
     }
     public void Up(GameObject grey)
     {
+        IsDrag = false;
         if (!openSittings)
         {
             if (!isRedZone)
             {
                 if (!isParticlActiv && EnergyMenegment.energy >= 40)
                 {
-                    IsDrag = false;
                     if (!isParticlActiv && gm != null)
                     {
                         Vector3 mouse = Input.mousePosition;
