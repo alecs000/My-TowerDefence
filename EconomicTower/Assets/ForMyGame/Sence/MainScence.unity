@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -702,7 +702,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0417\u0410\u041A\u0420\u042B\u0422\u041E"
+  m_Text: LOOK
 --- !u!222 &122847370
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1068,12 +1068,12 @@ RectTransform:
   m_Children:
   - {fileID: 2014687315}
   m_Father: {fileID: 679067704}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 91.98001}
-  m_SizeDelta: {x: 205.9005, y: 183.44}
+  m_AnchoredPosition: {x: -0.19928, y: 91.98001}
+  m_SizeDelta: {x: 209, y: 183.44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &217372344
 MonoBehaviour:
@@ -1277,7 +1277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: Russian
+  currentLanguage: English
   detectLanguage: 1
   defaultLanguage: English
   saveLoad: 1
@@ -1570,7 +1570,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0412\u0437\u0440\u044B\u0432: 40$"
+  m_Text: 'Fire Ball: 40$'
 --- !u!222 &347639229
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2205,7 +2205,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0427\u0410\u0420\u042B"
+  m_Text: SPELLS
 --- !u!222 &382104322
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4366,11 +4366,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1125926099}
+  - {fileID: 1962311506}
   - {fileID: 217372343}
   - {fileID: 1705567709}
   - {fileID: 1601842543}
   - {fileID: 1959428921}
-  - {fileID: 1962311506}
   m_Father: {fileID: 48181329}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5313,7 +5313,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0412\u0437\u0440\u044B\u0432: 40$"
+  m_Text: 'Fire Ball: 40$'
 --- !u!222 &878893839
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7792,7 +7792,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u041C\u043E\u0440\u043E\u0437: 17$"
+  m_Text: 'Freze: 17$'
 --- !u!222 &1213676284
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8273,7 +8273,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0411\u0410\u0428\u041D\u0418"
+  m_Text: TOWERS
 --- !u!222 &1285141978
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9385,7 +9385,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u041F\u0420\u0418\u0417\u042B\u0412 \u0411\u041E\u0413\u0410"
+  m_Text: CALL OF GOD
 --- !u!222 &1433122759
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10224,7 +10224,7 @@ RectTransform:
   - {fileID: 704070828}
   - {fileID: 1433122757}
   m_Father: {fileID: 679067704}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -10910,7 +10910,7 @@ RectTransform:
   m_Children:
   - {fileID: 122847368}
   m_Father: {fileID: 679067704}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -12713,7 +12713,7 @@ RectTransform:
   - {fileID: 1051262518}
   - {fileID: 1403850281}
   m_Father: {fileID: 679067704}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -12985,11 +12985,11 @@ RectTransform:
   - {fileID: 82129038}
   - {fileID: 1939110914}
   m_Father: {fileID: 679067704}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 640.4, y: 91.72}
+  m_AnchoredPosition: {x: 640.2, y: 91.98}
   m_SizeDelta: {x: 206.81781, y: 183.44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1962311507
@@ -13471,7 +13471,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0417\u0410\u041A\u0420\u042B\u0422\u041E"
+  m_Text: LOOK
 --- !u!222 &2014687317
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14386,6 +14386,14 @@ PrefabInstance:
       propertyPath: loseMusic
       value: 
       objectReference: {fileID: 540597335}
+    - target: {fileID: 774736825271829091, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
+      propertyPath: lockGmArrow
+      value: 
+      objectReference: {fileID: 217372342}
+    - target: {fileID: 774736825271829091, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
+      propertyPath: lockGmKnight
+      value: 
+      objectReference: {fileID: 644277569}
     - target: {fileID: 774736825271829091, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
       propertyPath: AllyList.Array.data[1]
       value: 

@@ -12,7 +12,8 @@ public class ManegeSpawn : MonoBehaviour
     [SerializeField] GameObject footman;
     [SerializeField] GameObject menuWin;
     [SerializeField] GameObject menuLose;
-    [SerializeField] GameObject lockGm;
+    [SerializeField] GameObject lockGmKnight;
+    [SerializeField] GameObject lockGmArrow;
     [SerializeField] int livesTower;
     [SerializeField] AudioSource boosMusic;
     [SerializeField] AudioSource idleMusic;
@@ -102,7 +103,11 @@ public class ManegeSpawn : MonoBehaviour
         }
         if (UpgrateMemory.levels.Count>0)
         {
-            lockGm.SetActive(false);
+            lockGmKnight.SetActive(false);
+        }
+        if (UpgrateMemory.levels.Count > 1)
+        {
+            lockGmArrow.SetActive(false);
         }
     }
     private void Update()
@@ -220,7 +225,7 @@ public class ManegeSpawn : MonoBehaviour
             i++;
             Instantiate(arrow, arrow.transform.position, arrow.transform.rotation);
             StartCoroutine(BannerRed(grey, 10));
-            yield return new WaitForSeconds(0.6f);
+            yield return new WaitForSeconds(2f);
         }
 
     }
