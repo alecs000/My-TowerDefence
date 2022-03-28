@@ -18,6 +18,8 @@ public class ManegeSpawn : MonoBehaviour
     [SerializeField] AudioSource idleMusic;
     [SerializeField] AudioSource winMusic;
     [SerializeField] AudioSource loseMusic;
+    [SerializeField] GameObject grey;
+    [SerializeField] GameObject arrow;
     Vector3 spawnPositionAlly;  
     public List<IAlly> AllyList = new List<IAlly>();
     public bool isFreeze;
@@ -160,9 +162,9 @@ public class ManegeSpawn : MonoBehaviour
             }
         }
     }
-    IEnumerator BannerRed(GameObject red)
+    IEnumerator BannerRed(GameObject red,float waitTime = 0.2f)
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(waitTime);
         red.SetActive(false);
     }
     public void SpawnKnight(GameObject red)
@@ -194,6 +196,33 @@ public class ManegeSpawn : MonoBehaviour
                 StartCoroutine(BannerRed(red));
             }
         }
+    }
+    public void SpawnArrow(GameObject red)
+    {
+        if (!openSittings)
+        {
+            if (EnergyMenegment.RemoveEnergy(90))
+            {
+                StartCoroutine(ArrowAtack());
+            }
+            else
+            {
+                red.SetActive(true);
+                StartCoroutine(BannerRed(red));
+            }
+        }
+    }
+    IEnumerator ArrowAtack()
+    {
+        int i = 0;
+        while (i<10)
+        {
+            i++;
+            Instantiate(arrow, arrow.transform.position, arrow.transform.rotation);
+            StartCoroutine(BannerRed(grey, 10));
+            yield return new WaitForSeconds(0.6f);
+        }
+
     }
     public void RegistrAlly(IAlly ally)
     {

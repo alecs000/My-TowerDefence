@@ -131,6 +131,7 @@ public class Enemy : IEnemy
     }
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.gameObject.name);
         if (other.CompareTag("Finish"))
         {//Œ“ Àﬁ◊¿“‹ œ–» –≈—“¿–“≈
             manegeSpawn.lose = true;
@@ -146,7 +147,13 @@ public class Enemy : IEnemy
         {
             livesEnemy.RemoveLives(100);
         }
-            if (livesEnemy.lives<= 0)
+        if (other.CompareTag("Arrow"))
+        {
+            livesEnemy.RemoveLives(30);
+            Destroy(other.gameObject);
+            Debug.Log(9000);
+        }
+        if (livesEnemy.lives<= 0)
         {
             if (isBoss && !manegeSpawn.isGameStop)
             {//Œ“ Àﬁ◊¿“‹ œ–» –≈—“¿–“≈

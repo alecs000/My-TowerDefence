@@ -12,6 +12,7 @@ TagManager:
   - Dimond
   - Menu
   - Upgrade
+  - Arrow
   layers:
   - Default
   - TransparentFX
