@@ -33,6 +33,8 @@ public class ManegeSpawn : MonoBehaviour
     List<bool> listMage;
     List<bool> listKnight;
     List<bool> listFootman;
+    List<bool> listIce;
+    List<bool> listFireBall;
     public bool isGameStop;
     public bool win;
     public bool lose;
@@ -40,12 +42,26 @@ public class ManegeSpawn : MonoBehaviour
     public GameObject boss;
     bool isMusicBoss;
     bool isMenuActive;
+    short bombPrice = 40;
+    [Header("Bomb")]
+    [SerializeField] Image prefab;
+    Image gm;
+    [SerializeField] Button but;
+    [SerializeField] ParticleSystem boom;
+    [SerializeField] ParticleSystem bigBoom;
+    [SerializeField] GameObject red;
+    [SerializeField] GameObject redPanel;
+    ParticleSystem boomDes;
+    bool isParticlActiv;
+    public bool isRedZone;
     private void Awake()
     {
         spawnPositionAlly = new Vector3(8, 0, -1.3f);
         listMage = UpgrateMemory.upgratesMage;
         listKnight = UpgrateMemory.upgratesKnight;
         listFootman = UpgrateMemory.upgratesFootman;
+        listIce = UpgrateMemory.upgratesIce;
+        listFireBall = UpgrateMemory.upgratesFireBall;
         for (int i = 0; i < listMage.Count; i++)
         {
             if (listMage[i])
@@ -102,9 +118,9 @@ public class ManegeSpawn : MonoBehaviour
                 }
             }
         }
-        for (int i = 0; i < listFootman.Count; i++)
+        for (int i = 0; i < listIce.Count; i++)
         {
-            if (listFootman[i])
+            if (listIce[i])
             {
                 if (i == 0)
                 {
@@ -113,6 +129,20 @@ public class ManegeSpawn : MonoBehaviour
                 if (i == 1)
                 {
                     Enemy.frezzeDie = true;
+                }
+            }
+        }
+        for (int i = 0; i < listFireBall.Count; i++)
+        {
+            if (listFireBall[i])
+            {
+                if (i == 0)
+                {
+                    bombPrice -= 10;
+                }
+                if (i == 1)
+                {
+                    boom = bigBoom;
                 }
             }
         }
@@ -281,16 +311,6 @@ public class ManegeSpawn : MonoBehaviour
     }
     #endregion
     #region [Bomb]
-    [Header("Bomb")]
-    [SerializeField] Image prefab;
-    Image gm;
-    [SerializeField] Button but;
-    [SerializeField] ParticleSystem boom;
-    [SerializeField] GameObject red;
-    [SerializeField] GameObject redPanel;
-    ParticleSystem boomDes;
-    bool isParticlActiv;
-    public bool isRedZone;
     //ПОКНОПКИ НАСТРОЙКИ
     public void NotDrag()
     {
@@ -300,7 +320,7 @@ public class ManegeSpawn : MonoBehaviour
     {
         if (!openSittings)
         {
-            if (!isParticlActiv && EnergyMenegment.energy >= 40)
+            if (!isParticlActiv && EnergyMenegment.energy >= bombPrice)
             {
                 gm = Object.Instantiate(prefab, but.transform);
                 IsDrag = true;
@@ -321,7 +341,7 @@ public class ManegeSpawn : MonoBehaviour
         {
             if (!isRedZone)
             {
-                if (!isParticlActiv && EnergyMenegment.energy >= 40)
+                if (!isParticlActiv && EnergyMenegment.energy >= bombPrice)
                 {
                     if (!isParticlActiv && gm != null)
                     {
@@ -335,7 +355,7 @@ public class ManegeSpawn : MonoBehaviour
                             Debug.Log("Путь к врагу преграждает объект: " + hit.collider.name);
                             if (hit.collider.name == "ground"|| hit.collider.tag == "enemy")
                             {
-                                EnergyMenegment.RemoveEnergy(40);
+                                EnergyMenegment.RemoveEnergy(bombPrice);
                                 boomDes = Instantiate(boom, transform.position, boom.transform.rotation);
                                 StartCoroutine(DelitParticl(grey));
                                 boomDes.transform.position = new Vector3(hit.point.x, hit.point.y + 0.1f, hit.point.z);

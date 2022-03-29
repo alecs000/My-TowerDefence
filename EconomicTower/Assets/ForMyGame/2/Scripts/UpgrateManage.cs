@@ -11,18 +11,22 @@ public class UpgrateManage : MonoBehaviour
     List<bool> listKnight;
     List<bool> listFootman;
     List<bool> listIce;
+    List<bool> listFireBall;
     [SerializeField] List<GameObject> buttonsMage = new List<GameObject>();
     [SerializeField] List<GameObject> buttonsKnight = new List<GameObject>();
     [SerializeField] List<GameObject> buttonsFootman = new List<GameObject>();
     [SerializeField] List<GameObject> buttonsIce = new List<GameObject>();
+    [SerializeField] List<GameObject> buttonsFireBall = new List<GameObject>();
     [SerializeField] List<GameObject> lockMage = new List<GameObject>();
     [SerializeField] List<GameObject> lockKnight = new List<GameObject>();
     [SerializeField] List<GameObject> lockFootman = new List<GameObject>();
     [SerializeField] List<GameObject> lockIce = new List<GameObject>();
+    [SerializeField] List<GameObject> lockFireBall = new List<GameObject>();
     [SerializeField] List<GameObject> purchasedMage = new List<GameObject>();
     [SerializeField] List<GameObject> purchasedKnight = new List<GameObject>();
     [SerializeField] List<GameObject> purchasedFootman = new List<GameObject>();
     [SerializeField] List<GameObject> purchasedIce = new List<GameObject>();
+    [SerializeField] List<GameObject> purchasedFireBall = new List<GameObject>();
     [SerializeField] GameObject lockGm;
     [SerializeField] GameObject footmenGm;
     [SerializeField] AudioSource fireEffect;
@@ -41,6 +45,7 @@ public class UpgrateManage : MonoBehaviour
         listKnight = UpgrateMemory.upgratesKnight;
         listFootman = UpgrateMemory.upgratesFootman;
         listIce = UpgrateMemory.upgratesIce;
+        listFireBall = UpgrateMemory.upgratesFireBall;
         for (int i = 0; i < listMage.Count; i++)
         {
             if (listMage[i])
@@ -135,7 +140,7 @@ public class UpgrateManage : MonoBehaviour
                 buttonsIce[i].SetActive(false);
                 lockIce[i].SetActive(true);
             }
-            else if (i == listFootman.Count)
+            else if (i == listIce.Count)
             {
                 buttonsIce[i].SetActive(true);
                 lockIce[i].SetActive(false);
@@ -147,6 +152,27 @@ public class UpgrateManage : MonoBehaviour
             }
         }
     }
+    void AktiveFireBallUpgtate()
+    {
+        for (int i = 0; i < buttonsFireBall.Count; i++)
+        {
+            if (i > listFireBall.Count)
+            {
+                buttonsFireBall[i].SetActive(false);
+                lockFireBall[i].SetActive(true);
+            }
+            else if (i == listFireBall.Count)
+            {
+                buttonsFireBall[i].SetActive(true);
+                lockFireBall[i].SetActive(false);
+            }
+            else
+            {
+                buttonsFireBall[i].SetActive(false);
+                purchasedFireBall[i].SetActive(true);
+            }
+        }
+    }
     public void ClickOnUpgrate(Image gm)
     {
         pressEffect.Play();
@@ -154,6 +180,7 @@ public class UpgrateManage : MonoBehaviour
         AktiveKnightUpgtate();
         AktiveFootmanUpgtate();
         AktiveIceUpgtate();
+        AktiveFireBallUpgtate();
         Debug.Log(UpgrateMemory.upgratesIce);
         if (image != null&&image != gm)
         {
@@ -246,6 +273,22 @@ public class UpgrateManage : MonoBehaviour
             {
                 buttonsIce[i].SetActive(false);
                 purchasedIce[i].SetActive(true);
+            }
+        }
+    }
+    public void FireBallSkillUpdate(int num)
+    {
+        if (MainManager.RemoveEmeralds(num))
+        {
+            fireEffect.Play();//Для заклинаний надо найти другой музон
+            UpgrateMemory.upgratesFireBall.Add(true);
+        }
+        for (int i = 0; i < listFireBall.Count; i++)
+        {
+            if (listFireBall[i])
+            {
+                buttonsFireBall[i].SetActive(false);
+                purchasedFireBall[i].SetActive(true);
             }
         }
     }

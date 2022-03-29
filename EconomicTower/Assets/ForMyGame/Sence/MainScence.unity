@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -702,7 +702,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LOOK
+  m_Text: "\u0417\u0410\u041A\u0420\u042B\u0422\u041E"
 --- !u!222 &122847370
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1277,7 +1277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: English
+  currentLanguage: Russian
   detectLanguage: 1
   defaultLanguage: English
   saveLoad: 1
@@ -1570,7 +1570,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Fire Ball: 40$'
+  m_Text: "\u0412\u0437\u0440\u044B\u0432: 40$"
 --- !u!222 &347639229
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2205,7 +2205,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SPELLS
+  m_Text: "\u0427\u0410\u0420\u042B"
 --- !u!222 &382104322
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5313,7 +5313,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Fire Ball: 40$'
+  m_Text: "\u0412\u0437\u0440\u044B\u0432: 40$"
 --- !u!222 &878893839
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5713,7 +5713,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &984156245
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7792,7 +7792,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Freze: 17$'
+  m_Text: "\u041C\u043E\u0440\u043E\u0437: 17$"
 --- !u!222 &1213676284
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8273,7 +8273,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: TOWERS
+  m_Text: "\u0411\u0410\u0428\u041D\u0418"
 --- !u!222 &1285141978
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9385,7 +9385,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CALL OF GOD
+  m_Text: "\u041F\u0420\u0418\u0417\u042B\u0412 \u0411\u041E\u0413\u0410"
 --- !u!222 &1433122759
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13471,7 +13471,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LOOK
+  m_Text: "\u0417\u0410\u041A\u0420\u042B\u0422\u041E"
 --- !u!222 &2014687317
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14343,6 +14343,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7602562463385289590, guid: 732742bf873a6ae4d89e9d477acce8a7, type: 3}
     - target: {fileID: 774736825271829091, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
+      propertyPath: BigBoom
+      value: 
+      objectReference: {fileID: 984929882723009960, guid: 6f132feee1b135c439a217231b762ea8, type: 3}
+    - target: {fileID: 774736825271829091, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
       propertyPath: Mainbar
       value: 
       objectReference: {fileID: 1876620500}
@@ -14350,6 +14354,10 @@ PrefabInstance:
       propertyPath: barText
       value: 
       objectReference: {fileID: 223067242}
+    - target: {fileID: 774736825271829091, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
+      propertyPath: bigBoom
+      value: 
+      objectReference: {fileID: 984929882723009960, guid: 6f132feee1b135c439a217231b762ea8, type: 3}
     - target: {fileID: 774736825271829091, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
       propertyPath: footman
       value: 
@@ -14386,6 +14394,10 @@ PrefabInstance:
       propertyPath: loseMusic
       value: 
       objectReference: {fileID: 540597335}
+    - target: {fileID: 774736825271829091, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
+      propertyPath: frezzeTime
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 774736825271829091, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
       propertyPath: lockGmArrow
       value: 
