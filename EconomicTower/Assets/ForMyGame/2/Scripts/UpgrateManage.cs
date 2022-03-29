@@ -10,15 +10,19 @@ public class UpgrateManage : MonoBehaviour
     List<bool> listMage;
     List<bool> listKnight;
     List<bool> listFootman;
+    List<bool> listIce;
     [SerializeField] List<GameObject> buttonsMage = new List<GameObject>();
     [SerializeField] List<GameObject> buttonsKnight = new List<GameObject>();
     [SerializeField] List<GameObject> buttonsFootman = new List<GameObject>();
+    [SerializeField] List<GameObject> buttonsIce = new List<GameObject>();
     [SerializeField] List<GameObject> lockMage = new List<GameObject>();
     [SerializeField] List<GameObject> lockKnight = new List<GameObject>();
     [SerializeField] List<GameObject> lockFootman = new List<GameObject>();
+    [SerializeField] List<GameObject> lockIce = new List<GameObject>();
     [SerializeField] List<GameObject> purchasedMage = new List<GameObject>();
     [SerializeField] List<GameObject> purchasedKnight = new List<GameObject>();
     [SerializeField] List<GameObject> purchasedFootman = new List<GameObject>();
+    [SerializeField] List<GameObject> purchasedIce = new List<GameObject>();
     [SerializeField] GameObject lockGm;
     [SerializeField] GameObject footmenGm;
     [SerializeField] AudioSource fireEffect;
@@ -36,6 +40,7 @@ public class UpgrateManage : MonoBehaviour
         listMage = UpgrateMemory.upgratesMage;
         listKnight = UpgrateMemory.upgratesKnight;
         listFootman = UpgrateMemory.upgratesFootman;
+        listIce = UpgrateMemory.upgratesIce;
         for (int i = 0; i < listMage.Count; i++)
         {
             if (listMage[i])
@@ -121,12 +126,35 @@ public class UpgrateManage : MonoBehaviour
             }
         }
     }
+    void AktiveIceUpgtate()
+    {
+        for (int i = 0; i < buttonsIce.Count; i++)
+        {
+            if (i > listIce.Count)
+            {
+                buttonsIce[i].SetActive(false);
+                lockIce[i].SetActive(true);
+            }
+            else if (i == listFootman.Count)
+            {
+                buttonsIce[i].SetActive(true);
+                lockIce[i].SetActive(false);
+            }
+            else
+            {
+                buttonsIce[i].SetActive(false);
+                purchasedIce[i].SetActive(true);
+            }
+        }
+    }
     public void ClickOnUpgrate(Image gm)
     {
         pressEffect.Play();
         AktiveMageUpgtate();
         AktiveKnightUpgtate();
         AktiveFootmanUpgtate();
+        AktiveIceUpgtate();
+        Debug.Log(UpgrateMemory.upgratesIce);
         if (image != null&&image != gm)
         {
             image.gameObject.SetActive(false);
@@ -201,6 +229,23 @@ public class UpgrateManage : MonoBehaviour
             {
                 buttonsFootman[i].SetActive(false);
                 purchasedFootman[i].SetActive(true);
+            }
+        }
+    }
+    public void IceSkillUpdate(int num)
+    {
+        if (MainManager.RemoveEmeralds(num))
+        {
+            fireEffect.Play();//Для заклинаний надо найти другой музон
+            UpgrateMemory.upgratesIce.Add(true);
+            Debug.Log(true);
+        }
+        for (int i = 0; i < listIce.Count; i++)
+        {
+            if (listIce[i])
+            {
+                buttonsIce[i].SetActive(false);
+                purchasedIce[i].SetActive(true);
             }
         }
     }

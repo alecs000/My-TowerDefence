@@ -13,6 +13,7 @@ TagManager:
   - Menu
   - Upgrade
   - Arrow
+  - SpellsUpgrade
   layers:
   - Default
   - TransparentFX

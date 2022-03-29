@@ -5,25 +5,36 @@ using UnityEngine.EventSystems;
 
 public class Click : MonoBehaviour
 {
-    public GameObject up;
+    [SerializeField] GameObject upgrade;
+    [SerializeField] GameObject spellsUpgrade;
+    bool allWindowClose =true;
 
     public void Close(GameObject gm)
     {
         gm.SetActive(false);
+        allWindowClose = true;
     }
     void Update()
     {
-        RaycastHit hit;
-        if (Input.GetMouseButton(0))
+        if (allWindowClose)
         {
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
+            RaycastHit hit;
+            if (Input.GetMouseButton(0))
             {
-                Debug.DrawRay(transform.position, Input.mousePosition, Color.red);
-                Debug.Log(hit.collider.gameObject.name);
-                if (hit.collider.gameObject.CompareTag("Upgrade"))
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
                 {
-                    
-                    up.gameObject.SetActive(true);
+                    Debug.DrawRay(transform.position, Input.mousePosition, Color.red);
+                    Debug.Log(hit.collider.gameObject.name);
+                    if (hit.collider.gameObject.CompareTag("Upgrade"))
+                    {
+                        allWindowClose = false;
+                        upgrade.gameObject.SetActive(true);
+                    }
+                    if (hit.collider.gameObject.CompareTag("SpellsUpgrade"))
+                    {
+                        allWindowClose = false;
+                        spellsUpgrade.gameObject.SetActive(true);
+                    }
                 }
             }
         }

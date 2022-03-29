@@ -21,6 +21,7 @@ public class ManegeSpawn : MonoBehaviour
     [SerializeField] AudioSource loseMusic;
     [SerializeField] GameObject grey;
     [SerializeField] GameObject arrow;
+    [SerializeField] float frezzeTime;
     Vector3 spawnPositionAlly;  
     public List<IAlly> AllyList = new List<IAlly>();
     public bool isFreeze;
@@ -98,6 +99,20 @@ public class ManegeSpawn : MonoBehaviour
                 if (i == 2)
                 {
                     FootManager.isAppear = true;
+                }
+            }
+        }
+        for (int i = 0; i < listFootman.Count; i++)
+        {
+            if (listFootman[i])
+            {
+                if (i == 0)
+                {
+                    frezzeTime *= 2;
+                }
+                if (i == 1)
+                {
+                    Enemy.frezzeDie = true;
                 }
             }
         }
@@ -260,7 +275,7 @@ public class ManegeSpawn : MonoBehaviour
     }
     IEnumerator FreezeAll()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(frezzeTime);
         isFreeze = false;
         frost.SetActive(false);
     }

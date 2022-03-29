@@ -502,6 +502,7 @@ MonoBehaviour:
   coins: 15
   dimonds: 3
   energy: 5
+  targetAlly: {fileID: 0}
   speed: 0.00001
   lives: 40
   attack: 17
@@ -511,7 +512,6 @@ MonoBehaviour:
   attackRang: 1
   clip: {fileID: 8300000, guid: 35da1333dd2996541819cbd5f4c1e2ed, type: 3}
   isBoss: 0
-  targetAlly: {fileID: 0}
 --- !u!82 &-2356116913224800005
 AudioSource:
   m_ObjectHideFlags: 0

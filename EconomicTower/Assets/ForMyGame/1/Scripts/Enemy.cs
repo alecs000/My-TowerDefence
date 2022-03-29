@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Enemy : IEnemy
 {
+    public override LivesManagement livesEnemy { get; protected set; }
     public static float Mageattack = 15;
     public short coins;
     public short dimonds;
     public short energy;
+    public static bool frezzeDie;
+    public IAlly targetAlly;
     [SerializeField] float speed;
     [SerializeField] short lives;
     [SerializeField] short attack = 5;
@@ -18,12 +21,9 @@ public class Enemy : IEnemy
     [SerializeField] float attackRang;
     [SerializeField] AudioClip clip;
     [SerializeField] bool isBoss;
-  
     AudioSource audioSource;
     GameObject manegeSp;
     ManegeSpawn manegeSpawn;
-    public override LivesManagement livesEnemy { get; protected set; }
-    public IAlly targetAlly;
     bool isAttack;
     Animator anim;
     float navigatorTime;
@@ -33,11 +33,9 @@ public class Enemy : IEnemy
     MonsterPool monsterPool;
     GameObject target;
     bool animStop;
-    
 
     private void Awake()
     {
-        
         audioSource = GetComponent<AudioSource>();
         manegeSp = GameObject.FindWithTag("GameManager");
         anim = GetComponent<Animator>();
@@ -60,6 +58,14 @@ public class Enemy : IEnemy
     }
     private void Update()
     {
+        if (frezzeDie && manegeSpawn.isFreeze&& livesEnemy.lives<100)
+        {
+            MainManager.AddDimond(dimonds);
+            CoinsMangement.AddCoins(coins);
+            targetAlly = null;
+            monsterPool.poolM.Remove(this);
+            this.gameObject.SetActive(false);
+        }
         if (!manegeSpawn.isBoss&&isBoss)
         {
             manegeSpawn.isBoss = isBoss;
