@@ -54,6 +54,8 @@ public class ManegeSpawn : MonoBehaviour
     ParticleSystem boomDes;
     bool isParticlActiv;
     public bool isRedZone;
+    [SerializeField] GameObject Text40;
+    [SerializeField] GameObject Text30;
     private void Awake()
     {
         spawnPositionAlly = new Vector3(8, 0, -1.3f);
@@ -143,6 +145,8 @@ public class ManegeSpawn : MonoBehaviour
                 if (i == 1)
                 {
                     boom = bigBoom;
+                    Text30.SetActive(true);
+                    Text40.SetActive(false);
                 }
             }
         }
