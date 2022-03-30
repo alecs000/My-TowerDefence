@@ -31,18 +31,28 @@ public class UpgrateManage : MonoBehaviour
     [SerializeField] List<GameObject> purchasedIce = new List<GameObject>();
     [SerializeField] List<GameObject> purchasedFireBall = new List<GameObject>();
     [SerializeField] List<GameObject> purchasedArrow = new List<GameObject>();
-    [SerializeField] GameObject lockGm;
+    [SerializeField] GameObject lockGmFootman;
     [SerializeField] GameObject footmenGm;
+    [SerializeField] GameObject lockGmArrow;
+    [SerializeField] GameObject ArrowGm;
     [SerializeField] AudioSource fireEffect;
     [SerializeField] AudioSource pressEffect;
     private void Awake()
     {
         if (UpgrateMemory.levels.Count>0)
         {
-            if (UpgrateMemory.levels?[0] == 1 || UpgrateMemory.levels?[0] == 2 || UpgrateMemory.levels?[0] == 3)
+            if (UpgrateMemory.levels[0] == 1 || UpgrateMemory.levels?[0] == 2 || UpgrateMemory.levels?[0] == 3)
             {
                 footmenGm.SetActive(true);
-                lockGm.SetActive(false);
+                lockGmFootman.SetActive(false);
+            }
+        }
+        if (UpgrateMemory.levels.Count > 1)
+        {
+            if (UpgrateMemory.levels[1] == 1 || UpgrateMemory.levels?[1] == 2 || UpgrateMemory.levels?[1] == 3)
+            {
+                ArrowGm.SetActive(true);
+                lockGmArrow.SetActive(false);
             }
         }
         listMage = UpgrateMemory.upgratesMage;

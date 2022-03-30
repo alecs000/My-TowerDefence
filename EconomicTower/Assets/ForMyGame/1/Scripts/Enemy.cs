@@ -6,11 +6,13 @@ public class Enemy : IEnemy
 {
     public override LivesManagement livesEnemy { get; protected set; }
     public static float Mageattack = 15;
+    public static float balistaAttack = 100;
     public short coins;
     public short dimonds;
     public short energy;
     public static bool frezzeDie;
     public IAlly targetAlly;
+    public static bool isPoisonActive;
     [SerializeField] float speed;
     [SerializeField] short lives;
     [SerializeField] short attack = 5;
@@ -33,6 +35,7 @@ public class Enemy : IEnemy
     MonsterPool monsterPool;
     GameObject target;
     bool animStop;
+
 
     private void Awake()
     {
@@ -153,7 +156,15 @@ public class Enemy : IEnemy
         {
             livesEnemy.RemoveLives(30);
             Destroy(other.gameObject);
-            Debug.Log(9000);
+            if (isPoisonActive)
+            {
+                StartCoroutine(Poisoned());
+            }
+        }
+        if (other.CompareTag("ArrowBalist"))
+        {
+            livesEnemy.RemoveLives(30);
+            Destroy(other.gameObject);
         }
         if (livesEnemy.lives<= 0)
         {
@@ -166,6 +177,15 @@ public class Enemy : IEnemy
 
             }
             RemoveEnemy();
+        }
+    }
+    IEnumerator Poisoned()
+    {
+        int i = 0;
+        while (i<=5)
+        {
+            yield return new WaitForSeconds(1);
+            livesEnemy.RemoveLives(10);
         }
     }
     public void RemoveEnemy()

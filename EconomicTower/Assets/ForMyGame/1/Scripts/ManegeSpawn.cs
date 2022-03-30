@@ -35,6 +35,7 @@ public class ManegeSpawn : MonoBehaviour
     List<bool> listFootman;
     List<bool> listIce;
     List<bool> listFireBall;
+    List<bool> listArrow;
     public bool isGameStop;
     public bool win;
     public bool lose;
@@ -56,6 +57,7 @@ public class ManegeSpawn : MonoBehaviour
     public bool isRedZone;
     [SerializeField] GameObject Text40;
     [SerializeField] GameObject Text30;
+    [SerializeField] GameObject balista;
     private void Awake()
     {
         spawnPositionAlly = new Vector3(8, 0, -1.3f);
@@ -64,6 +66,7 @@ public class ManegeSpawn : MonoBehaviour
         listFootman = UpgrateMemory.upgratesFootman;
         listIce = UpgrateMemory.upgratesIce;
         listFireBall = UpgrateMemory.upgratesFireBall;
+        listArrow = UpgrateMemory.upgratesArrow;
         for (int i = 0; i < listMage.Count; i++)
         {
             if (listMage[i])
@@ -150,6 +153,20 @@ public class ManegeSpawn : MonoBehaviour
                 }
             }
         }
+        for (int i = 0; i < listArrow.Count; i++)
+        {
+            if (listArrow[i])
+            {
+                if (i == 0)
+                {
+                    Enemy.isPoisonActive = true;
+                }
+                if (i == 1)
+                {
+
+                }
+            }
+        }
         if (UpgrateMemory.levels.Count>0)
         {
             lockGmKnight.SetActive(false);
@@ -157,6 +174,13 @@ public class ManegeSpawn : MonoBehaviour
         if (UpgrateMemory.levels.Count > 1)
         {
             lockGmArrow.SetActive(false);
+        }
+    }
+    private void Start()
+    {
+        if (!openSittings/*&& listArrow[1]*/)
+        {
+            Instantiate(balista, spawnPositionAlly, balista.transform.rotation);
         }
     }
     private void Update()
