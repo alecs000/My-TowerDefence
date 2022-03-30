@@ -60,11 +60,7 @@ public class Enemy : IEnemy
     {
         if (frezzeDie && manegeSpawn.isFreeze&& livesEnemy.lives<100)
         {
-            MainManager.AddDimond(dimonds);
-            CoinsMangement.AddCoins(coins);
-            targetAlly = null;
-            monsterPool.poolM.Remove(this);
-            this.gameObject.SetActive(false);
+            RemoveEnemy();
         }
         if (!manegeSpawn.isBoss&&isBoss)
         {
@@ -169,12 +165,17 @@ public class Enemy : IEnemy
                 UpgrateMemory.levels.Add(3);
 
             }
-            MainManager.AddDimond(dimonds);
-            CoinsMangement.AddCoins(coins);
-            targetAlly = null;
-            monsterPool.poolM.Remove(this);
-            this.gameObject.SetActive(false);
+            RemoveEnemy();
         }
+    }
+    public void RemoveEnemy()
+    {
+        MainManager.AddDimond(dimonds);
+        CoinsMangement.AddCoins(coins);
+        EnergyMenegment.AddEnergy(energy);
+        targetAlly = null;
+        monsterPool.poolM.Remove(this);
+        this.gameObject.SetActive(false);
     }
 
         IAlly GetNearestAlly()

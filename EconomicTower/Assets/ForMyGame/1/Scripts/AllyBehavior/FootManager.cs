@@ -136,12 +136,8 @@ public class FootManager : IAlly
             }
             if (targetEnemy != null && targetEnemy.livesEnemy.lives <= 0)
             {
-                MainManager.AddDimond(targetEnemy.dimonds);
-                CoinsMangement.AddCoins(targetEnemy.coins);
-                EnergyMenegment.AddEnergy(targetEnemy.energy);
-                monsterPool.poolM.Remove(targetEnemy);
-                targetEnemy.gameObject.SetActive(false);
                 targetEnemy = null;
+                targetEnemy.RemoveEnemy();
             }
         }
 
