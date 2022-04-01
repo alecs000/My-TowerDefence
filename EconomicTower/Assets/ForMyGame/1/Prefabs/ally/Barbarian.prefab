@@ -3865,13 +3865,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 100
   attack: 100
-  waitTime: 1
-  speedForward: 3
+  waitTime: 4
+  speedForward: 1
   attackRang: 2
-  speed: 1
+  speed: 0.0001
   speedL: 1
   clip: {fileID: 0}
-  smallCopyPrefab: {fileID: 0}
   targetEnemy: {fileID: 0}
 --- !u!1 &5406562975928799143
 GameObject:

@@ -10,10 +10,12 @@ public class ManegeSpawn : MonoBehaviour
     [SerializeField] GameObject mage;
     [SerializeField] GameObject knight;
     [SerializeField] GameObject footman;
+    [SerializeField] GameObject barbarian;
     [SerializeField] GameObject menuWin;
     [SerializeField] GameObject menuLose;
     [SerializeField] GameObject lockGmKnight;
     [SerializeField] GameObject lockGmArrow;
+    [SerializeField] GameObject lockGmBarbarian;
     [SerializeField] int livesTower;
     [SerializeField] AudioSource boosMusic;
     [SerializeField] AudioSource idleMusic;
@@ -175,10 +177,14 @@ public class ManegeSpawn : MonoBehaviour
         {
             lockGmArrow.SetActive(false);
         }
+        if (UpgrateMemory.levels.Count > 1)
+        {
+            lockGmBarbarian.SetActive(false);
+        }
     }
     private void Start()
     {
-        if (!openSittings/*&& listArrow[1]*/)
+        if (listArrow.Count>0&& !openSittings && listArrow[1])
         {
             Instantiate(balista, spawnPositionAlly, balista.transform.rotation);
         }
@@ -232,6 +238,21 @@ public class ManegeSpawn : MonoBehaviour
             if (CoinsMangement.RemoveCoins(30))
             {
                 Instantiate(mage, spawnPositionAlly, mage.transform.rotation);
+            }
+            else
+            {
+                red.SetActive(true);
+                StartCoroutine(BannerRed(red));
+            }
+        }
+    }
+    public void SpawBarbarian(GameObject red)
+    {
+        if (!openSittings)
+        {
+            if (CoinsMangement.RemoveCoins(100))
+            {
+                Instantiate(barbarian, spawnPositionAlly, barbarian.transform.rotation);
             }
             else
             {

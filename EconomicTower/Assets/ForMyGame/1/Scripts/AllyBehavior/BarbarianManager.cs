@@ -49,7 +49,6 @@ public class BarbarianManager : IAlly
         {
             targetEnemy = null;
         }
-        Moving();
         if (targetEnemy == null && isAttack)
         {
             anim.SetBool("IsAttack", false);
@@ -63,7 +62,7 @@ public class BarbarianManager : IAlly
             isAttack = true;
             StartCoroutine(WaidKnightAtack());
         }
-
+        Moving();
     }
 
 
@@ -89,13 +88,14 @@ public class BarbarianManager : IAlly
     public IEnumerator WaidKnightAtack()
     {
         Attack();
-
+        yield return new WaitForSeconds(2);
         while (targetEnemy != null)
         {
             if (targetEnemy.livesEnemy.lives > 0)
             {
                 audioSource.PlayOneShot(clip);
                 targetEnemy.livesEnemy.RemoveLives(attack);
+                Debug.Log(55667587);
                 yield return new WaitForSeconds(waitTime);
             }
             if (targetEnemy != null && targetEnemy.livesEnemy.lives <= 0)
@@ -104,7 +104,6 @@ public class BarbarianManager : IAlly
                 targetEnemy = null;
             }
         }
-
     }
 
     public void Attack()

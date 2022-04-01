@@ -35,6 +35,8 @@ public class UpgrateManage : MonoBehaviour
     [SerializeField] GameObject footmenGm;
     [SerializeField] GameObject lockGmArrow;
     [SerializeField] GameObject ArrowGm;
+    [SerializeField] GameObject lockGmBarbarian;
+    [SerializeField] GameObject BarbarianGm;
     [SerializeField] AudioSource fireEffect;
     [SerializeField] AudioSource pressEffect;
     private void Awake()
@@ -53,6 +55,14 @@ public class UpgrateManage : MonoBehaviour
             {
                 ArrowGm.SetActive(true);
                 lockGmArrow.SetActive(false);
+            }
+        }
+        if (UpgrateMemory.levels.Count > 0)
+        {
+            if (UpgrateMemory.levels[0] == 1 || UpgrateMemory.levels[0] == 2 || UpgrateMemory.levels[0] == 3)
+            {
+                BarbarianGm.SetActive(true);
+                lockGmBarbarian.SetActive(false);
             }
         }
         listMage = UpgrateMemory.upgratesMage;
