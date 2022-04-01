@@ -107,7 +107,6 @@ public class KnightManagement : IAlly
             {
                 audioSource.PlayOneShot(clip);
                 targetEnemy.livesEnemy.RemoveLives(attack);
-                yield return new WaitForSeconds(waitTime);
             }
             if (targetEnemy != null&&targetEnemy.livesEnemy.lives <= 0)
             {
@@ -124,6 +123,7 @@ public class KnightManagement : IAlly
                 targetEnemy.RemoveEnemy();
                 targetEnemy = null;
             }
+            yield return new WaitForSeconds(waitTime);
         }
 
     }

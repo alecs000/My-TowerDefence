@@ -127,7 +127,6 @@ public class wixard_move : IAlly
         anim.SetBool("IsAttack", true);
         speedLeft = 0;
             speedForward = 0;
-        yield return new WaitForSeconds(0.6f);
         while (targetEnemy != null&&isAttack)
         {
             Attack();
@@ -137,6 +136,7 @@ public class wixard_move : IAlly
                 livesAlly.AddLives(Enemy.Mageattack/9);
                 Debug.Log(Enemy.Mageattack);
             }
+            yield return new WaitForSeconds(0.6f);
         }
     }
 

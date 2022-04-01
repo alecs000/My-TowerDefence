@@ -669,7 +669,7 @@ GameObject:
   - component: {fileID: 3891135872473687246}
   m_Layer: 0
   m_Name: BoosGolem
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -833,6 +833,7 @@ MonoBehaviour:
   coins: 50
   dimonds: 7
   energy: 0
+  targetAlly: {fileID: 0}
   speed: 0.000001
   lives: 500
   attack: 50
@@ -842,7 +843,6 @@ MonoBehaviour:
   attackRang: 1
   clip: {fileID: 8300000, guid: 40cb331bb4ffc21458e893b070851ae2, type: 3}
   isBoss: 1
-  targetAlly: {fileID: 0}
 --- !u!54 &7273261558815541172
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -61,7 +61,7 @@ public class UpgrateManage : MonoBehaviour
                 lockGmArrow.SetActive(false);
             }
         }
-        if (UpgrateMemory.levels.Count > 0)
+        if (UpgrateMemory.levels.Count >0)
         {
             if (UpgrateMemory.levels[0] == 1 || UpgrateMemory.levels[0] == 2 || UpgrateMemory.levels[0] == 3)
             {
@@ -69,6 +69,8 @@ public class UpgrateManage : MonoBehaviour
                 lockGmBarbarian.SetActive(false);
             }
         }
+        BarbarianGm.SetActive(true);//удалить после теста
+        lockGmBarbarian.SetActive(false);//удалить после теста
         listMage = UpgrateMemory.upgratesMage;
         listKnight = UpgrateMemory.upgratesKnight;
         listFootman = UpgrateMemory.upgratesFootman;
@@ -233,7 +235,7 @@ public class UpgrateManage : MonoBehaviour
                 buttonsBarbarian[i].SetActive(false);
                 lockBarbarian[i].SetActive(true);
             }
-            else if (i == listArrow.Count)
+            else if (i == listBarbarian.Count)
             {
                 buttonsBarbarian[i].SetActive(true);
                 lockBarbarian[i].SetActive(false);

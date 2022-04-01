@@ -38,6 +38,7 @@ public class ManegeSpawn : MonoBehaviour
     List<bool> listIce;
     List<bool> listFireBall;
     List<bool> listArrow;
+    List<bool> listBarbarian;
     public bool isGameStop;
     public bool win;
     public bool lose;
@@ -69,6 +70,7 @@ public class ManegeSpawn : MonoBehaviour
         listIce = UpgrateMemory.upgratesIce;
         listFireBall = UpgrateMemory.upgratesFireBall;
         listArrow = UpgrateMemory.upgratesArrow;
+        listBarbarian = UpgrateMemory.upgratesBarbarian;
         for (int i = 0; i < listMage.Count; i++)
         {
             if (listMage[i])
@@ -169,6 +171,24 @@ public class ManegeSpawn : MonoBehaviour
                 }
             }
         }
+        for (int i = 0; i < listBarbarian.Count; i++)
+        {
+            //if (listBarbarian[i])
+            //{
+            //    if (i == 0)
+            //    {
+            //        BarbarianManager.UpAttack5Sec = true;
+            //    }
+            //    if (i == 1)
+            //    {
+            //        BarbarianManager.UpAttackWhenAtack = true;
+            //    }
+            //    if (i == 2)
+            //    {
+            //        BarbarianManager.UpAttack50 = true;
+            //    }
+            //}
+        }
         if (UpgrateMemory.levels.Count>0)
         {
             lockGmKnight.SetActive(false);
@@ -177,7 +197,7 @@ public class ManegeSpawn : MonoBehaviour
         {
             lockGmArrow.SetActive(false);
         }
-        if (UpgrateMemory.levels.Count > 1)
+        if (UpgrateMemory.levels.Count > -1)
         {
             lockGmBarbarian.SetActive(false);
         }
@@ -397,7 +417,7 @@ public class ManegeSpawn : MonoBehaviour
                         {
                             Debug.DrawLine(castPoint.origin, hit.point, Color.red, 200, false);
                             Debug.Log("Путь к врагу преграждает объект: " + hit.collider.name);
-                            if (hit.collider.name == "ground"|| hit.collider.tag == "enemy" || hit.collider.tag == "enemy")
+                            if (hit.collider.name == "ground"|| hit.collider.tag == "enemy")
                             {
                                 EnergyMenegment.RemoveEnergy(bombPrice);
                                 boomDes = Instantiate(boom, transform.position, boom.transform.rotation);

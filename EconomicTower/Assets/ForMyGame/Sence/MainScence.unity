@@ -4233,7 +4233,7 @@ RectTransform:
   m_Children:
   - {fileID: 1839667991}
   m_Father: {fileID: 2053992680}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -7938,7 +7938,7 @@ RectTransform:
   m_Children:
   - {fileID: 1068468412}
   m_Father: {fileID: 2053992680}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -10679,7 +10679,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1604179236
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10695,7 +10695,7 @@ RectTransform:
   - {fileID: 1444255772}
   - {fileID: 1908577282}
   m_Father: {fileID: 2053992680}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -11261,7 +11261,7 @@ RectTransform:
   m_Children:
   - {fileID: 1601040316}
   m_Father: {fileID: 2053992680}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -14301,10 +14301,10 @@ RectTransform:
   - {fileID: 1952465278}
   - {fileID: 393075510}
   - {fileID: 1395469460}
+  - {fileID: 1604179236}
   - {fileID: 644277570}
   - {fileID: 1674272654}
   - {fileID: 1242167997}
-  - {fileID: 1604179236}
   m_Father: {fileID: 48181329}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15056,7 +15056,7 @@ PrefabInstance:
     - target: {fileID: 774736825271829091, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
       propertyPath: lockGmBarbarian
       value: 
-      objectReference: {fileID: 5406562975928799141, guid: 87840181bd717e04b8900c42d4442199, type: 3}
+      objectReference: {fileID: 1674272653}
     - target: {fileID: 774736825271829091, guid: 8e03837ec32d4c542862d55954d106c9, type: 3}
       propertyPath: AllyList.Array.data[1]
       value: 

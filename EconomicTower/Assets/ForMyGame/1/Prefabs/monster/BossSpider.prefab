@@ -1698,7 +1698,7 @@ GameObject:
   - component: {fileID: -7338381100274695495}
   m_Layer: 0
   m_Name: BossSpider
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1766,6 +1766,7 @@ MonoBehaviour:
   coins: 800
   dimonds: 300
   energy: 0
+  targetAlly: {fileID: 0}
   speed: 0.0001
   lives: 1000
   attack: 100
@@ -1775,7 +1776,6 @@ MonoBehaviour:
   attackRang: 1
   clip: {fileID: 8300000, guid: 02127650f3b7ed7448e744718821dce3, type: 3}
   isBoss: 1
-  targetAlly: {fileID: 0}
 --- !u!54 &3493177838890629102
 Rigidbody:
   m_ObjectHideFlags: 0

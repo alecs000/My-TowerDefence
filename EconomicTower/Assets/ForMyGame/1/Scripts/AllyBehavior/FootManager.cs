@@ -132,13 +132,13 @@ public class FootManager : IAlly
                 audioSource.PlayOneShot(clip);
                 targetEnemy.livesEnemy.RemoveLives(attack);
                 Debug.Log(targetEnemy.livesEnemy.lives);
-                yield return new WaitForSeconds(waitTime);
             }
             if (targetEnemy != null && targetEnemy.livesEnemy.lives <= 0)
             {
                 targetEnemy = null;
                 targetEnemy.RemoveEnemy();
             }
+            yield return new WaitForSeconds(waitTime);
         }
 
     }
