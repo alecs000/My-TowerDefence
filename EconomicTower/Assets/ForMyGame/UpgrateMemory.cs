@@ -11,4 +11,5 @@ public static class UpgrateMemory
    public static List<bool> upgratesIce = new List<bool>();
     public static List<bool> upgratesFireBall = new List<bool>();
     public static List<bool> upgratesArrow = new List<bool>();
+    public static List<bool> upgratesBarbarian = new List<bool>();
 }

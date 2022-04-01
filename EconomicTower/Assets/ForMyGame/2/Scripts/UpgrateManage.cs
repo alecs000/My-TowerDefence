@@ -13,21 +13,25 @@ public class UpgrateManage : MonoBehaviour
     List<bool> listIce;
     List<bool> listFireBall;
     List<bool> listArrow;
+    List<bool> listBarbarian;
     [SerializeField] List<GameObject> buttonsMage = new List<GameObject>();
     [SerializeField] List<GameObject> buttonsKnight = new List<GameObject>();
     [SerializeField] List<GameObject> buttonsFootman = new List<GameObject>();
+    [SerializeField] List<GameObject> buttonsBarbarian = new List<GameObject>();
     [SerializeField] List<GameObject> buttonsIce = new List<GameObject>();
     [SerializeField] List<GameObject> buttonsFireBall = new List<GameObject>();
     [SerializeField] List<GameObject> buttonsArrow = new List<GameObject>();
     [SerializeField] List<GameObject> lockMage = new List<GameObject>();
     [SerializeField] List<GameObject> lockKnight = new List<GameObject>();
     [SerializeField] List<GameObject> lockFootman = new List<GameObject>();
+    [SerializeField] List<GameObject> lockBarbarian = new List<GameObject>();
     [SerializeField] List<GameObject> lockIce = new List<GameObject>();
     [SerializeField] List<GameObject> lockFireBall = new List<GameObject>();
     [SerializeField] List<GameObject> lockArrow = new List<GameObject>();
     [SerializeField] List<GameObject> purchasedMage = new List<GameObject>();
     [SerializeField] List<GameObject> purchasedKnight = new List<GameObject>();
     [SerializeField] List<GameObject> purchasedFootman = new List<GameObject>();
+    [SerializeField] List<GameObject> purchasedBarbarian = new List<GameObject>();
     [SerializeField] List<GameObject> purchasedIce = new List<GameObject>();
     [SerializeField] List<GameObject> purchasedFireBall = new List<GameObject>();
     [SerializeField] List<GameObject> purchasedArrow = new List<GameObject>();
@@ -71,6 +75,7 @@ public class UpgrateManage : MonoBehaviour
         listIce = UpgrateMemory.upgratesIce;
         listFireBall = UpgrateMemory.upgratesFireBall;
         listArrow = UpgrateMemory.upgratesArrow;
+        listBarbarian = UpgrateMemory.upgratesBarbarian;
         for (int i = 0; i < listMage.Count; i++)
         {
             if (listMage[i])
@@ -219,9 +224,31 @@ public class UpgrateManage : MonoBehaviour
             }
         }
     }
+    void AktiveBarbarianUpgtate()
+    {
+        for (int i = 0; i < buttonsBarbarian.Count; i++)
+        {
+            if (i > listBarbarian.Count)
+            {
+                buttonsBarbarian[i].SetActive(false);
+                lockBarbarian[i].SetActive(true);
+            }
+            else if (i == listArrow.Count)
+            {
+                buttonsBarbarian[i].SetActive(true);
+                lockBarbarian[i].SetActive(false);
+            }
+            else
+            {
+                buttonsBarbarian[i].SetActive(false);
+                purchasedBarbarian[i].SetActive(true);
+            }
+        }
+    }
     public void ClickOnUpgrate(Image gm)
     {
         pressEffect.Play();
+        AktiveBarbarianUpgtate();
         AktiveMageUpgtate();
         AktiveKnightUpgtate();
         AktiveFootmanUpgtate();
@@ -303,6 +330,22 @@ public class UpgrateManage : MonoBehaviour
             {
                 buttonsFootman[i].SetActive(false);
                 purchasedFootman[i].SetActive(true);
+            }
+        }
+    }
+    public void ThreeSkillUpdate(int num)
+    {
+        if (MainManager.RemoveEmeralds(num))
+        {
+            fireEffect.Play();//Для заклинаний надо найти другой музон
+            UpgrateMemory.upgratesBarbarian.Add(true);
+        }
+        for (int i = 0; i < listBarbarian.Count; i++)
+        {
+            if (listBarbarian[i])
+            {
+                buttonsBarbarian[i].SetActive(false);
+                purchasedBarbarian[i].SetActive(true);
             }
         }
     }
