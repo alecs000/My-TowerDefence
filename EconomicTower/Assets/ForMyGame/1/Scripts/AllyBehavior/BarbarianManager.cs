@@ -23,9 +23,9 @@ public class BarbarianManager : IAlly
     ManegeSpawn manegeSpawn;
     float navigatorTime;
     MonsterPool monsterPool;
-    //public static bool UpAttack5Sec;
-    //public static bool UpAttackWhenAtack;
-    //public static bool UpAttack50;
+    public static bool UpAttack5Sec;
+    public static bool UpAttackWhenAtack;
+    public static bool UpAttack50;
     public override LivesManagement livesAlly { get; protected set; }
     void Start()
     {
@@ -41,14 +41,14 @@ public class BarbarianManager : IAlly
         speedLeft = speedLeftBase;
         anim = GetComponent<Animator>();
         manegeSpawn.RegistrAlly(this);
-        //if (UpAttack5Sec)
-        //{
-        //    StartCoroutine(GetAttackEveryFiveSecund());
-        //}
-        //if (UpAttack50)
-        //{
-        //    attack += attack * 0.5f;
-        //}
+        if (UpAttack5Sec)
+        {
+            StartCoroutine(GetAttackEveryFiveSecund());
+        }
+        if (UpAttack50)
+        {
+            attack += attack * 0.5f;
+        }
     }
     void Update()
     {
@@ -94,11 +94,11 @@ public class BarbarianManager : IAlly
         }
     }
 
-    //IEnumerator GetAttackEveryFiveSecund()
-    //{
-    //    yield return new WaitForSeconds(5);
-    //    attack += attack * 0.1f;
-    //}
+    IEnumerator GetAttackEveryFiveSecund()
+    {
+        yield return new WaitForSeconds(5);
+        attack += attack * 0.1f;
+    }
     IEnemy GetNearestEnemy()
     {
         IEnemy nearestEnemy = null;
@@ -117,21 +117,21 @@ public class BarbarianManager : IAlly
 
         return nearestEnemy;
     }
-    //private List<Enemy> GetEnemiesInRange()
-    //{
-    //    List<Enemy> enemiesInRange = new List<Enemy>();
-    //    foreach (IEnemy item in monsterPool.poolM)
-    //    {
-    //        if (item.gameObject.activeInHierarchy)
-    //        {
-    //            if (Vector3.Distance(transform.position, item.transform.position) <= attackRang)
-    //            {
-    //                enemiesInRange.Add(item as Enemy);
-    //            }
-    //        }
-    //    }
-    //    return enemiesInRange;
-    //}
+    private List<Enemy> GetEnemiesInRange()
+    {
+        List<Enemy> enemiesInRange = new List<Enemy>();
+        foreach (IEnemy item in monsterPool.poolM)
+        {
+            if (item.gameObject.activeInHierarchy)
+            {
+                if (Vector3.Distance(transform.position, item.transform.position) <= attackRang)
+                {
+                    enemiesInRange.Add(item as Enemy);
+                }
+            }
+        }
+        return enemiesInRange;
+    }
     //Вся логика атаки рыцаря включая остановку и анимацию
     public IEnumerator WaidKnightAtack()
     {
@@ -145,24 +145,24 @@ public class BarbarianManager : IAlly
                 audioSource.PlayOneShot(clip);
                 targetEnemy.livesEnemy.RemoveLives(attack);
                 Debug.Log(waitTime);
-                //if (UpAttackWhenAtack)
-                //{
-                //    attack += attack * 0.2f;
-                //}
-                //if (UpAttack50)
-                //{
-                //    foreach (var item in GetEnemiesInRange())
-                //    {
-                //        if (item!= targetEnemy)
-                //        {
-                //            item.livesEnemy.RemoveLives(attack);
-                //        }
-                //            if (item != null && item.livesEnemy.lives <= 0)
-                //            {
-                //                item.RemoveEnemy();
-                //            }
-                //    }
-                //}
+                if (UpAttackWhenAtack)
+                {
+                    attack += attack * 0.2f;
+                }
+                if (UpAttack50)
+                {
+                    foreach (var item in GetEnemiesInRange())
+                    {
+                        if (item != targetEnemy)
+                        {
+                            item.livesEnemy.RemoveLives(attack);
+                        }
+                        if (item != null && item.livesEnemy.lives <= 0)
+                        {
+                            item.RemoveEnemy();
+                        }
+                    }
+                }
             }
             if (targetEnemy != null && targetEnemy.livesEnemy.lives <= 0)
             {

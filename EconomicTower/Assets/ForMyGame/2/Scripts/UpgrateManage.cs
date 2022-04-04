@@ -41,8 +41,14 @@ public class UpgrateManage : MonoBehaviour
     [SerializeField] GameObject ArrowGm;
     [SerializeField] GameObject lockGmBarbarian;
     [SerializeField] GameObject BarbarianGm;
-    [SerializeField] AudioSource fireEffect;
     [SerializeField] AudioSource pressEffect;
+    [SerializeField] AudioSource dogEffect;
+    [SerializeField] AudioSource mageEffect;
+    [SerializeField] AudioSource knightEffect;
+    [SerializeField] AudioSource barbarianEffect;
+    [SerializeField] AudioSource freezeEffect;
+    [SerializeField] AudioSource fireEffect;
+    [SerializeField] AudioSource arrowEffect;
     private void Awake()
     {
         if (UpgrateMemory.levels.Count>0)
@@ -61,16 +67,15 @@ public class UpgrateManage : MonoBehaviour
                 lockGmArrow.SetActive(false);
             }
         }
-        if (UpgrateMemory.levels.Count >0)
+        if (UpgrateMemory.levels.Count >3)
         {
-            if (UpgrateMemory.levels[0] == 1 || UpgrateMemory.levels[0] == 2 || UpgrateMemory.levels[0] == 3)
+            if (UpgrateMemory.levels[3] == 1 || UpgrateMemory.levels[3] == 2 || UpgrateMemory.levels[3] == 3)
             {
                 BarbarianGm.SetActive(true);
                 lockGmBarbarian.SetActive(false);
+                Debug.Log(23435453);
             }
         }
-        BarbarianGm.SetActive(true);//удалить после теста
-        lockGmBarbarian.SetActive(false);//удалить после теста
         listMage = UpgrateMemory.upgratesMage;
         listKnight = UpgrateMemory.upgratesKnight;
         listFootman = UpgrateMemory.upgratesFootman;
@@ -97,6 +102,13 @@ public class UpgrateManage : MonoBehaviour
             if (listFootman[i])
             {
                 buttonsFootman[i].SetActive(false);
+            }
+        }
+        for (int i = 0; i < listBarbarian.Count; i++)
+        {
+            if (listBarbarian[i])
+            {
+                buttonsBarbarian[i].SetActive(false);
             }
         }
     }
@@ -291,7 +303,7 @@ public class UpgrateManage : MonoBehaviour
     {
         if (MainManager.RemoveEmeralds(num))
         {
-            fireEffect.Play();
+            dogEffect.Play();
             UpgrateMemory.upgratesKnight.Add(true);
         }
         for (int i = 0; i < listKnight.Count; i++)
@@ -307,7 +319,7 @@ public class UpgrateManage : MonoBehaviour
     {
         if (MainManager.RemoveEmeralds(num))
         {
-            fireEffect.Play();
+            mageEffect.Play();
             UpgrateMemory.upgratesMage.Add(true);
         }
         for (int i = 0; i < listMage.Count; i++)
@@ -323,7 +335,7 @@ public class UpgrateManage : MonoBehaviour
     {
         if (MainManager.RemoveEmeralds(num))
         {
-            fireEffect.Play();
+            knightEffect.Play();
             UpgrateMemory.upgratesFootman.Add(true);
         }
         for (int i = 0; i < listFootman.Count; i++)
@@ -339,7 +351,7 @@ public class UpgrateManage : MonoBehaviour
     {
         if (MainManager.RemoveEmeralds(num))
         {
-            fireEffect.Play();//Для заклинаний надо найти другой музон
+            barbarianEffect.Play();//Для заклинаний надо найти другой музон
             UpgrateMemory.upgratesBarbarian.Add(true);
         }
         for (int i = 0; i < listBarbarian.Count; i++)
@@ -355,7 +367,7 @@ public class UpgrateManage : MonoBehaviour
     {
         if (MainManager.RemoveEmeralds(num))
         {
-            fireEffect.Play();//Для заклинаний надо найти другой музон
+            freezeEffect.Play();//Для заклинаний надо найти другой музон
             UpgrateMemory.upgratesIce.Add(true);
             Debug.Log(true);
         }
@@ -388,7 +400,7 @@ public class UpgrateManage : MonoBehaviour
     {
         if (MainManager.RemoveEmeralds(num))
         {
-            fireEffect.Play();//Для заклинаний надо найти другой музон
+            arrowEffect.Play();//Для заклинаний надо найти другой музон
             UpgrateMemory.upgratesArrow.Add(true);
         }
         for (int i = 0; i < listArrow.Count; i++)

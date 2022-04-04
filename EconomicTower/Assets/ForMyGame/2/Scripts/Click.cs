@@ -8,6 +8,7 @@ public class Click : MonoBehaviour
     [SerializeField] GameObject upgrade;
     [SerializeField] GameObject spellsUpgrade;
     bool allWindowClose =true;
+    [SerializeField] AudioSource doorEffect;
 
     public void Close(GameObject gm)
     {
@@ -29,11 +30,13 @@ public class Click : MonoBehaviour
                     {
                         allWindowClose = false;
                         upgrade.gameObject.SetActive(true);
+                        doorEffect.Play();
                     }
                     if (hit.collider.gameObject.CompareTag("SpellsUpgrade"))
                     {
                         allWindowClose = false;
                         spellsUpgrade.gameObject.SetActive(true);
+                        doorEffect.Play();
                     }
                 }
             }

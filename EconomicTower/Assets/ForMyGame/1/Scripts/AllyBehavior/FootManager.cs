@@ -26,7 +26,6 @@ public class FootManager : IAlly
     public static bool upSpeedAfterKill;
     public static bool upSpeed;
     public static bool smallCopy;
-    int stopUpSpeed = 0;
     public static bool isHpBoost;
     public static bool isBerserk;
     public static bool isAppear;

@@ -173,21 +173,21 @@ public class ManegeSpawn : MonoBehaviour
         }
         for (int i = 0; i < listBarbarian.Count; i++)
         {
-            //if (listBarbarian[i])
-            //{
-            //    if (i == 0)
-            //    {
-            //        BarbarianManager.UpAttack5Sec = true;
-            //    }
-            //    if (i == 1)
-            //    {
-            //        BarbarianManager.UpAttackWhenAtack = true;
-            //    }
-            //    if (i == 2)
-            //    {
-            //        BarbarianManager.UpAttack50 = true;
-            //    }
-            //}
+            if (listBarbarian[i])
+            {
+                if (i == 0)
+                {
+                    BarbarianManager.UpAttack5Sec = true;
+                }
+                if (i == 1)
+                {
+                    BarbarianManager.UpAttackWhenAtack = true;
+                }
+                if (i == 2)
+                {
+                    BarbarianManager.UpAttack50 = true;
+                }
+            }
         }
         if (UpgrateMemory.levels.Count>0)
         {
@@ -197,7 +197,7 @@ public class ManegeSpawn : MonoBehaviour
         {
             lockGmArrow.SetActive(false);
         }
-        if (UpgrateMemory.levels.Count > -1)
+        if (UpgrateMemory.levels.Count > 3)
         {
             lockGmBarbarian.SetActive(false);
         }
