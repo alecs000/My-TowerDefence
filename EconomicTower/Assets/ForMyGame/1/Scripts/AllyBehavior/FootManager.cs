@@ -69,6 +69,7 @@ public class FootManager : IAlly
         }
         if (targetEnemy != null && !targetEnemy.gameObject.activeInHierarchy)
         {
+            targetEnemy.RemoveEnemy();
             targetEnemy = null;
         }
         

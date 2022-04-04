@@ -58,22 +58,40 @@ public class BarbarianManager : IAlly
         }
         if (targetEnemy != null && !targetEnemy.gameObject.activeInHierarchy)
         {
+            targetEnemy.RemoveEnemy();
             targetEnemy = null;
-        }
-        if (targetEnemy == null && isAttack)
-        {
-            anim.SetBool("IsAttack", false);
-            isAttack = false;
-            speedForward = 1;
-            speedLeft = speedLeftBase;
         }
         if (targetEnemy != null && !isAttack)
         {
             //Атака врага. Вызов корутины остановки врага на время атаки
             isAttack = true;
             StartCoroutine(WaidKnightAtack());
+            Debug.Log("AAAAAAAAAAAAAAAAAAAAAA");
+        }
+        if (targetEnemy == null && !isAttack)
+        {
+            anim.SetBool("IsAttack", false);
+            speedForward = 1;
+            speedLeft = speedLeftBase;
         }
         Moving();
+        if (targetEnemy == null)
+        {
+            Enemy nearestEnemy = GetNearestEnemy() as Enemy;
+            if (nearestEnemy != null)
+            {
+                if (Vector3.Distance(transform.position, nearestEnemy.transform.position) <= attackRang)
+                {
+                    targetEnemy = nearestEnemy;
+                }
+                else
+                {
+                    navigatorTime += Time.deltaTime * speed;
+                    transform.position = Vector3.MoveTowards(transform.position, nearestEnemy.transform.position, navigatorTime);
+                    transform.LookAt(nearestEnemy.transform);
+                }
+            }
+        }
     }
 
     //IEnumerator GetAttackEveryFiveSecund()
@@ -118,7 +136,6 @@ public class BarbarianManager : IAlly
     public IEnumerator WaidKnightAtack()
     {
         Attack();
-        Debug.Log("AAAAAAAAAAAAAAAAAAAAAA");
         yield return new WaitForSeconds(2);
         //yield return new WaitForSeconds(1);
         while (targetEnemy != null)
@@ -127,7 +144,7 @@ public class BarbarianManager : IAlly
             {
                 audioSource.PlayOneShot(clip);
                 targetEnemy.livesEnemy.RemoveLives(attack);
-                Debug.Log(targetEnemy.livesEnemy.lives);
+                Debug.Log(waitTime);
                 //if (UpAttackWhenAtack)
                 //{
                 //    attack += attack * 0.2f;
@@ -154,6 +171,7 @@ public class BarbarianManager : IAlly
             }
             yield return new WaitForSeconds(waitTime);
         }
+        isAttack = false;
     }
 
     public void Attack()
@@ -178,26 +196,6 @@ public class BarbarianManager : IAlly
         else
         {
             transform.Rotate(Vector3.down, speedLeft * Time.deltaTime);
-        }
-
-        if (targetEnemy == null)
-        {
-            Enemy nearestEnemy = GetNearestEnemy() as Enemy;
-            if (nearestEnemy != null)
-            {
-                if (Vector3.Distance(transform.position, nearestEnemy.transform.position) <= attackRang)
-                {
-                    targetEnemy = nearestEnemy;
-                }
-                else
-                {
-                    navigatorTime += Time.deltaTime * speed;
-                    transform.position = Vector3.MoveTowards(transform.position, nearestEnemy.transform.position, navigatorTime);
-                    transform.LookAt(nearestEnemy.transform);
-                }
-
-            }
-
         }
     }
 }
