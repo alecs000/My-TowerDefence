@@ -28,8 +28,9 @@ public class KnightManagement : IAlly
     public static bool upSpeed;
     public static bool smallCopy;
     int stopUpSpeed = 0;
-
     public override LivesManagement livesAlly { get; protected set; }
+    public override float attackAllay { get; protected set; }
+    public override float waitTimeAlly { get; protected set; }
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -37,6 +38,10 @@ public class KnightManagement : IAlly
         manegeSp = GameObject.FindWithTag("GameManager");
         //жизни
         livesAlly = new LivesManagement(lives);
+        //атака(это нужно длявывода информации пользователю)
+        attackAllay = attack;
+        //задерка атаки(это нужно длявывода информации пользователю)
+        waitTimeAlly = waitTime;
         //Компонент MonsterPool
         monsterPool = manegeSp.GetComponent<MonsterPool>();
         manegeSpawn = manegeSp.GetComponent<ManegeSpawn>();

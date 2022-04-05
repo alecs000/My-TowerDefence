@@ -30,13 +30,18 @@ public class FootManager : IAlly
     public static bool isBerserk;
     public static bool isAppear;
     public static bool isBersrkActive;
+    public override float attackAllay { get; protected set; }
+    public override float waitTimeAlly { get; protected set; }
     public override LivesManagement livesAlly { get; protected set; }
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         speedLeftBase = Random.Range(-speedL, speedL);
         manegeSp = GameObject.FindWithTag("GameManager");
-        
+        //атака(это нужно длявывода информации пользователю)
+        attackAllay = attack;
+        //задерка атаки(это нужно длявывода информации пользователю)
+        waitTimeAlly = waitTime;
         //Компонент MonsterPool
         monsterPool = manegeSp.GetComponent<MonsterPool>();
         manegeSpawn = manegeSp.GetComponent<ManegeSpawn>();
@@ -135,8 +140,8 @@ public class FootManager : IAlly
             }
             if (targetEnemy != null && targetEnemy.livesEnemy.lives <= 0)
             {
-                targetEnemy = null;
                 targetEnemy.RemoveEnemy();
+                targetEnemy = null;
             }
             yield return new WaitForSeconds(waitTime);
         }

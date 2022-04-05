@@ -26,12 +26,18 @@ public class BarbarianManager : IAlly
     public static bool UpAttack5Sec;
     public static bool UpAttackWhenAtack;
     public static bool UpAttack50;
+    public override float attackAllay { get; protected set; }
+    public override float waitTimeAlly { get; protected set; }
     public override LivesManagement livesAlly { get; protected set; }
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         speedLeftBase = Random.Range(-speedL, speedL);
         manegeSp = GameObject.FindWithTag("GameManager");
+        //атака(это нужно длявывода информации пользователю)
+        attackAllay = attack;
+        //задерка атаки(это нужно длявывода информации пользователю)
+        waitTimeAlly = waitTime;
         //жизни
         livesAlly = new LivesManagement(lives);
         //Компонент MonsterPool
