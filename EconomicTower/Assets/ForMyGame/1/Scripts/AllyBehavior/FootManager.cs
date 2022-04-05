@@ -86,7 +86,18 @@ public class FootManager : IAlly
         }
         Moving();
     }
-
+    public override float GetAttack()
+    {
+        return attack;
+    }
+    public override float GetWaidTimeAttack()
+    {
+        return waitTime;
+    }
+    public override float GetLives()
+    {
+        return lives;
+    }
     public IEnumerator Appear()
     {
         yield return new WaitForSeconds(10);

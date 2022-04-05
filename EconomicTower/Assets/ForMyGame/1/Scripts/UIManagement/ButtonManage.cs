@@ -18,6 +18,10 @@ public class ButtonManage : MonoBehaviour
     RectTransform rTransTower;
     RectTransform rTransSkils;
     [SerializeField] ManegeSpawn manegeSpawn;
+    [SerializeField] GameObject infoKnight;
+    [SerializeField] GameObject infoMage;
+    [SerializeField] GameObject infoFootman;
+    [SerializeField] GameObject infoBarbarian;
     private void Start()
     {
         rTransTower = butTower.GetComponent<RectTransform>();
@@ -31,6 +35,10 @@ public class ButtonManage : MonoBehaviour
     {
         if (!manegeSpawn.openSittings)
         {
+            infoKnight.SetActive(false);
+            infoMage.SetActive(false);
+            infoFootman.SetActive(false);
+            infoBarbarian.SetActive(false);
             if (isActivTower)
             {
                 towerPanel.gameObject.SetActive(false);
@@ -50,6 +58,10 @@ public class ButtonManage : MonoBehaviour
     {
         if (!manegeSpawn.openSittings)
         {
+            infoKnight.SetActive(false);
+            infoMage.SetActive(false);
+            infoFootman.SetActive(false);
+            infoBarbarian.SetActive(false);
             if (isActivSkills)
             {
                 skillsPanel.gameObject.SetActive(false);

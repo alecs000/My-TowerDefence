@@ -16,6 +16,9 @@ public class ManegeSpawn : MonoBehaviour
     [SerializeField] GameObject lockGmKnight;
     [SerializeField] GameObject lockGmArrow;
     [SerializeField] GameObject lockGmBarbarian;
+    [SerializeField] GameObject GmKnight;
+    [SerializeField] GameObject GmArrow;
+    [SerializeField] GameObject GmBarbarian;
     [SerializeField] int livesTower;
     [SerializeField] AudioSource boosMusic;
     [SerializeField] AudioSource idleMusic;
@@ -62,6 +65,9 @@ public class ManegeSpawn : MonoBehaviour
     [SerializeField] GameObject Text30;
     [SerializeField] GameObject balista;
     [SerializeField] GameObject infoKnight;
+    [SerializeField] GameObject infoMage;
+    [SerializeField] GameObject infoFootman;
+    [SerializeField] GameObject infoBarbarian;
     private void Awake()
     {
         spawnPositionAlly = new Vector3(8, 0, -1.3f);
@@ -193,14 +199,17 @@ public class ManegeSpawn : MonoBehaviour
         if (UpgrateMemory.levels.Count>0)
         {
             lockGmKnight.SetActive(false);
+            GmKnight.SetActive(true);
         }
         if (UpgrateMemory.levels.Count > 1)
         {
             lockGmArrow.SetActive(false);
+            GmArrow.SetActive(true);
         }
         if (UpgrateMemory.levels.Count > 3)
         {
             lockGmBarbarian.SetActive(false);
+            GmBarbarian.SetActive(true);
         }
     }
     private void Start()
@@ -358,10 +367,16 @@ public class ManegeSpawn : MonoBehaviour
         if (infoKnight.activeInHierarchy)
         {
             infoKnight.SetActive(false);
+            infoMage.SetActive(false);
+            infoFootman.SetActive(false);
+            infoBarbarian.SetActive(false);
         }
         else
         { 
             infoKnight.SetActive(true);
+            infoMage.SetActive(true);
+            infoFootman.SetActive(true);
+            infoBarbarian.SetActive(true);
         }
     }
     #region [Freeze]

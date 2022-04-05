@@ -13,7 +13,7 @@ public class wixard_move : IAlly
     [SerializeField] float speedL =1;
     [SerializeField] float waitTime = 5f;
     [SerializeField] float attackRange;
-    [SerializeField] float attack;
+    [SerializeField] float attack =20;
     [SerializeField] GameObject fireBall;
     [SerializeField] AudioClip clip;
     [SerializeField] GameObject fireBallBlue;
@@ -75,6 +75,18 @@ public class wixard_move : IAlly
             }
         }
         return nearestEnemy;
+    }
+    public override float GetAttack()
+    {
+        return attack;
+    }
+    public override float GetWaidTimeAttack()
+    {
+        return waitTime;
+    }
+    public override float GetLives()
+    {
+        return lives;
     }
     void Update()
     {

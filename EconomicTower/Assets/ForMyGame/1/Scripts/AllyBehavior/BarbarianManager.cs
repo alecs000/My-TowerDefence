@@ -117,6 +117,18 @@ public class BarbarianManager : IAlly
 
         return nearestEnemy;
     }
+    public override float GetAttack()
+    {
+        return attack;
+    }
+    public override float GetWaidTimeAttack()
+    {
+        return waitTime;
+    }
+    public override float GetLives()
+    {
+        return lives;
+    }
     private List<Enemy> GetEnemiesInRange()
     {
         List<Enemy> enemiesInRange = new List<Enemy>();
