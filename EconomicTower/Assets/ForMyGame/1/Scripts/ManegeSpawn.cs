@@ -61,6 +61,7 @@ public class ManegeSpawn : MonoBehaviour
     [SerializeField] GameObject Text40;
     [SerializeField] GameObject Text30;
     [SerializeField] GameObject balista;
+    [SerializeField] GameObject infoKnight;
     private void Awake()
     {
         spawnPositionAlly = new Vector3(8, 0, -1.3f);
@@ -351,6 +352,17 @@ public class ManegeSpawn : MonoBehaviour
     public void RemoveAlly(IAlly ally)
     {
         AllyList.Remove(ally);
+    }
+    public void OpenInfo()
+    {
+        if (infoKnight.activeInHierarchy)
+        {
+            infoKnight.SetActive(false);
+        }
+        else
+        { 
+            infoKnight.SetActive(true);
+        }
     }
     #region [Freeze]
     [Header("Freeze")]

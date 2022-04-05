@@ -12,8 +12,11 @@ public class InfoManager : MonoBehaviour
     [SerializeField] Text waidTime;
     private void OnEnable()
     {
-        attack.text = Convert.ToString(ally.attackAllay);
-        lives.text = Convert.ToString(ally.livesAlly);
-        waidTime.text = Convert.ToString(ally.waitTimeAlly);
+        attack.text = Convert.ToString(ally.GetAttack());
+        Debug.Log(ally.GetAttack());
+        lives.text = Convert.ToString(ally.GetLives());
+        Debug.Log(ally.livesAlly);
+        waidTime.text = Convert.ToString(ally.GetWaidTimeAttack());
+        Debug.Log(ally.GetAttack());
     }
 }

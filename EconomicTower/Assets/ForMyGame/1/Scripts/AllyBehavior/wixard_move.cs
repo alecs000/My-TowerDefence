@@ -27,8 +27,6 @@ public class wixard_move : IAlly
     public static bool upSpeed = false;
     public static bool isBlueFireBall;
     public static bool isVampire;
-    public override float attackAllay { get; protected set; }
-    public override float waitTimeAlly { get; protected set; }
     public override LivesManagement livesAlly { get; protected set; }
     void Awake()
     {
@@ -41,10 +39,6 @@ public class wixard_move : IAlly
         monsterPool = manegeSp.GetComponent<MonsterPool>();
         manegeSpawn = manegeSp.GetComponent<ManegeSpawn>();
         manegeSpawn.RegistrAlly(this);
-        //атака(это нужно длявывода информации пользователю)
-        attackAllay = attack;
-        //задерка атаки(это нужно длявывода информации пользователю)
-        waitTimeAlly = waitTime;
         //ускоряем если прокачена 1 способность
         if (upSpeed)
         {
