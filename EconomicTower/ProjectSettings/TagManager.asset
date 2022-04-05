@@ -15,6 +15,7 @@ TagManager:
   - Arrow
   - SpellsUpgrade
   - ArrowBalist
+  - dead
   layers:
   - Default
   - TransparentFX

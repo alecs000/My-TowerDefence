@@ -134,9 +134,15 @@ public class Enemy : IEnemy
             }
         }
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("dead"))
+        {
+            livesEnemy.RemoveLives(50);
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.name);
         if (other.CompareTag("Finish"))
         {//Œ“ Àﬁ◊¿“‹ œ–» –≈—“¿–“≈
             manegeSpawn.lose = true;
