@@ -64,10 +64,17 @@ public class ManegeSpawn : MonoBehaviour
     [SerializeField] GameObject Text40;
     [SerializeField] GameObject Text30;
     [SerializeField] GameObject balista;
+    [Header("Info")]
     [SerializeField] GameObject infoKnight;
     [SerializeField] GameObject infoMage;
     [SerializeField] GameObject infoFootman;
     [SerializeField] GameObject infoBarbarian;
+    [SerializeField] GameObject infoIce;
+    [SerializeField] GameObject infoFireBall;
+    [SerializeField] GameObject infoArrow;
+    [SerializeField] GameObject infoGod;
+    [Header("Lawn Mover")]
+    [SerializeField] GameObject lawnMoverPrefab;
     private void Awake()
     {
         spawnPositionAlly = new Vector3(8, 0, -1.3f);
@@ -377,6 +384,27 @@ public class ManegeSpawn : MonoBehaviour
             infoMage.SetActive(true);
             infoFootman.SetActive(true);
             infoBarbarian.SetActive(true);
+        }
+    }
+    public void SpawnLowerMover()
+    {
+        Instantiate(lawnMoverPrefab, spawnPositionAlly, lawnMoverPrefab.transform.rotation);
+    }
+    public void OpenDiscription()
+    {
+        if (infoIce.activeInHierarchy)
+        {
+            infoIce.SetActive(false);
+            infoFireBall.SetActive(false);
+            infoArrow.SetActive(false);
+            infoGod.SetActive(false);
+        }
+        else
+        {
+            infoIce.SetActive(true);
+            infoFireBall.SetActive(true);
+            infoArrow.SetActive(true);
+            infoGod.SetActive(true);
         }
     }
     #region [Freeze]
