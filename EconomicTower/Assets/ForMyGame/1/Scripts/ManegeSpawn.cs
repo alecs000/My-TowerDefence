@@ -386,9 +386,14 @@ public class ManegeSpawn : MonoBehaviour
             infoBarbarian.SetActive(true);
         }
     }
-    public void SpawnLowerMover()
+    public void SpawnLowerMoverF()
     {
-        Instantiate(lawnMoverPrefab, spawnPositionAlly, lawnMoverPrefab.transform.rotation);
+        StartCoroutine(SpawnLowerMover());
+    }
+    IEnumerator SpawnLowerMover()
+    {
+        yield return new WaitForSeconds(1);
+             Instantiate(lawnMoverPrefab, spawnPositionAlly, lawnMoverPrefab.transform.rotation);
     }
     public void OpenDiscription()
     {
@@ -531,5 +536,7 @@ public class ManegeSpawn : MonoBehaviour
         openSittings = true;
         img.gameObject.SetActive(true);
     }
+    #endregion
+    #region [Error]
     #endregion
 }
