@@ -75,6 +75,7 @@ public class ManegeSpawn : MonoBehaviour
     [SerializeField] GameObject infoGod;
     [Header("Lawn Mover")]
     [SerializeField] GameObject lawnMoverPrefab;
+    [SerializeField] AudioSource error;
     private void Awake()
     {
         spawnPositionAlly = new Vector3(8, 0, -1.3f);
@@ -389,11 +390,13 @@ public class ManegeSpawn : MonoBehaviour
     public void SpawnLowerMoverF()
     {
         StartCoroutine(SpawnLowerMover());
+        error.Play();
     }
     IEnumerator SpawnLowerMover()
     {
-        yield return new WaitForSeconds(1);
-             Instantiate(lawnMoverPrefab, spawnPositionAlly, lawnMoverPrefab.transform.rotation);
+        yield return new WaitForSeconds(3);
+             Instantiate(lawnMoverPrefab, lawnMoverPrefab.transform.position, lawnMoverPrefab.transform.rotation);
+        error.Pause();
     }
     public void OpenDiscription()
     {

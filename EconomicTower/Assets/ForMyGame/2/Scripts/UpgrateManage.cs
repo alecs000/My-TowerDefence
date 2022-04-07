@@ -49,6 +49,10 @@ public class UpgrateManage : MonoBehaviour
     [SerializeField] AudioSource freezeEffect;
     [SerializeField] AudioSource fireEffect;
     [SerializeField] AudioSource arrowEffect;
+    [SerializeField] GameObject spells;
+    [SerializeField] GameObject towers;
+    bool notActiveInHierarchySpells;
+    bool notActiveInHierarchyTowers;
     private void Awake()
     {
         if (UpgrateMemory.levels.Count>0)
@@ -111,6 +115,27 @@ public class UpgrateManage : MonoBehaviour
                 buttonsBarbarian[i].SetActive(false);
             }
         }
+    }
+    private void Update()
+    {
+        if (!towers.activeInHierarchy)
+        {
+            notActiveInHierarchyTowers = true;
+        }
+        if (!spells.activeInHierarchy)
+        {
+            notActiveInHierarchySpells = true;
+        }
+            if (notActiveInHierarchySpells && spells.activeInHierarchy)
+            {
+                notActiveInHierarchySpells = false;
+                image?.gameObject.SetActive(false);
+            }
+            if (notActiveInHierarchyTowers && towers.activeInHierarchy)
+            {
+                notActiveInHierarchyTowers = false;
+                image?.gameObject.SetActive(false);
+            }
     }
     void AktiveKnightUpgtate()
     {
