@@ -57,7 +57,6 @@ public class KnightManagement : IAlly
         }
         if (targetEnemy != null && !targetEnemy.gameObject.activeInHierarchy)
         {
-            targetEnemy.RemoveEnemy();
             targetEnemy = null;
         }
         Moving();

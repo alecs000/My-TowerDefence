@@ -48,21 +48,26 @@ public class MonsterPool : MonoBehaviour
     }
     private void Start()
     {
+        int level= PlayerPrefs.GetInt("levels");
         if (isWinAndRespawn)
         {
-            SrartLevel(PlayerPrefs.GetInt("levels") - 1);
+            SrartLevel(level);
             StartCoroutine(SpawnMonster());
         }
         else
         {
-                SrartLevel(PlayerPrefs.GetInt("levels"));
+                SrartLevel(level - 1);
                 StartCoroutine(SpawnMonster());
         }
-        for (int i = 0; i < PlayerPrefs.GetInt("levels")-1; i++)
+        if (!ManegeSpawn.isPlayerPrefs)
         {
-            UpgrateMemory.levels.Add(3);//звезды мб надо сделать
+            for (int i = 0; i < level - 1; i++)
+            {
+                UpgrateMemory.levels.Add(3);//звезды мб надо сделать
+            }
+            ManegeSpawn.isPlayerPrefs = true;
         }
-        Debug.Log(PlayerPrefs.GetInt("levels")+"PP GG");
+        Debug.Log(level + "PP GG");
     }
     public void Reset()
     {
@@ -115,7 +120,11 @@ public class MonsterPool : MonoBehaviour
         {
             isWinAndRespawn = true;
         }
-            SrartLevel(UpgrateMemory.levels.Count-1);
+        else
+        {
+            isWinAndRespawn = false;
+        }
+            SrartLevel(PlayerPrefs.GetInt("levels") - 1);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             
     }

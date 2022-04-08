@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10116,7 +10116,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1247818643
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17660,10 +17660,10 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: Archer
+    Text: 'Archer: 80$'
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u041B\u0443\u0447\u043D\u0438\u043A"
+    Text: "\u041B\u0443\u0447\u043D\u0438\u043A: 80$"
     Object: {fileID: 0}
 --- !u!1001 &2072629336
 PrefabInstance:

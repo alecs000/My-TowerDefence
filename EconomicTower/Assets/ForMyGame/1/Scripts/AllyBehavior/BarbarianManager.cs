@@ -58,7 +58,6 @@ public class BarbarianManager : IAlly
         }
         if (targetEnemy != null && !targetEnemy.gameObject.activeInHierarchy)
         {
-            targetEnemy.RemoveEnemy();
             targetEnemy = null;
         }
         if (targetEnemy != null && !isAttack)

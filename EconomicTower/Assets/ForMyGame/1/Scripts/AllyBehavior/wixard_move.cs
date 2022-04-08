@@ -96,7 +96,6 @@ public class wixard_move : IAlly
         }
         if (targetEnemy!=null&&!targetEnemy.gameObject.activeInHierarchy)
         {
-            targetEnemy.RemoveEnemy();
             targetEnemy = null;
         }
         Moving();

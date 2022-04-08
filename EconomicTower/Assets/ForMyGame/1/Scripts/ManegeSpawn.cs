@@ -76,6 +76,7 @@ public class ManegeSpawn : MonoBehaviour
     [Header("Lawn Mover")]
     [SerializeField] GameObject lawnMoverPrefab;
     [SerializeField] AudioSource error;
+    public static bool isPlayerPrefs;
     private void Awake()
     {
         spawnPositionAlly = new Vector3(8, 0, -1.3f);
@@ -93,12 +94,12 @@ public class ManegeSpawn : MonoBehaviour
                 if (i == 0)
                 {
                     wixard_move.upSpeed = true;
-                       Enemy.Mageattack *= 1.1f;
+                    Enemy.Mageattack *= 1.1f;
                 }
                 if (i == 1)
                 {
-                Enemy.Mageattack *= 2;
-                wixard_move.isBlueFireBall = true;
+                    Enemy.Mageattack *= 2;
+                    wixard_move.isBlueFireBall = true;
                 }
                 if (i == 2)
                 {
@@ -203,6 +204,14 @@ public class ManegeSpawn : MonoBehaviour
                     BarbarianManager.UpAttack50 = true;
                 }
             }
+        }
+        if (!isPlayerPrefs)
+        {
+        for (int i = 0; i < PlayerPrefs.GetInt("levels"); i++)
+        {
+            UpgrateMemory.levels.Add(3);//звезды мб надо сделать
+        }
+            isPlayerPrefs = true;
         }
         if (UpgrateMemory.levels.Count>0)
         {
