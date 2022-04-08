@@ -50,19 +50,29 @@ public class MonsterPool : MonoBehaviour
     {
         if (isWinAndRespawn)
         {
-            SrartLevel(UpgrateMemory.levels.Count-1);
+            SrartLevel(PlayerPrefs.GetInt("levels") - 1);
             StartCoroutine(SpawnMonster());
         }
         else
         {
-                SrartLevel(UpgrateMemory.levels.Count);
+                SrartLevel(PlayerPrefs.GetInt("levels"));
                 StartCoroutine(SpawnMonster());
         }
+        for (int i = 0; i < PlayerPrefs.GetInt("levels")-1; i++)
+        {
+            UpgrateMemory.levels.Add(3);//звезды мб надо сделать
+        }
+        Debug.Log(PlayerPrefs.GetInt("levels")+"PP GG");
+    }
+    public void Reset()
+    {
+        PlayerPrefs.DeleteAll();
     }
     void SrartLevel(int level = -1)
     {
         Debug.Log(UpgrateMemory.levels.Count);
         Debug.Log(level);
+        PlayerPrefs.SetInt("levels", level);
         switch (level)
         {
             case -2:
