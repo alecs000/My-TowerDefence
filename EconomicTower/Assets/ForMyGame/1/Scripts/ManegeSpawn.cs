@@ -80,6 +80,42 @@ public class ManegeSpawn : MonoBehaviour
     private void Awake()
     {
         spawnPositionAlly = new Vector3(8, 0, -1.3f);
+        if (!isPlayerPrefs)
+        {
+            for (int i = 0; i < PlayerPrefs.GetInt("levels"); i++)
+            {
+                UpgrateMemory.levels.Add(3);//звезды мб надо сделать
+            }
+            for (int i = 0; i < PlayerPrefs.GetInt("zero"); i++)
+            {
+                UpgrateMemory.upgratesKnight.Add(true);
+            }
+            for (int i = 0; i < PlayerPrefs.GetInt("one"); i++)
+            {
+                UpgrateMemory.upgratesMage.Add(true);
+            }
+            for (int i = 0; i < PlayerPrefs.GetInt("two"); i++)
+            {
+                UpgrateMemory.upgratesFootman.Add(true);
+            }
+            for (int i = 0; i < PlayerPrefs.GetInt("three"); i++)
+            {
+                UpgrateMemory.upgratesBarbarian.Add(true);
+            }
+            for (int i = 0; i < PlayerPrefs.GetInt("ice"); i++)
+            {
+                UpgrateMemory.upgratesIce.Add(true);
+            }
+            for (int i = 0; i < PlayerPrefs.GetInt("fire"); i++)
+            {
+                UpgrateMemory.upgratesFireBall.Add(true);
+            }
+            for (int i = 0; i < PlayerPrefs.GetInt("arrow"); i++)
+            {
+                UpgrateMemory.upgratesArrow.Add(true);
+            }
+            isPlayerPrefs = true;
+        }
         listMage = UpgrateMemory.upgratesMage;
         listKnight = UpgrateMemory.upgratesKnight;
         listFootman = UpgrateMemory.upgratesFootman;
@@ -164,12 +200,12 @@ public class ManegeSpawn : MonoBehaviour
                 if (i == 0)
                 {
                     bombPrice -= 10;
+                    Text30.SetActive(true);
+                    Text40.SetActive(false);
                 }
                 if (i == 1)
                 {
                     boom = bigBoom;
-                    Text30.SetActive(true);
-                    Text40.SetActive(false);
                 }
             }
         }
@@ -205,14 +241,7 @@ public class ManegeSpawn : MonoBehaviour
                 }
             }
         }
-        if (!isPlayerPrefs)
-        {
-        for (int i = 0; i < PlayerPrefs.GetInt("levels"); i++)
-        {
-            UpgrateMemory.levels.Add(3);//звезды мб надо сделать
-        }
-            isPlayerPrefs = true;
-        }
+
         if (UpgrateMemory.levels.Count>0)
         {
             lockGmKnight.SetActive(false);
@@ -258,6 +287,7 @@ public class ManegeSpawn : MonoBehaviour
                 menuWin.SetActive(true);
                 Debug.Log(1);
                 isMenuActive = true;
+                PlayerPrefs.SetInt("levels", PlayerPrefs.GetInt("levels")+1);
             }
             else if (lose)
             {

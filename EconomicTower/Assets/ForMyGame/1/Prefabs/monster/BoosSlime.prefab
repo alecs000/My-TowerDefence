@@ -131,10 +131,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8d74631313105549ad961a9de993f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.0001
-  coins: 300
-  lives: 300
+  coins: 200
   dimonds: 50
+  energy: 0
+  targetAlly: {fileID: 0}
+  speed: 0.0001
+  lives: 300
   attack: 30
   speedForward: 1
   speedL: 1
@@ -142,7 +144,6 @@ MonoBehaviour:
   attackRang: 1
   clip: {fileID: 8300000, guid: 35da1333dd2996541819cbd5f4c1e2ed, type: 3}
   isBoss: 1
-  targetAlly: {fileID: 0}
 --- !u!114 &5175672627710727951
 MonoBehaviour:
   m_ObjectHideFlags: 0

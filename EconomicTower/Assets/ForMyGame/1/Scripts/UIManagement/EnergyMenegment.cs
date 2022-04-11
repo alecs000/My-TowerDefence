@@ -11,7 +11,7 @@ public class EnergyMenegment : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        energy = 100;
+        energy = 10;
     }
     public static void AddEnergy(short addition)
     {

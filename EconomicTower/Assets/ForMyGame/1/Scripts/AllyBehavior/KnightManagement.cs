@@ -59,21 +59,20 @@ public class KnightManagement : IAlly
         {
             targetEnemy = null;
         }
-        Moving();
-        if (targetEnemy == null && isAttack)
-        {
-            anim.SetBool("IsAttack", false);
-            isAttack = false;
-            speedForward = 1;
-            speedLeft = speedLeftBase;
-        }
         if (targetEnemy != null && !isAttack)
         {
             //Атака врага. Вызов корутины остановки врага на время атаки
             isAttack = true;
             StartCoroutine(WaidKnightAtack());
         }
-       
+        if (targetEnemy == null && !isAttack)
+        {
+            anim.SetBool("IsAttack", false);
+            speedForward = 1;
+            speedLeft = speedLeftBase;
+        }
+        Moving();
+
     }
 
     public override float GetAttack()
@@ -110,7 +109,8 @@ public class KnightManagement : IAlly
     public IEnumerator WaidKnightAtack()
     {
         Attack();
-
+        Debug.Log("AAAAAAAAAAAAAAAAAAAAAA");
+        yield return new WaitForSeconds(0.8f);
         while (targetEnemy != null)
         {
             if (targetEnemy.livesEnemy.lives > 0)
@@ -132,10 +132,11 @@ public class KnightManagement : IAlly
                 }
                 targetEnemy.RemoveEnemy();
                 targetEnemy = null;
+                break;
             }
             yield return new WaitForSeconds(waitTime);
         }
-
+        isAttack = false;
     }
 
     public void Attack()

@@ -20685,7 +20685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLanguage: Russian
-  detectLanguage: 0
+  detectLanguage: 1
   defaultLanguage: English
   saveLoad: 1
   prefabs: []

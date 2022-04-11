@@ -98,14 +98,12 @@ public class wixard_move : IAlly
         {
             targetEnemy = null;
         }
-        Moving();
         if (targetEnemy == null)
         {
             Enemy nearestEnemy = (Enemy)GetNearestEnemy();
             if (nearestEnemy != null&& Vector3.Distance(transform.position, nearestEnemy.transform.position) <= attackRange)
             {
                 targetEnemy = nearestEnemy;
-                
             }
         }
         if(targetEnemy != null&& !isAttack)
@@ -114,14 +112,14 @@ public class wixard_move : IAlly
             isAttack = true;
             StartCoroutine(WaidMageAtack()); 
         }
-        if(targetEnemy == null && isAttack)
+        if(targetEnemy == null && !isAttack)
         {
             //чтобы маг шел снова после убийства врага
             anim.SetBool("IsAttack", false);
-            isAttack = false;
             speedLeft = speedLeftBase;
             speedForward = 1;
         }
+        Moving();
     }
 
     private void FixedUpdate()
@@ -138,18 +136,22 @@ public class wixard_move : IAlly
     {
         anim.SetBool("IsAttack", true);
         speedLeft = 0;
-            speedForward = 0;
+        Debug.Log("AAAAAAAAAAAAAAAAAAAAAA");
+        speedForward = 0;
+        bool endAttack;
+        yield return new WaitForSeconds(0.6f);
         while (targetEnemy != null&&isAttack)
         {
             Attack();
-                yield return new WaitForSeconds(waitTime);
             if (isVampire)
             {
                 livesAlly.AddLives(Enemy.Mageattack/9);
                 Debug.Log(Enemy.Mageattack);
             }
-            yield return new WaitForSeconds(0.6f);
+            
+            yield return new WaitForSeconds(waitTime);
         }
+        isAttack = false;
     }
 
     public void Attack()

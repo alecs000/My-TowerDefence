@@ -49,16 +49,9 @@ public class MonsterPool : MonoBehaviour
     private void Start()
     {
         int level= PlayerPrefs.GetInt("levels");
-        if (isWinAndRespawn)
-        {
             SrartLevel(level);
             StartCoroutine(SpawnMonster());
-        }
-        else
-        {
-                SrartLevel(level - 1);
-                StartCoroutine(SpawnMonster());
-        }
+
         if (!ManegeSpawn.isPlayerPrefs)
         {
             for (int i = 0; i < level - 1; i++)

@@ -69,19 +69,17 @@ public class FootManager : IAlly
         {
             targetEnemy = null;
         }
-        
-        if (targetEnemy == null && isAttack)
-        {
-            anim.SetBool("IsAttack", false);
-            isAttack = false;
-            speedForward = 1;
-            speedLeft = speedLeftBase;
-        }
         if (targetEnemy != null && !isAttack)
         {
             //Атака врага. Вызов корутины остановки врага на время атаки
             isAttack = true;
             StartCoroutine(WaidKnightAtack());
+        }
+        if (targetEnemy == null && !isAttack)
+        {
+            anim.SetBool("IsAttack", false);
+            speedForward = 1;
+            speedLeft = speedLeftBase;
         }
         Moving();
     }
@@ -133,7 +131,8 @@ public class FootManager : IAlly
     public IEnumerator WaidKnightAtack()
     {
         Attack();
-
+        yield return new WaitForSeconds(0.3f);
+        Debug.Log("AAAAAAAAAAAAAAAAAAAAAA");
         while (targetEnemy != null)
         {
             if (targetEnemy.livesEnemy.lives > 0)
@@ -146,10 +145,11 @@ public class FootManager : IAlly
             {
                 targetEnemy.RemoveEnemy();
                 targetEnemy = null;
+                break;
             }
             yield return new WaitForSeconds(waitTime);
         }
-
+        isAttack = false;
     }
 
     public void Attack()

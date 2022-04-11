@@ -14,6 +14,7 @@ public class Click : MonoBehaviour
     {
         gm.SetActive(false);
         allWindowClose = true;
+        
     }
     void Update()
     {

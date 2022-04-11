@@ -324,12 +324,15 @@ public class UpgrateManage : MonoBehaviour
             image.gameObject.SetActive(false);
         }
     }
+    int zero = 1;
     public void ZeroSkillUpdate(int num)
     {
         if (MainManager.RemoveEmeralds(num))
         {
             dogEffect.Play();
             UpgrateMemory.upgratesKnight.Add(true);
+            PlayerPrefs.SetInt("zero", zero);
+            zero++;
         }
         for (int i = 0; i < listKnight.Count; i++)
         {
@@ -340,12 +343,15 @@ public class UpgrateManage : MonoBehaviour
             }
         }
     }
+    int one = 1;
     public void OneSkillUpdate(int num)
     {
         if (MainManager.RemoveEmeralds(num))
         {
             mageEffect.Play();
             UpgrateMemory.upgratesMage.Add(true);
+            PlayerPrefs.SetInt("one", one);
+            one++;
         }
         for (int i = 0; i < listMage.Count; i++)
         {
@@ -356,12 +362,15 @@ public class UpgrateManage : MonoBehaviour
             }
         }
     }
+    int two = 1;
     public void TwoSkillUpdate(int num)
     {
         if (MainManager.RemoveEmeralds(num))
         {
             knightEffect.Play();
             UpgrateMemory.upgratesFootman.Add(true);
+            PlayerPrefs.SetInt("two", two);
+            two++;
         }
         for (int i = 0; i < listFootman.Count; i++)
         {
@@ -372,12 +381,15 @@ public class UpgrateManage : MonoBehaviour
             }
         }
     }
+    int three = 1;
     public void ThreeSkillUpdate(int num)
     {
         if (MainManager.RemoveEmeralds(num))
         {
             barbarianEffect.Play();//Для заклинаний надо найти другой музон
             UpgrateMemory.upgratesBarbarian.Add(true);
+            PlayerPrefs.SetInt("three", three);
+            three++;
         }
         for (int i = 0; i < listBarbarian.Count; i++)
         {
@@ -388,12 +400,15 @@ public class UpgrateManage : MonoBehaviour
             }
         }
     }
+    int ice = 1;
     public void IceSkillUpdate(int num)
     {
         if (MainManager.RemoveEmeralds(num))
         {
             freezeEffect.Play();//Для заклинаний надо найти другой музон
             UpgrateMemory.upgratesIce.Add(true);
+            PlayerPrefs.SetInt("ice", ice);
+            ice++;
             Debug.Log(true);
         }
         for (int i = 0; i < listIce.Count; i++)
@@ -405,12 +420,15 @@ public class UpgrateManage : MonoBehaviour
             }
         }
     }
+    int fire = 1;
     public void FireBallSkillUpdate(int num)
     {
         if (MainManager.RemoveEmeralds(num))
         {
             fireEffect.Play();//Для заклинаний надо найти другой музон
             UpgrateMemory.upgratesFireBall.Add(true);
+            PlayerPrefs.SetInt("fire", fire);
+            fire++;
         }
         for (int i = 0; i < listFireBall.Count; i++)
         {
@@ -421,12 +439,15 @@ public class UpgrateManage : MonoBehaviour
             }
         }
     }
+    int arrow = 1;
     public void ArrowSkillUpdate(int num)
     {
         if (MainManager.RemoveEmeralds(num))
         {
             arrowEffect.Play();//Для заклинаний надо найти другой музон
             UpgrateMemory.upgratesArrow.Add(true);
+            PlayerPrefs.SetInt("arrow", arrow);
+            arrow++;
         }
         for (int i = 0; i < listArrow.Count; i++)
         {
