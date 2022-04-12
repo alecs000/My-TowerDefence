@@ -123,7 +123,6 @@ public class Enemy : IEnemy
                     //Debug.Log("Вражина" + targetAlly.livesAlly.lives);
                     targetAlly.livesAlly.RemoveLives(attack);
                     audioSource.PlayOneShot(clip);
-                    yield return new WaitForSeconds(waitTime);
                 }
                 else
                 {
@@ -131,6 +130,7 @@ public class Enemy : IEnemy
                     manegeSpawn.RemoveAlly(targetAlly);
                     targetAlly = null;
                 }
+                yield return new WaitForSeconds(waitTime);
             }
         }
     }

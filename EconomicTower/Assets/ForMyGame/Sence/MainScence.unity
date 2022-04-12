@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -627,7 +627,7 @@ RectTransform:
   - {fileID: 1886895433}
   - {fileID: 372712680}
   m_Father: {fileID: 642260564}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1771,10 +1771,10 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: Russian
-    Text: "\u0412\u0437\u0440\u044B\u0432: 40$"
+    Text: "\u0412\u0437\u0440\u044B\u0432: 40\u03DF"
     Object: {fileID: 0}
   - Language: English
-    Text: 'Fire Ball: 40$'
+    Text: "Fire Ball: 40\u03DF"
     Object: {fileID: 0}
 --- !u!1 &250533394
 GameObject:
@@ -4829,7 +4829,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 642260564}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -5762,12 +5762,12 @@ RectTransform:
   - {fileID: 200460962}
   - {fileID: 1054148865}
   - {fileID: 448559818}
+  - {fileID: 670491075}
   - {fileID: 1965901377}
   - {fileID: 92968723}
+  - {fileID: 1193543754}
   - {fileID: 545489583}
   - {fileID: 984156245}
-  - {fileID: 670491075}
-  - {fileID: 1193543754}
   - {fileID: 352568560}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -6004,7 +6004,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 642260564}
-  m_RootOrder: 12
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6355,10 +6355,10 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: Russian
-    Text: "\u041C\u043E\u0440\u043E\u0437: 17$"
+    Text: "\u041C\u043E\u0440\u043E\u0437: 17\U0001F5F2\u03DF\U0001F5F2"
     Object: {fileID: 0}
   - Language: English
-    Text: 'Freze: 17$'
+    Text: "Freze: 17\u03DF"
     Object: {fileID: 0}
 --- !u!1001 &723786653
 PrefabInstance:
@@ -7708,7 +7708,7 @@ RectTransform:
   m_Children:
   - {fileID: 1354591704}
   m_Father: {fileID: 642260564}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -9557,7 +9557,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 642260564}
-  m_RootOrder: 13
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -15447,10 +15447,10 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: Russian
-    Text: "999$ \u041E\u0448\u0438\u0431\u043A\u0430."
+    Text: "999\u03DF \u041E\u0448\u0438\u0431\u043A\u0430."
     Object: {fileID: 0}
   - Language: English
-    Text: 999$ Error.
+    Text: "999\u03DF Error."
     Object: {fileID: 0}
 --- !u!1001 &1864864729
 PrefabInstance:
@@ -17001,7 +17001,7 @@ RectTransform:
   - {fileID: 132610884}
   - {fileID: 1196110275}
   m_Father: {fileID: 642260564}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -17660,10 +17660,10 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: 'Archer: 80$'
+    Text: "Archer: 80\u03DF"
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u041B\u0443\u0447\u043D\u0438\u043A: 80$"
+    Text: "\u041B\u0443\u0447\u043D\u0438\u043A: 80\u03DF"
     Object: {fileID: 0}
 --- !u!1001 &2072629336
 PrefabInstance:
