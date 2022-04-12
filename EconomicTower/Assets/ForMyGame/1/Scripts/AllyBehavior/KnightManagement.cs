@@ -109,7 +109,6 @@ public class KnightManagement : IAlly
     public IEnumerator WaidKnightAtack()
     {
         Attack();
-        Debug.Log("AAAAAAAAAAAAAAAAAAAAAA");
         yield return new WaitForSeconds(0.8f);
         while (targetEnemy != null)
         {

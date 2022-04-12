@@ -136,7 +136,6 @@ public class wixard_move : IAlly
     {
         anim.SetBool("IsAttack", true);
         speedLeft = 0;
-        Debug.Log("AAAAAAAAAAAAAAAAAAAAAA");
         speedForward = 0;
         bool endAttack;
         yield return new WaitForSeconds(0.6f);

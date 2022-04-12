@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
-
+using UnityEngine.Audio;
 public class ManegeSpawn : MonoBehaviour
 {
     [SerializeField] GameObject mage;
@@ -76,9 +76,13 @@ public class ManegeSpawn : MonoBehaviour
     [Header("Lawn Mover")]
     [SerializeField] GameObject lawnMoverPrefab;
     [SerializeField] AudioSource error;
+    [SerializeField] AudioMixerGroup Mixer;
     public static bool isPlayerPrefs;
     private void Awake()
     {
+        Time.timeScale = 5.0f;
+        Mixer.audioMixer.SetFloat("EffectsVolume", Mathf.Lerp(-80, 0, PlayerPrefs.GetFloat("Effect")));
+        Mixer.audioMixer.SetFloat("MusicVolume", Mathf.Lerp(-80, 0, PlayerPrefs.GetFloat("Music")));
         spawnPositionAlly = new Vector3(8, 0, -1.3f);
         if (!isPlayerPrefs)
         {
@@ -265,6 +269,7 @@ public class ManegeSpawn : MonoBehaviour
             Instantiate(balista, spawnPositionAlly, balista.transform.rotation);
         }
     }
+
     private void Update()
     {
         if (isBoss && boss.activeInHierarchy && !isMusicBoss)
@@ -273,9 +278,15 @@ public class ManegeSpawn : MonoBehaviour
             idleMusic.Stop();
             isMusicBoss = true;
         }
-        if (isBoss&&!boss.activeInHierarchy)
+        if (isBoss&&!boss.activeInHierarchy && !isMenuActive)
         {
+            idleMusic.Stop();
+            boosMusic.Stop();
+            winMusic.Play();
             menuWin.SetActive(true);
+            Debug.Log(PlayerPrefs.GetInt("levels") + 1 + "wtf");
+            isMenuActive = true;
+            PlayerPrefs.SetInt("levels", PlayerPrefs.GetInt("levels") + 1);
         }
         if (isGameStop&& !isMenuActive)
         {
@@ -285,7 +296,7 @@ public class ManegeSpawn : MonoBehaviour
                 boosMusic.Stop();
                 winMusic.Play();
                 menuWin.SetActive(true);
-                Debug.Log(1);
+                Debug.Log(PlayerPrefs.GetInt("levels") + 1);
                 isMenuActive = true;
                 PlayerPrefs.SetInt("levels", PlayerPrefs.GetInt("levels")+1);
             }

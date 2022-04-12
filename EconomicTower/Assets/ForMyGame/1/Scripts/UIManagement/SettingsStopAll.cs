@@ -25,9 +25,7 @@ public class SettingsStopAll : MonoBehaviour
             saveMusic = 1;
         }
         effectsSlider.value = saveEffect;
-        Mixer.audioMixer.SetFloat("EffectsVolume", Mathf.Lerp(-80, 0, saveEffect));
         musicSlider.value = saveMusic;
-        Mixer.audioMixer.SetFloat("MusicVolume", Mathf.Lerp(-80, 0, saveMusic));
     }
     private void OnEnable()
     {

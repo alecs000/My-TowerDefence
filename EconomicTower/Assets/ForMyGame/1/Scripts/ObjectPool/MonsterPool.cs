@@ -31,7 +31,6 @@ public class MonsterPool : MonoBehaviour
     public int[] waveOrc = { };
     public int[] waveSpider = {};
     GameObject boss;
-    static bool isWinAndRespawn;
 
     private void Awake()
     {
@@ -70,7 +69,10 @@ public class MonsterPool : MonoBehaviour
     {
         Debug.Log(UpgrateMemory.levels.Count);
         Debug.Log(level);
-        PlayerPrefs.SetInt("levels", level);
+        if (PlayerPrefs.GetInt("levels", level)< level)
+        {
+            PlayerPrefs.SetInt("levels", level);
+        }
         switch (level)
         {
             case -2:
@@ -83,7 +85,7 @@ public class MonsterPool : MonoBehaviour
                 waveShell = new int[] {0, 2};
                 waveSlime = new int[] {2, 1};
                 waveOrc = new int[] {0, 0};
-                waveSpider = new int[] { 0, 0 };
+                waveSpider = new int[] { 1, 0 };
                 boss = bossSlime;
                 break;
             case 1:
@@ -107,19 +109,10 @@ public class MonsterPool : MonoBehaviour
         SrartLevel(-1);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-    public void ResrartLevel(bool win)
+    public void ResrartLevel()
     {
-        if (win)
-        {
-            isWinAndRespawn = true;
-        }
-        else
-        {
-            isWinAndRespawn = false;
-        }
             SrartLevel(PlayerPrefs.GetInt("levels") - 1);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);  
     }
     public IEnumerator SpawnMonster()
     {
@@ -161,8 +154,6 @@ public class MonsterPool : MonoBehaviour
             yield return new WaitForSeconds(3f);
         }
         Instantiate(boss, new Vector3(-15, 0, Random.Range(-3.0f, 0f)), boss.transform.rotation);
-
-
     }
     void CreateShell()
     {

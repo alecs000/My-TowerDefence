@@ -136,7 +136,7 @@ MonoBehaviour:
   energy: 0
   targetAlly: {fileID: 0}
   speed: 0.0001
-  lives: 300
+  lives: 200
   attack: 30
   speedForward: 1
   speedL: 1

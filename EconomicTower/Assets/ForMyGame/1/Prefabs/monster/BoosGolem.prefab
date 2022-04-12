@@ -831,7 +831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coins: 50
-  dimonds: 7
+  dimonds: 150
   energy: 0
   targetAlly: {fileID: 0}
   speed: 0.000001

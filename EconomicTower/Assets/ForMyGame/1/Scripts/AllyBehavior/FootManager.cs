@@ -132,7 +132,6 @@ public class FootManager : IAlly
     {
         Attack();
         yield return new WaitForSeconds(0.3f);
-        Debug.Log("AAAAAAAAAAAAAAAAAAAAAA");
         while (targetEnemy != null)
         {
             if (targetEnemy.livesEnemy.lives > 0)
