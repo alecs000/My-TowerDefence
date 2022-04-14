@@ -25,6 +25,7 @@ public class MonsterPool : MonoBehaviour
     [SerializeField] GameObject bossSlime;
     [SerializeField] GameObject bossOrc;
     [SerializeField] GameObject bossSpider;
+    [SerializeField] GameObject bossBug;
     ManegeSpawn manegeSpawn;
     public int[] waveShell = {  };
     public int[] waveSlime = {  };
@@ -101,6 +102,13 @@ public class MonsterPool : MonoBehaviour
                 waveOrc = new int[] { 0, 1, 2, 1 };
                 waveSpider = new int[] { 0, 0, 0, 0 };
                 boss = bossSpider;
+                break;
+            case 3:
+                waveShell = new int[] { 1, 1, 5, 1 };
+                waveSlime = new int[] { 2, 3, 5, 1 };
+                waveOrc = new int[] { 1, 2, 3, 1 };
+                waveSpider = new int[] { 1, 2, 2, 4 };
+                boss = bossBug;
                 break;
         } 
     }

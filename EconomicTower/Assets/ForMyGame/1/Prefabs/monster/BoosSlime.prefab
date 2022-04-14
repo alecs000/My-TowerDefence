@@ -47,7 +47,6 @@ GameObject:
   - component: {fileID: 1656359832501527560}
   - component: {fileID: 5175672627710727951}
   - component: {fileID: 4292139246258963537}
-  - component: {fileID: -7790435184637028912}
   m_Layer: 0
   m_Name: BoosSlime
   m_TagString: enemy
@@ -252,18 +251,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-7790435184637028912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5605227541783970984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b9735f0d05c2d849ae0e0ed28eb511b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5606098903163431882
 GameObject:
   m_ObjectHideFlags: 0
