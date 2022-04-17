@@ -35,6 +35,8 @@ public class UpgrateManage : MonoBehaviour
     [SerializeField] List<GameObject> purchasedIce = new List<GameObject>();
     [SerializeField] List<GameObject> purchasedFireBall = new List<GameObject>();
     [SerializeField] List<GameObject> purchasedArrow = new List<GameObject>();
+    [SerializeField] GameObject lockGmFire;
+    [SerializeField] GameObject fireGm;
     [SerializeField] GameObject lockGmFootman;
     [SerializeField] GameObject footmenGm;
     [SerializeField] GameObject lockGmArrow;
@@ -55,17 +57,25 @@ public class UpgrateManage : MonoBehaviour
     bool notActiveInHierarchyTowers;
     private void Awake()
     {
-        if (UpgrateMemory.levels.Count>0)
+        if (UpgrateMemory.levels.Count > 0)
         {
             if (UpgrateMemory.levels[0] == 1 || UpgrateMemory.levels?[0] == 2 || UpgrateMemory.levels?[0] == 3)
+            {
+                fireGm.SetActive(true);
+                lockGmFire.SetActive(false);
+            }
+        }
+        if (UpgrateMemory.levels.Count>1)
+        {
+            if (UpgrateMemory.levels[1] == 1 || UpgrateMemory.levels?[1] == 2 || UpgrateMemory.levels?[1] == 3)
             {
                 footmenGm.SetActive(true);
                 lockGmFootman.SetActive(false);
             }
         }
-        if (UpgrateMemory.levels.Count > 1)
+        if (UpgrateMemory.levels.Count > 3)
         {
-            if (UpgrateMemory.levels[1] == 1 || UpgrateMemory.levels?[1] == 2 || UpgrateMemory.levels?[1] == 3)
+            if (UpgrateMemory.levels[3] == 1 || UpgrateMemory.levels?[3] == 2 || UpgrateMemory.levels?[3] == 3)
             {
                 ArrowGm.SetActive(true);
                 lockGmArrow.SetActive(false);
@@ -73,7 +83,7 @@ public class UpgrateManage : MonoBehaviour
         }
         if (UpgrateMemory.levels.Count >3)
         {
-            if (UpgrateMemory.levels[3] == 1 || UpgrateMemory.levels[3] == 2 || UpgrateMemory.levels[3] == 3)
+            if (UpgrateMemory.levels[5] == 1 || UpgrateMemory.levels[5] == 2 || UpgrateMemory.levels[5] == 3)
             {
                 BarbarianGm.SetActive(true);
                 lockGmBarbarian.SetActive(false);

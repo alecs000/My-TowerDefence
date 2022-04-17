@@ -16,6 +16,8 @@ public class ManegeSpawn : MonoBehaviour
     [SerializeField] GameObject lockGmKnight;
     [SerializeField] GameObject lockGmArrow;
     [SerializeField] GameObject lockGmBarbarian;
+    [SerializeField] GameObject lockGmFire;
+    [SerializeField] GameObject GmFire;
     [SerializeField] GameObject GmKnight;
     [SerializeField] GameObject GmArrow;
     [SerializeField] GameObject GmBarbarian;
@@ -78,11 +80,10 @@ public class ManegeSpawn : MonoBehaviour
     [SerializeField] AudioSource error;
     [SerializeField] AudioMixerGroup Mixer;
     public static bool isPlayerPrefs;
+    [SerializeField] List<GameObject> buttonSpeed = new List<GameObject>();
+    int allSpeed = 0;
     private void Awake()
     {
-        Time.timeScale = 5.0f;
-        Mixer.audioMixer.SetFloat("EffectsVolume", Mathf.Lerp(-80, 0, PlayerPrefs.GetFloat("Effect")));
-        Mixer.audioMixer.SetFloat("MusicVolume", Mathf.Lerp(-80, 0, PlayerPrefs.GetFloat("Music")));
         spawnPositionAlly = new Vector3(8, 0, -1.3f);
         if (!isPlayerPrefs)
         {
@@ -248,15 +249,20 @@ public class ManegeSpawn : MonoBehaviour
 
         if (UpgrateMemory.levels.Count>0)
         {
+            lockGmFire.SetActive(false);
+            GmFire.SetActive(true);
+        }
+        if (UpgrateMemory.levels.Count > 1)
+        {
             lockGmKnight.SetActive(false);
             GmKnight.SetActive(true);
         }
-        if (UpgrateMemory.levels.Count > 1)
+        if (UpgrateMemory.levels.Count > 3)
         {
             lockGmArrow.SetActive(false);
             GmArrow.SetActive(true);
         }
-        if (UpgrateMemory.levels.Count > 3)
+        if (UpgrateMemory.levels.Count > 5)
         {
             lockGmBarbarian.SetActive(false);
             GmBarbarian.SetActive(true);
@@ -264,6 +270,8 @@ public class ManegeSpawn : MonoBehaviour
     }
     private void Start()
     {
+        Mixer.audioMixer.SetFloat("EffectsVolume", Mathf.Lerp(-80, 0, PlayerPrefs.GetFloat("Effect")));
+        Mixer.audioMixer.SetFloat("MusicVolume", Mathf.Lerp(-80, 0, PlayerPrefs.GetFloat("Music")));
         if (listArrow.Count>0&& !openSittings && listArrow[1])
         {
             Instantiate(balista, spawnPositionAlly, balista.transform.rotation);
@@ -308,6 +316,40 @@ public class ManegeSpawn : MonoBehaviour
                 Debug.Log(2);
                 menuLose.SetActive(true);
                 isMenuActive = true;
+            }
+        }
+    }
+    public void ButtonSpeedClick()
+    {
+        for (int i = 0; i < buttonSpeed.Count; i++)
+        {
+            if (i!= buttonSpeed.Count-1&&buttonSpeed[i].activeInHierarchy)
+            {
+                switch (i)
+                {
+                    case 0:
+                        Time.timeScale = 1;
+                        break;
+                    case 1:
+                        Time.timeScale = 1.5f;
+                        break;
+                    case 2:
+                        Time.timeScale = 2;
+                        break;
+                    case 3:
+                        Time.timeScale = 3;
+                        break;
+                }
+                buttonSpeed[i].SetActive(false);
+                buttonSpeed[i+1].SetActive(true);
+                break;
+            }
+            if (i == buttonSpeed.Count - 1)
+            {
+                Time.timeScale = 0.5f;
+                buttonSpeed[i].SetActive(false);
+                buttonSpeed[0].SetActive(true);
+                break;
             }
         }
     }

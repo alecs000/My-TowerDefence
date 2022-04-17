@@ -10,6 +10,9 @@ public class MonsterPool : MonoBehaviour
     public PoolMono<IEnemy> poolMSlime;
     public PoolMono<IEnemy> poolMOrc;
     public PoolMono<IEnemy> poolMSpider;
+    public PoolMono<IEnemy> poolMBug;
+    public PoolMono<IEnemy> poolMStoneMonster;
+    public PoolMono<IEnemy> poolMEyes;
     [SerializeField] int poolCountShell = 10;
     [SerializeField] bool autoExpandShell = true;
     [SerializeField] int poolCountSlime = 10;
@@ -18,19 +21,33 @@ public class MonsterPool : MonoBehaviour
     [SerializeField] bool autoExpandOrc = true;
     [SerializeField] int poolCountSpider = 10;
     [SerializeField] bool autoExpandSpider = true;
+    [SerializeField] int poolCountBug = 10;
+    [SerializeField] bool autoExpandBug = true;
+    [SerializeField] int poolCountStoneMonster = 10;
+    [SerializeField] bool autoExpandStoneMonster = true;
+    [SerializeField] int poolCountEyes = 10;
+    [SerializeField] bool autoExpandEyes = true;
     [SerializeField] IEnemy enemyPrefabShell;
     [SerializeField] IEnemy enemyPrefabSlime;
     [SerializeField] IEnemy enemyPrefabOrc;
     [SerializeField] IEnemy enemyPrefabSpider;
+    [SerializeField] IEnemy enemyPrefabBug;
+    [SerializeField] IEnemy enemyPrefabStoneMonster;
+    [SerializeField] IEnemy enemyPrefabEyes;
     [SerializeField] GameObject bossSlime;
     [SerializeField] GameObject bossOrc;
     [SerializeField] GameObject bossSpider;
     [SerializeField] GameObject bossBug;
+    [SerializeField] GameObject bossStoneMonster;
+    [SerializeField] GameObject bossEyes;
     ManegeSpawn manegeSpawn;
-    public int[] waveShell = {  };
-    public int[] waveSlime = {  };
-    public int[] waveOrc = { };
-    public int[] waveSpider = {};
+    public int[] waveShell = { 0 };
+    public int[] waveSlime = { 0 };
+    public int[] waveOrc = {0 };
+    public int[] waveSpider = {0};
+    public int[] waveBug = { 0};
+    public int[] waveStoneMonster = {0 };
+    public int[] waveEyes = { 0};
     GameObject boss;
 
     private void Awake()
@@ -45,6 +62,12 @@ public class MonsterPool : MonoBehaviour
         poolMOrc.autoExpand = autoExpandOrc;
         poolMSpider = new PoolMono<IEnemy>(enemyPrefabSpider, poolCountSpider, this.transform);
         poolMSpider.autoExpand = autoExpandSpider;
+        poolMBug = new PoolMono<IEnemy>(enemyPrefabBug, poolCountBug, this.transform);
+        poolMBug.autoExpand = autoExpandBug;
+        poolMStoneMonster = new PoolMono<IEnemy>(enemyPrefabStoneMonster, poolCountStoneMonster, this.transform);
+        poolMStoneMonster.autoExpand = autoExpandStoneMonster;
+        poolMEyes = new PoolMono<IEnemy>(enemyPrefabEyes, poolCountEyes, this.transform);
+        poolMEyes.autoExpand = autoExpandEyes;
     }
     private void Start()
     {
@@ -85,15 +108,21 @@ public class MonsterPool : MonoBehaviour
             case 0:
                 waveShell = new int[] {0, 2};
                 waveSlime = new int[] {2, 1};
-                waveOrc = new int[] {0, 0};
-                waveSpider = new int[] { 1, 0 };
+                waveOrc = new int[] { 0, 0};
+                waveSpider = new int[] { 0, 0 };
+                waveBug = new int[] { 0, 0 };
+                waveStoneMonster = new int[] { 0, 0 };
+                waveEyes = new int[] { 0, 0 };
                 boss = bossSlime;
                 break;
             case 1:
                 waveShell = new int[] { 1, 2, 2, 0};
                 waveSlime = new int[] { 3, 1, 2, 2};
-                waveOrc = new int[] { 0, 0, 0, 0};
-                waveSpider = new int[] { 0, 0,0,0 };
+                waveOrc = new int[] { 0, 0,0,0 };
+                waveSpider = new int[] { 0, 0, 0, 0 };
+                waveBug = new int[] { 0, 0, 0, 0 };
+                waveStoneMonster = new int[] { 0, 0, 0, 0 };
+                waveEyes = new int[] { 0, 0, 0, 0 };
                 boss = bossOrc;
                 break;
             case 2:
@@ -101,6 +130,9 @@ public class MonsterPool : MonoBehaviour
                 waveSlime = new int[] { 2, 0, 1, 6};
                 waveOrc = new int[] { 0, 1, 2, 1 };
                 waveSpider = new int[] { 0, 0, 0, 0 };
+                waveBug = new int[] { 0, 0, 0, 0 };
+                waveStoneMonster = new int[] { 0, 0, 0, 0 };
+                waveEyes = new int[] { 0, 0, 0, 0 };
                 boss = bossSpider;
                 break;
             case 3:
@@ -108,7 +140,40 @@ public class MonsterPool : MonoBehaviour
                 waveSlime = new int[] { 2, 3, 5, 1 };
                 waveOrc = new int[] { 1, 2, 3, 1 };
                 waveSpider = new int[] { 1, 2, 2, 4 };
+                waveBug = new int[] { 0, 0, 0, 0 };
+                waveStoneMonster = new int[] { 0, 0, 0, 0 };
+                waveEyes = new int[] { 0, 0, 0, 0 };
                 boss = bossBug;
+                break;
+            case 4:
+                waveShell = new int[] { 1, 1, 5, 1 };
+                waveSlime = new int[] { 2, 3, 5, 1 };
+                waveOrc = new int[] { 1, 2, 3, 1 };
+                waveSpider = new int[] { 1, 2, 2, 4 };
+                waveBug = new int[] { 0, 3, 1, 0 };
+                waveStoneMonster = new int[] { 0, 0, 0, 0 };
+                waveEyes = new int[] { 0, 0, 0, 0 };
+                boss = bossStoneMonster;
+                break;
+            case 5:
+                waveShell = new int[] { 0, 6, 0, 0 };
+                waveSlime = new int[] { 2, 0, 0, 0 };
+                waveOrc = new int[] { 1, 3, 3, 0 };
+                waveSpider = new int[] { 1, 3, 0, 1 };
+                waveBug = new int[] { 0, 2, 1, 0 };
+                waveStoneMonster = new int[] { 2, 0, 0, 3 };
+                waveEyes = new int[] { 0, 0, 0, 0 };
+                boss = bossEyes;
+                break;
+            case 6:
+                waveShell = new int[] { 0, 6, 0, 0 };
+                waveSlime = new int[] { 2, 0, 0, 0 };
+                waveOrc = new int[] { 1, 3, 3, 0 };
+                waveSpider = new int[] { 1, 3, 0, 1 };
+                waveBug = new int[] { 0, 2, 1, 0 };
+                waveStoneMonster = new int[] { 2, 0, 0, 3 };
+                waveEyes = new int[] { 2, 0, 0, 3 };
+                boss = bossEyes;
                 break;
         } 
     }
@@ -159,6 +224,30 @@ public class MonsterPool : MonoBehaviour
                 }
                 yield return new WaitForSeconds(1.5f);
             }
+            for (int j = 0; j < waveBug[i]; j++)
+            {
+                if (!manegeSpawn.isFreeze)
+                {
+                    this.CreatBug();
+                }
+                yield return new WaitForSeconds(1.5f);
+            }
+            for (int j = 0; j < waveStoneMonster[i]; j++)
+            {
+                if (!manegeSpawn.isFreeze)
+                {
+                    this.CreatStoneMonster();
+                }
+                yield return new WaitForSeconds(1.5f);
+            }
+            for (int j = 0; j < waveEyes[i]; j++)
+            {
+                if (!manegeSpawn.isFreeze)
+                {
+                    this.CreatEyes();
+                }
+                yield return new WaitForSeconds(1.5f);
+            }
             yield return new WaitForSeconds(3f);
         }
         Instantiate(boss, new Vector3(-15, 0, Random.Range(-3.0f, 0f)), boss.transform.rotation);
@@ -182,5 +271,20 @@ public class MonsterPool : MonoBehaviour
     {
         IEnemy spider = poolMSpider.GetFreeElement();
         spider.transform.position = new Vector3(-15, 0, Random.Range(-3.0f, 0f));
+    }
+    void CreatBug()
+    {
+        IEnemy bug = poolMBug.GetFreeElement();
+        bug.transform.position = new Vector3(-15, 0, Random.Range(-3.0f, 0f));
+    }
+    void CreatStoneMonster()
+    {
+        IEnemy stoneMonster = poolMStoneMonster.GetFreeElement();
+        stoneMonster.transform.position = new Vector3(-15, 0, Random.Range(-3.0f, 0f));
+    }
+    void CreatEyes()
+    {
+        IEnemy eyes = poolMEyes.GetFreeElement();
+        eyes.transform.position = new Vector3(-15, 0, Random.Range(-3.0f, 0f));
     }
 }
