@@ -976,8 +976,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3224daa2cced4d542b0016b2e40969dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 50
-  anim: {fileID: 0}
+  lives: 30
+  anim: {fileID: 1132362172832803404}
   speedForward: 1
   speedL: 3
   waitTime: 1.3

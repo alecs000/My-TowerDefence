@@ -267,7 +267,6 @@ GameObject:
   - component: {fileID: 227346049672333152}
   - component: {fileID: 7242673190177482388}
   - component: {fileID: 7189295255563367584}
-  - component: {fileID: 4298480760412966457}
   - component: {fileID: 5302731311725216247}
   m_Layer: 0
   m_Name: Spider
@@ -365,18 +364,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4298480760412966457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 643972017367882972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b9735f0d05c2d849ae0e0ed28eb511b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &5302731311725216247
 AudioSource:
   m_ObjectHideFlags: 0
