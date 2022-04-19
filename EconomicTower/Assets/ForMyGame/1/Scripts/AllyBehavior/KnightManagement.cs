@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class KnightManagement : IAlly
 {
-    [SerializeField] short lives = 100;
-    [SerializeField] short attack = 10;
+    [SerializeField] float lives = 100;
+    [SerializeField] float attack = 10;
     [SerializeField] float waitTime = 5f;
     GameObject manegeSp;
     [SerializeField] float speedForward = 3;
@@ -31,6 +31,8 @@ public class KnightManagement : IAlly
     public override LivesManagement livesAlly { get; protected set; }
     void Start()
     {
+        lives = lives * UpgrateMemory.increaseHP;
+        attack = attack * UpgrateMemory.increaseAttack;
         audioSource = GetComponent<AudioSource>();
         speedLeftBase = Random.Range(-speedL, speedL);
         manegeSp = GameObject.FindWithTag("GameManager");

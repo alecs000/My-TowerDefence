@@ -7,12 +7,12 @@ using TMPro;
 
 public class CoinsMangement : MonoBehaviour
 {
-    public static short coins { get; private set; }
+    public static int coins { get; private set; }
     public TMP_Text textCoins;
     // Start is called before the first frame update
     private void Start()
     {
-        coins = 100;
+        coins = 100+UpgrateMemory.increaseMoney;
     }
     public static void AddCoins(short addition)
     {

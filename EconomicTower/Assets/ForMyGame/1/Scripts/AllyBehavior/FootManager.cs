@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class FootManager : IAlly
 {
-    [SerializeField] int lives = 100;
-    [SerializeField] short attack = 10;
+    [SerializeField] float lives = 100;
+    [SerializeField] float attack = 10;
     [SerializeField] float waitTime = 5f;
     GameObject manegeSp;
     [SerializeField] float speedForward = 3;
@@ -33,6 +33,8 @@ public class FootManager : IAlly
     public override LivesManagement livesAlly { get; protected set; }
     void Start()
     {
+        lives = lives * UpgrateMemory.increaseHP;
+        attack = attack * UpgrateMemory.increaseAttack;
         audioSource = GetComponent<AudioSource>();
         speedLeftBase = Random.Range(-speedL, speedL);
         manegeSp = GameObject.FindWithTag("GameManager");
@@ -103,7 +105,7 @@ public class FootManager : IAlly
         attack *= 2;
         waitTime /= 2;
         anim.SetFloat("SpeedAttack", 2);
-        short att = attack;
+        float att = attack;
         attack = 0;
         yield return new WaitForSeconds(3);
         attack = att;

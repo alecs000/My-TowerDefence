@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class wixard_move : IAlly
 {
-    [SerializeField] short lives = 50;
+    [SerializeField] float lives = 50;
     public Animator anim;
     [SerializeField] float speedForward = 1;
     //Для того чтобы speedLeft можно было приравнивать к нулю и при востановлении он не менял значения
@@ -30,6 +30,7 @@ public class wixard_move : IAlly
     public override LivesManagement livesAlly { get; protected set; }
     void Awake()
     {
+        lives = lives * UpgrateMemory.increaseHP;
         audioSource = GetComponent<AudioSource>();
         livesAlly = new LivesManagement(lives);
         manegeSp = GameObject.FindWithTag("GameManager");

@@ -6,7 +6,7 @@ public class LivesManagement
 {
     public float lives { get; private set; }
     // Start is called before the first frame update
-    public LivesManagement(int l)
+    public LivesManagement(float l)
     {
         lives = l;
     }

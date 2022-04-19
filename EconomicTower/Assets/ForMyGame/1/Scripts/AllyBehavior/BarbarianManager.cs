@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BarbarianManager : IAlly
 {
-    [SerializeField] short lives = 100;
+    [SerializeField] float lives = 100;
     [SerializeField] float attack = 10;
     [SerializeField] float waitTime = 5f;
     GameObject manegeSp;
@@ -29,6 +29,8 @@ public class BarbarianManager : IAlly
     public override LivesManagement livesAlly { get; protected set; }
     void Start()
     {
+        lives = lives * UpgrateMemory.increaseHP;
+        attack = attack * UpgrateMemory.increaseAttack;
         audioSource = GetComponent<AudioSource>();
         speedLeftBase = Random.Range(-speedL, speedL);
         manegeSp = GameObject.FindWithTag("GameManager");

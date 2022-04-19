@@ -12,4 +12,7 @@ public static class UpgrateMemory
     public static List<bool> upgratesFireBall = new List<bool>();
     public static List<bool> upgratesArrow = new List<bool>();
     public static List<bool> upgratesBarbarian = new List<bool>();
+    public static float increaseAttack = 1;
+    public static float increaseHP = 1;
+    public static int increaseMoney = 0;
 }

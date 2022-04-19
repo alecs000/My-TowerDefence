@@ -39,6 +39,7 @@ public class Enemy : IEnemy
 
     private void Awake()
     {
+        Mageattack *= UpgrateMemory.increaseAttack;
         audioSource = GetComponent<AudioSource>();
         manegeSp = GameObject.FindWithTag("GameManager");
         anim = GetComponent<Animator>();
@@ -138,7 +139,7 @@ public class Enemy : IEnemy
     {
         if (other.CompareTag("dead"))
         {
-            livesEnemy.RemoveLives(50);
+            livesEnemy.RemoveLives(50*UpgrateMemory.increaseAttack);
         }
     }
     private void OnTriggerEnter(Collider other)
