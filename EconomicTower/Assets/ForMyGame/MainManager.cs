@@ -14,6 +14,7 @@ public class MainManager : MonoBehaviour
     private void Awake()
     {
         emeralds = PlayerPrefs.GetInt("dimonds");
+        emeralds = 9999;
         PlayerPrefs.SetInt("dimonds", emeralds);
         emeraldsGm = GameObject.FindGameObjectWithTag("Dimond");
         text = emeraldsGm.GetComponent<Text>();

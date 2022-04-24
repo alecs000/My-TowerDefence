@@ -106,14 +106,14 @@ public class MonsterPool : MonoBehaviour
                 SrartLevel(UpgrateMemory.levels.Count);
                 break;
             case 0:
-                waveShell = new int[] {0, 2};
-                waveSlime = new int[] {2, 1};
-                waveOrc = new int[] { 0, 0};
-                waveSpider = new int[] { 0, 0 };
-                waveBug = new int[] { 0, 0 };
-                waveStoneMonster = new int[] { 0, 0 };
-                waveEyes = new int[] { 0, 0 };
-                boss = bossSlime;
+                //waveShell = new int[] {0, 2};
+                //waveSlime = new int[] {2, 1};
+                //waveOrc = new int[] { 0, 0};
+                //waveSpider = new int[] { 0, 0 };
+                //waveBug = new int[] { 0, 0 };
+                //waveStoneMonster = new int[] { 0, 0 };
+                //waveEyes = new int[] { 0, 0 };
+                //boss = bossSlime;
                 break;
             case 1:
                 waveShell = new int[] { 1, 2, 2, 0};
@@ -124,6 +124,7 @@ public class MonsterPool : MonoBehaviour
                 waveStoneMonster = new int[] { 0, 0, 0, 0 };
                 waveEyes = new int[] { 0, 0, 0, 0 };
                 boss = bossOrc;
+
                 break;
             case 2:
                 waveShell = new int[] { 3,4, 2, 0};
@@ -175,7 +176,7 @@ public class MonsterPool : MonoBehaviour
                 waveEyes = new int[] { 2, 0, 0, 3 };
                 boss = bossEyes;
                 break;
-        } 
+        }
     }
     public void SrartNextLevel()
     {
@@ -250,41 +251,41 @@ public class MonsterPool : MonoBehaviour
             }
             yield return new WaitForSeconds(3f);
         }
-        Instantiate(boss, new Vector3(-15, 0, Random.Range(-3.0f, 0f)), boss.transform.rotation);
+        Instantiate(boss, new Vector3(-20, 0, Random.Range(-3.0f, 0f)), boss.transform.rotation);
     }
     void CreateShell()
     {
        IEnemy shell = poolMShell.GetFreeElement();
-       shell.transform.position = new Vector3(-15, 0, Random.Range(-3.0f, 0f));
+       shell.transform.position = new Vector3(-20, 0, Random.Range(-3.0f, 0f));
     }
     void CreatSlime()
     {
         IEnemy slime = poolMSlime.GetFreeElement();
-        slime.transform.position = new Vector3(-15, 0, Random.Range(-3.0f, 0f));
+        slime.transform.position = new Vector3(-20, 0, Random.Range(-3.0f, 0f));
     }
     void CreatOrc()
     {
         IEnemy orc = poolMOrc.GetFreeElement();
-        orc.transform.position = new Vector3(-15, 0, Random.Range(-3.0f, 0f));
+        orc.transform.position = new Vector3(-20, 0, Random.Range(-3.0f, 0f));
     }
     void CreatSpider()
     {
         IEnemy spider = poolMSpider.GetFreeElement();
-        spider.transform.position = new Vector3(-15, 0, Random.Range(-3.0f, 0f));
+        spider.transform.position = new Vector3(-20, 0, Random.Range(-3.0f, 0f));
     }
     void CreatBug()
     {
         IEnemy bug = poolMBug.GetFreeElement();
-        bug.transform.position = new Vector3(-15, 0, Random.Range(-3.0f, 0f));
+        bug.transform.position = new Vector3(-20, 0, Random.Range(-3.0f, 0f));
     }
     void CreatStoneMonster()
     {
         IEnemy stoneMonster = poolMStoneMonster.GetFreeElement();
-        stoneMonster.transform.position = new Vector3(-15, 0, Random.Range(-3.0f, 0f));
+        stoneMonster.transform.position = new Vector3(-20, 0, Random.Range(-3.0f, 0f));
     }
     void CreatEyes()
     {
         IEnemy eyes = poolMEyes.GetFreeElement();
-        eyes.transform.position = new Vector3(-15, 0, Random.Range(-3.0f, 0f));
+        eyes.transform.position = new Vector3(-20, 0, Random.Range(-3.0f, 0f));
     }
 }

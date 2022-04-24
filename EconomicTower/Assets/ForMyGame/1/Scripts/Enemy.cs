@@ -117,6 +117,7 @@ public class Enemy : IEnemy
         if (!manegeSpawn.isFreeze)
         {
             Attack();
+            yield return new WaitForSeconds(0.5F);
             while (targetAlly != null)
             {
                 if (targetAlly.livesAlly.lives > 0)

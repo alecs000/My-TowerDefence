@@ -979,7 +979,7 @@ MonoBehaviour:
   lives: 30
   anim: {fileID: 1132362172832803404}
   speedForward: 1
-  speedL: 3
+  speedL: 1
   waitTime: 1.3
   attackRange: 3
   attack: 20

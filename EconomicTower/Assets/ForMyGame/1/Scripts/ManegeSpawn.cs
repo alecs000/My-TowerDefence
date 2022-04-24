@@ -84,7 +84,7 @@ public class ManegeSpawn : MonoBehaviour
     int allSpeed = 0;
     private void Awake()
     {
-        spawnPositionAlly = new Vector3(8, 0, -1.3f);
+        spawnPositionAlly = new Vector3(14, 0, -1.3f);
         if (!isPlayerPrefs)
         {
             for (int i = 0; i < PlayerPrefs.GetInt("levels"); i++)
@@ -272,6 +272,15 @@ public class ManegeSpawn : MonoBehaviour
     {
         Mixer.audioMixer.SetFloat("EffectsVolume", Mathf.Lerp(-80, 0, PlayerPrefs.GetFloat("Effect")));
         Mixer.audioMixer.SetFloat("MusicVolume", Mathf.Lerp(-80, 0, PlayerPrefs.GetFloat("Music")));
+        int change = PlayerPrefs.GetInt("Changed");
+        if (change == 0)
+        {
+            Mixer.audioMixer.SetFloat("EffectsVolume", 0);
+        }
+        if (change == 0)
+        {
+            Mixer.audioMixer.SetFloat("MusicVolume", 0);
+        }
         if (listArrow.Count>0&& !openSittings && listArrow[1])
         {
             Instantiate(balista, spawnPositionAlly, balista.transform.rotation);
@@ -318,6 +327,11 @@ public class ManegeSpawn : MonoBehaviour
                 isMenuActive = true;
             }
         }
+    }
+    public void Surrender()
+    {
+        lose = true;
+        isGameStop = true;
     }
     public void ButtonSpeedClick()
     {
