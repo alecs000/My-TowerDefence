@@ -1,408 +1,124 @@
 Using pre-set license
-Built from '2020.3/staging' branch; Version is '2020.3.32f1 (12f8b0834f07) revision 1243312'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 10  (10.0.19041) 64bit Education' Language: 'ru' Physical Memory: 12117 MB
+Built from '2020.3/staging' branch; Version is '2020.3.29f1 (2ff179115da0) revision 3142009'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19044) 64bit Professional' Language: 'ru' Physical Memory: 16225 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
 COMMAND LINE ARGUMENTS:
-D:\UnityEditor\2020.3.32f1\Editor\Unity.exe
+C:\Program Files\Unity\Hub\Editor\2020.3.29f1\Editor\Unity.exe
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker0
 -projectPath
-C:/Users/aafedotov/Desktop/aaaa/EconomicTower
+C:/Users/Aleksandr/Documents/GitHub/My-TowerDefence/EconomicTower
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-63856
-Successfully changed project path to: C:/Users/aafedotov/Desktop/aaaa/EconomicTower
-C:/Users/aafedotov/Desktop/aaaa/EconomicTower
+55578
+Successfully changed project path to: C:/Users/Aleksandr/Documents/GitHub/My-TowerDefence/EconomicTower
+C:/Users/Aleksandr/Documents/GitHub/My-TowerDefence/EconomicTower
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 69.43 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 114.88 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Initialize engine version: 2020.3.32f1 (12f8b0834f07)
-[Subsystems] Discovering subsystems at path D:/UnityEditor/2020.3.32f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/aafedotov/Desktop/aaaa/EconomicTower/Assets
+Initialize engine version: 2020.3.29f1 (2ff179115da0)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.29f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/Aleksandr/Documents/GitHub/My-TowerDefence/EconomicTower/Assets
 GfxDevice: creating device client; threaded=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: Intel(R) UHD Graphics 630 (ID=0x9bc8)
+    Renderer: NVIDIA GeForce RTX 3050 (ID=0x2507)
     Vendor:   
-    VRAM:     6058 MB
-    Driver:   27.20.100.9316
+    VRAM:     8070 MB
+    Driver:   30.0.15.1215
 Initialize mono
-Mono path[0] = 'D:/UnityEditor/2020.3.32f1/Editor/Data/Managed'
-Mono path[1] = 'D:/UnityEditor/2020.3.32f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
-Mono config path = 'D:/UnityEditor/2020.3.32f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56084
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.29f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.29f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.29f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56232
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: D:/UnityEditor/2020.3.32f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.030158 seconds.
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.29f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001238 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 49.86 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 85.55 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.046 seconds
+- Completed reload, in  0.678 seconds
 Domain Reload Profiling:
-	ReloadAssembly (2046ms)
-		BeginReloadAssembly (1205ms)
+	ReloadAssembly (678ms)
+		BeginReloadAssembly (54ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (648ms)
-			LoadAssemblies (1205ms)
+		EndReloadAssembly (559ms)
+			LoadAssemblies (53ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (320ms)
+			SetupTypeCache (137ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (25ms)
-			SetupLoadedEditorAssemblies (203ms)
+			RebuildScriptCaches (31ms)
+			SetupLoadedEditorAssemblies (290ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (4ms)
+				InitializePlatformSupportModulesInManaged (7ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (50ms)
-				BeforeProcessingInitializeOnLoad (56ms)
-				ProcessInitializeOnLoadAttributes (69ms)
-				ProcessInitializeOnLoadMethodAttributes (24ms)
+				RefreshPlugins (86ms)
+				BeforeProcessingInitializeOnLoad (22ms)
+				ProcessInitializeOnLoadAttributes (132ms)
+				ProcessInitializeOnLoadMethodAttributes (43ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.282590 seconds.
+Registered in 0.010354 seconds.
 Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\aafedotov\Desktop\aaaa\EconomicTower\Library\PackageCache\com.unity.collab-proxy@1.15.15\Lib\Editor\PlasticSCM\unityplastic.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\Aleksandr\Documents\GitHub\My-TowerDefence\EconomicTower\Library\PackageCache\com.unity.collab-proxy@1.15.15\Lib\Editor\PlasticSCM\unityplastic.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.57 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.56 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.693 seconds
+- Completed reload, in  0.990 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1694ms)
-		BeginReloadAssembly (131ms)
+	ReloadAssembly (991ms)
+		BeginReloadAssembly (215ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (16ms)
-		EndReloadAssembly (1516ms)
-			LoadAssemblies (397ms)
+		EndReloadAssembly (714ms)
+			LoadAssemblies (158ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (636ms)
+			SetupTypeCache (212ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (38ms)
-			SetupLoadedEditorAssemblies (362ms)
+			RebuildScriptCaches (36ms)
+			SetupLoadedEditorAssemblies (268ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (4ms)
-				SetLoadedEditorAssemblies (0ms)
+				SetLoadedEditorAssemblies (1ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (74ms)
-				ProcessInitializeOnLoadAttributes (200ms)
-				ProcessInitializeOnLoadMethodAttributes (81ms)
-				AfterProcessingInitializeOnLoad (2ms)
+				BeforeProcessingInitializeOnLoad (84ms)
+				ProcessInitializeOnLoadAttributes (169ms)
+				ProcessInitializeOnLoadMethodAttributes (7ms)
+				AfterProcessingInitializeOnLoad (3ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.12 seconds
-Refreshing native plugins compatible for Editor in 0.68 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1669 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 82.3 MB.
-System memory in use after: 82.4 MB.
-
-Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2115.
-Total: 2.534900 ms (FindLiveObjects: 0.132600 ms CreateObjectMapping: 0.045900 ms MarkObjects: 2.292000 ms  DeleteObjects: 0.063700 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  path: Assets/DogKnight/Animations/Dizzy.anim
-  artifactKey: Guid(30d4fe7af77240a44b9354aaed8e5beb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DogKnight/Animations/Dizzy.anim using Guid(30d4fe7af77240a44b9354aaed8e5beb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c13141d62e30e37dc9a7fd6258059d25') in 0.045144 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000412 seconds.
-  path: Assets/DogKnight/Animations
-  artifactKey: Guid(acc95159d37cb8b49be0ca5f0bdc7fbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/DogKnight/Animations using Guid(acc95159d37cb8b49be0ca5f0bdc7fbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f557c6e1cc3318c5e93ca531389e2b4') in 0.002027 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 6.976547 seconds.
-  path: Assets/Barbarian/Animators
-  artifactKey: Guid(a48f0e1e56f7c3642978e6b7c3945827) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Barbarian/Animators using Guid(a48f0e1e56f7c3642978e6b7c3945827) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e951efff39e2f46b79fc4e6432224b8') in 0.003700 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 2.019718 seconds.
-  path: Assets/Barbarian/Animators/Ally4.controller
-  artifactKey: Guid(bbfc57647bbfc424dafe8661c8ddfb59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Barbarian/Animators/Ally4.controller using Guid(bbfc57647bbfc424dafe8661c8ddfb59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd4cf712d251f1e0c2e6104bcc36084f5') in 0.007560 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.596806 seconds.
-  path: Assets/Barbarian/Animators/Barbarian Animator Controller.controller
-  artifactKey: Guid(8615e1444db51e7458fde3300b2fd44b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Barbarian/Animators/Barbarian Animator Controller.controller using Guid(8615e1444db51e7458fde3300b2fd44b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '212f8e28eccc9c63914d0fd429b4ebf2') in 0.010058 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 8.459268 seconds.
-  path: Assets/Action RPG Music 1.3/02store1.wav
-  artifactKey: Guid(c630ba7ffa7abe44993cb696c3609d58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Action RPG Music 1.3/02store1.wav using Guid(c630ba7ffa7abe44993cb696c3609d58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eecd4c049a061ccc62f0409c3254d549') in 0.167282 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000116 seconds.
-  path: Assets/Action RPG Music 1.3/05cave1.wav
-  artifactKey: Guid(c9db73d1a6ceb2043b319ee28ea3d000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Action RPG Music 1.3/05cave1.wav using Guid(c9db73d1a6ceb2043b319ee28ea3d000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20bbbf0b537c19469b6616d2904c9091') in 0.018209 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000168 seconds.
-  path: Assets/Action RPG Music 1.3/04forest5.wav
-  artifactKey: Guid(b25699b930ca8f24c8bb73149eec0615) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Action RPG Music 1.3/04forest5.wav using Guid(b25699b930ca8f24c8bb73149eec0615) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '21d299b60885f9cdb015b4d09786f825') in 0.013040 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000170 seconds.
-  path: Assets/Action RPG Music 1.3/09battle8.wav
-  artifactKey: Guid(b5eeef0b353a9334bab458724e62e1ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Action RPG Music 1.3/09battle8.wav using Guid(b5eeef0b353a9334bab458724e62e1ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec8f31e6725d9688b15be0abbba8c95b') in 0.026051 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000196 seconds.
-  path: Assets/Action RPG Music 1.3/08travel1.wav
-  artifactKey: Guid(cc62eead172ce2a4bbefbde66119962e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Action RPG Music 1.3/08travel1.wav using Guid(cc62eead172ce2a4bbefbde66119962e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a01a527b19733f150a5d18d9c0df5fe') in 0.018562 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000462 seconds.
-  path: Assets/Action RPG Music 1.3/07island1v1.wav
-  artifactKey: Guid(d85d3899973eab1429ba88aeea28a002) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Action RPG Music 1.3/07island1v1.wav using Guid(d85d3899973eab1429ba88aeea28a002) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '597caffdedf264b3bff4834109c43fe9') in 0.018382 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000332 seconds.
-  path: Assets/Action RPG Music 1.3/09battle3.wav
-  artifactKey: Guid(1c5047b50b799cc4e82f6cf09039ba76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Action RPG Music 1.3/09battle3.wav using Guid(1c5047b50b799cc4e82f6cf09039ba76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76d8dd71bd6eaf65358ea9fc3a64ce16') in 0.021276 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000141 seconds.
-  path: Assets/Action RPG Music 1.3/04forest1.wav
-  artifactKey: Guid(c7f9f1e62b73d6744ad4020ed1ef0e64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Action RPG Music 1.3/04forest1.wav using Guid(c7f9f1e62b73d6744ad4020ed1ef0e64) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a9b52c62c4e272459d6c390d0a5e118') in 0.028721 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000629 seconds.
-  path: Assets/Action RPG Music 1.3/04forest2.wav
-  artifactKey: Guid(24dc1269b3eeb7e42aa8ca43ee57c255) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Action RPG Music 1.3/04forest2.wav using Guid(24dc1269b3eeb7e42aa8ca43ee57c255) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '818288b8b98699b3916efdd9c701af66') in 0.021471 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000387 seconds.
-  path: Assets/Action RPG Music 1.3/03bar2NL.wav
-  artifactKey: Guid(8a50e225aad37e447bf344f9d88f4700) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Action RPG Music 1.3/03bar2NL.wav using Guid(8a50e225aad37e447bf344f9d88f4700) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1dee907ee288a49a5c3a0d4b4d5f6c15') in 0.022467 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000123 seconds.
-  path: Assets/Action RPG Music 1.3/08travel4.wav
-  artifactKey: Guid(d24eb19ed729d334da51e43188bd185f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Action RPG Music 1.3/08travel4.wav using Guid(d24eb19ed729d334da51e43188bd185f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7da88bfacf10f3a03b6a5c90c7cbfad6') in 0.018919 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000342 seconds.
-  path: Assets/Action RPG Music 1.3/07island1v2.wav
-  artifactKey: Guid(15ac5489406ebc34e9e090123e319c12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Action RPG Music 1.3/07island1v2.wav using Guid(15ac5489406ebc34e9e090123e319c12) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b89943b8ce06f9f7339e0bc9811e3525') in 0.021824 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000289 seconds.
-  path: Assets/Action RPG Music 1.3/02store2.wav
-  artifactKey: Guid(5598b10f4202cfb4fb4f51698069ade7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Action RPG Music 1.3/02store2.wav using Guid(5598b10f4202cfb4fb4f51698069ade7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f9b660ebd9de495998e062457bd1569c') in 0.021471 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000144 seconds.
-  path: Assets/Action RPG Music 1.3/03bar1.wav
-  artifactKey: Guid(c4cec0291a10dc64d8d27f015f6bffc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Action RPG Music 1.3/03bar1.wav using Guid(c4cec0291a10dc64d8d27f015f6bffc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96c537e94f921dcfd84d7c0baa1a628d') in 0.025148 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000143 seconds.
-  path: Assets/Action RPG Music 1.3/06castle1.wav
-  artifactKey: Guid(ceb5e78582a3efd4fb9a6b33f2d35618) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Action RPG Music 1.3/06castle1.wav using Guid(ceb5e78582a3efd4fb9a6b33f2d35618) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '38a4a4449e652a3981e940a8b488a98c') in 0.024443 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000278 seconds.
-  path: Assets/Action RPG Music 1.3/08sail1.wav
-  artifactKey: Guid(cf8a8dc92b626a948bf924f3acc59c65) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Action RPG Music 1.3/08sail1.wav using Guid(cf8a8dc92b626a948bf924f3acc59c65) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a9852302aa1f3bf75b4ec74e496ea2fe') in 0.025431 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000580 seconds.
-  path: Assets/Action RPG Music 1.3/04forest6.wav
-  artifactKey: Guid(0ebb992e4ba08a94abc9bc5899959781) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Action RPG Music 1.3/04forest6.wav using Guid(0ebb992e4ba08a94abc9bc5899959781) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e177de854b3701b6940bed99a27315d8') in 0.022260 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000345 seconds.
-  path: Assets/Action RPG Music 1.3/04forest3.wav
-  artifactKey: Guid(650b03d44ee487c499da93c2c40bca17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Action RPG Music 1.3/04forest3.wav using Guid(650b03d44ee487c499da93c2c40bca17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aef69b43e53e6990d034649bb380f336') in 0.021960 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000451 seconds.
-  path: Assets/Action RPG Music 1.3/08travel2.wav
-  artifactKey: Guid(ea4d2622de682f7428253cca1618e098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Action RPG Music 1.3/08travel2.wav using Guid(ea4d2622de682f7428253cca1618e098) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a74be08778bf86874b37dd1722ed1b00') in 0.017913 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000177 seconds.
-  path: Assets/Action RPG Music 1.3/06castle2.wav
-  artifactKey: Guid(27ae589d4af618948ad65f4a5f4215f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Action RPG Music 1.3/06castle2.wav using Guid(27ae589d4af618948ad65f4a5f4215f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4de7c0faf5aa03c3cc54e132fb8786ec') in 0.023660 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000232 seconds.
-  path: Assets/Action RPG Music 1.3/07island2.wav
-  artifactKey: Guid(cf62450d7e35f6e46af6204a4d379f43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Action RPG Music 1.3/07island2.wav using Guid(cf62450d7e35f6e46af6204a4d379f43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b51cccb6af758272a60e67345090d001') in 0.025024 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 10.258013 seconds.
-  path: Assets/Polygonal Metalon/Animators
-  artifactKey: Guid(00320358ca55c7a41b49ab295502e017) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Polygonal Metalon/Animators using Guid(00320358ca55c7a41b49ab295502e017) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '504d8060c7e13e772d492402f8b06d2f') in 0.003824 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 9.138263 seconds.
-  path: Assets/Mini Legion Footman PBR HP Polyart/PRShot.jpg
-  artifactKey: Guid(8d2d4169e04f0964390b521ba26539af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Mini Legion Footman PBR HP Polyart/PRShot.jpg using Guid(8d2d4169e04f0964390b521ba26539af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92f0dcf4d5b9f2311dbd6d10d270047f') in 0.057340 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 2.653100 seconds.
-  path: Assets/Mini Legion Footman PBR HP Polyart/Animations
-  artifactKey: Guid(dfa94e6241c5b704caf8280dd5df8765) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Mini Legion Footman PBR HP Polyart/Animations using Guid(dfa94e6241c5b704caf8280dd5df8765) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4da79f3da8cc1fdbdf80d058cb322fd') in 0.004629 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.110666 seconds.
-  path: Assets/Mini Legion Footman PBR HP Polyart/Animations/Footman_Attack01.fbx
-  artifactKey: Guid(589612087af5a1d4b9dc9f35c6390cd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Mini Legion Footman PBR HP Polyart/Animations/Footman_Attack01.fbx using Guid(589612087af5a1d4b9dc9f35c6390cd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '894b433dca1dcd7d8915015220cac1f9') in 0.094657 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000208 seconds.
-  path: Assets/Mini Legion Footman PBR HP Polyart/Animations/Footman_Attack02.fbx
-  artifactKey: Guid(a7e26c30a8a5e3547b105bca0bcf0a44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Mini Legion Footman PBR HP Polyart/Animations/Footman_Attack02.fbx using Guid(a7e26c30a8a5e3547b105bca0bcf0a44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50b811c228d2ec6ac483b58707941726') in 0.031974 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000144 seconds.
-  path: Assets/Mini Legion Footman PBR HP Polyart/Animations/Footman_GetHit.fbx
-  artifactKey: Guid(2d692e106dad285448e3dd45e5a3a3a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Mini Legion Footman PBR HP Polyart/Animations/Footman_GetHit.fbx using Guid(2d692e106dad285448e3dd45e5a3a3a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ce9c084f6a03b27d9ba750503820789') in 0.028364 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000107 seconds.
-  path: Assets/Mini Legion Footman PBR HP Polyart/Animations/Footman_Idle.fbx
-  artifactKey: Guid(269a4022d09a5a644bd0117939ee73c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Mini Legion Footman PBR HP Polyart/Animations/Footman_Idle.fbx using Guid(269a4022d09a5a644bd0117939ee73c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29a203421304626c039365c101fcc8ed') in 0.037293 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000106 seconds.
-  path: Assets/Mini Legion Footman PBR HP Polyart/Animations/Footman_Death.fbx
-  artifactKey: Guid(a58aeb722e452254686f56bdc4b22c67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Mini Legion Footman PBR HP Polyart/Animations/Footman_Death.fbx using Guid(a58aeb722e452254686f56bdc4b22c67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5bef02f76e2c00ab645c09fcb30ff93e') in 0.034913 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000163 seconds.
-  path: Assets/Mini Legion Footman PBR HP Polyart/Animations/Footman_Defend.fbx
-  artifactKey: Guid(6a749996f6efd964b8535576cb58265b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Mini Legion Footman PBR HP Polyart/Animations/Footman_Defend.fbx using Guid(6a749996f6efd964b8535576cb58265b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '88f3a674b5caf5c74df6bdc97cb8b5c8') in 0.027626 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000106 seconds.
-  path: Assets/Mini Legion Footman PBR HP Polyart/Animations/Footman_Walk.fbx
-  artifactKey: Guid(025e25805572cac40983eaf334adeb92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Mini Legion Footman PBR HP Polyart/Animations/Footman_Walk.fbx using Guid(025e25805572cac40983eaf334adeb92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5c643b3120e15d15305ef8bf4581235') in 0.034993 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000238 seconds.
-  path: Assets/Mini Legion Footman PBR HP Polyart/Animations/Footman_Victory.fbx
-  artifactKey: Guid(336bd171ee23b7f40a82b613bc6c7944) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Mini Legion Footman PBR HP Polyart/Animations/Footman_Victory.fbx using Guid(336bd171ee23b7f40a82b613bc6c7944) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b50e496deccbb8da958e567fd9953e58') in 0.028426 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000229 seconds.
-  path: Assets/Mini Legion Footman PBR HP Polyart/Animations/Footman_Run.fbx
-  artifactKey: Guid(b454e93a07770e84988e53d55b93bdb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Mini Legion Footman PBR HP Polyart/Animations/Footman_Run.fbx using Guid(b454e93a07770e84988e53d55b93bdb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6bb809caa61784645a25800f5059e4b4') in 0.034796 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.002872 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\aafedotov\Desktop\aaaa\EconomicTower\Library\PackageCache\com.unity.collab-proxy@1.15.15\Lib\Editor\PlasticSCM\unityplastic.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.57 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.858 seconds
-Domain Reload Profiling:
-	ReloadAssembly (858ms)
-		BeginReloadAssembly (101ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (28ms)
-		EndReloadAssembly (708ms)
-			LoadAssemblies (90ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (238ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (40ms)
-			SetupLoadedEditorAssemblies (262ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (4ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (73ms)
-				ProcessInitializeOnLoadAttributes (173ms)
-				ProcessInitializeOnLoadMethodAttributes (9ms)
-				AfterProcessingInitializeOnLoad (2ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
-Platform modules already initialized, skipping
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
 Refreshing native plugins compatible for Editor in 0.63 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1645 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 97.3 MB.
-System memory in use after: 97.4 MB.
+Unloading 1669 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 82.0 MB.
+System memory in use after: 82.0 MB.
 
-Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 2133.
-Total: 3.652500 ms (FindLiveObjects: 0.200100 ms CreateObjectMapping: 0.091500 ms MarkObjects: 3.336100 ms  DeleteObjects: 0.023800 ms)
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2115.
+Total: 2.358600 ms (FindLiveObjects: 0.097900 ms CreateObjectMapping: 0.036500 ms MarkObjects: 2.158200 ms  DeleteObjects: 0.065100 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -415,60 +131,10 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.004004 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\aafedotov\Desktop\aaaa\EconomicTower\Library\PackageCache\com.unity.collab-proxy@1.15.15\Lib\Editor\PlasticSCM\unityplastic.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.56 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.827 seconds
-Domain Reload Profiling:
-	ReloadAssembly (827ms)
-		BeginReloadAssembly (100ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (5ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (28ms)
-		EndReloadAssembly (675ms)
-			LoadAssemblies (88ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (247ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (33ms)
-			SetupLoadedEditorAssemblies (236ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (4ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (66ms)
-				ProcessInitializeOnLoadAttributes (155ms)
-				ProcessInitializeOnLoadMethodAttributes (8ms)
-				AfterProcessingInitializeOnLoad (2ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.55 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1645 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 97.3 MB.
-System memory in use after: 97.4 MB.
+Received Import Request.
+  path: Assets/ForMyGame/1/Scripts/ObjectPool/MonsterPool.cs
+  artifactKey: Guid(ad14b75c43f1f2e4cac8c3ecd5482bcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ForMyGame/1/Scripts/ObjectPool/MonsterPool.cs using Guid(ad14b75c43f1f2e4cac8c3ecd5482bcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ecfe29d1088463e73df3d15220777b0') in 0.059023 seconds 
+  Import took 0.062272 seconds .
 
-Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 2136.
-Total: 2.696000 ms (FindLiveObjects: 0.188700 ms CreateObjectMapping: 0.054700 ms MarkObjects: 2.417600 ms  DeleteObjects: 0.034400 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
